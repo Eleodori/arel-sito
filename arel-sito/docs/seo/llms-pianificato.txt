@@ -1,0 +1,41 @@
+# Arel Group
+
+> Arel Group S.r.l.s. è una software house italiana. Progetta e sviluppa software e gestionali su misura, e-commerce (WooCommerce e custom), gestione di Amazon e altri marketplace, app iOS e Android, portali B2B, automazioni e agenti AI, siti web, SEO e advertising. Lavora in italiano e in inglese. Sul sito, il Lab AI permette di descrivere un'idea e ricevere gratis un primo blueprint di progetto (moduli, tecnologie, fasi, tempi indicativi).
+
+Informazioni chiave:
+- Per chi: aziende e PMI che vogliono vendere di più online, ridurre il lavoro manuale, gestire l'azienda da un unico sistema o raggiungere i clienti con app e siti.
+- Come lavora: call conoscitiva o blueprint dal Lab AI → analisi con preventivo chiaro, fasi e tempi → sviluppo a sprint brevi con una demo a ogni tappa → lancio, assistenza ed evoluzioni.
+- Prezzi: su preventivo, dopo una prima analisi; il Lab AI è gratuito e senza impegno.
+- Lingue: italiano, inglese.
+- Contatti: [email da inserire] · [telefono da inserire]
+
+## Soluzioni
+
+- [Software e gestionali su misura](https://www.DOMINIO.it/servizi/software-gestionali-su-misura/): gestionali costruiti sui processi dell'azienda e collegati ai software già in uso.
+- [Portali B2B](https://www.DOMINIO.it/servizi/portali-b2b/): portali per rivenditori con cataloghi, listini e ordini online.
+- [Elaborazione e automazione di grandi file di dati](https://www.DOMINIO.it/servizi/elaborazione-automazione-file-dati/): import, pulizia e sincronizzazione di listini e file Excel/CSV di grandi dimensioni.
+- [E-commerce WooCommerce e custom](https://www.DOMINIO.it/servizi/ecommerce-woocommerce/): negozi online collegati a magazzino, gestionale e marketplace.
+- [Gestione Amazon](https://www.DOMINIO.it/servizi/gestione-amazon/): catalogo, prezzi, giacenze e ordini Amazon sincronizzati via SP-API.
+- [Altri marketplace](https://www.DOMINIO.it/servizi/marketplace/): eBay e altri canali gestiti da un unico pannello.
+- [SEO e advertising](https://www.DOMINIO.it/servizi/seo-advertising/): posizionamento su Google e campagne a pagamento.
+- [Agenti AI e chatbot su misura](https://www.DOMINIO.it/servizi/agenti-ai-chatbot/): assistenti che rispondono ai clienti ed eseguono attività al posto del team.
+- [Automazioni e integrazioni API](https://www.DOMINIO.it/servizi/automazioni-integrazioni-api/): flussi n8n e Make, integrazioni tra software.
+- [Consulenza AI](https://www.DOMINIO.it/servizi/consulenza-ai/): individuare dove l'AI porta un risultato misurabile e come introdurla.
+- [App iOS e Android](https://www.DOMINIO.it/servizi/app-ios-android/): app per clienti e per il personale, pubblicate sugli store.
+- [Siti web](https://www.DOMINIO.it/servizi/siti-web/) e [UI/UX design](https://www.DOMINIO.it/servizi/ui-ux-design/): siti veloci, ottimizzati SEO e progettati per convertire.
+- [Consulenza informatica](https://www.DOMINIO.it/servizi/consulenza-informatica/): supporto tecnico nelle decisioni su software e infrastruttura.
+
+## Lavori
+
+- [ARELpneumatici](https://www.DOMINIO.it/lavori/arelpneumatici/): portale B2B per la vendita di pneumatici ai rivenditori, con il catalogo del fornitore integrato.
+- [Renergia](https://www.DOMINIO.it/lavori/renergia/): [descrizione da inserire]
+
+## Strumenti
+
+- [Lab AI](https://www.DOMINIO.it/lab-ai/): descrivi un'idea e ricevi gratis un primo blueprint di progetto.
+
+## Optional
+
+- [Domande frequenti](https://www.DOMINIO.it/faq/)
+- [Contatti](https://www.DOMINIO.it/contatti/)
+- [English version](https://www.DOMINIO.it/en/)

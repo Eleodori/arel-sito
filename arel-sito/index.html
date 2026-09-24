@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Arel Group · Software su misura, e-commerce, app e AI</title>
+<meta name="description" content="Gestionali, e-commerce, gestione Amazon, app iOS e Android e automazioni AI su misura. Descrivi la tua idea e ricevi gratis un primo progetto in 2 minuti.">
+<!-- ANTEPRIMA: togliere questo meta al lancio (vedi ROADMAP.md, checklist lancio) -->
+<meta name="robots" content="noindex, nofollow">
+<!-- Al lancio: <link rel="canonical" href="https://www.DOMINIO.it/"> + hreflang it/en/x-default -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Arel Group">
+<meta property="og:locale" content="it_IT">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:title" content="Arel Group · Software su misura, e-commerce e AI">
+<meta property="og:description" content="Porta un'idea: la trasformiamo in un progetto strutturato e lo costruiamo. Blueprint gratuito in 2 minuti.">
+<meta property="og:image" content="/og/home.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0A1226">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=1">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"ProfessionalService","@id":"#org","name":"Arel Group S.r.l.s.","alternateName":"Arel Group","description":"Software house: software e gestionali su misura, e-commerce, gestione Amazon e marketplace, app iOS e Android, automazioni e agenti AI, siti web, SEO e consulenza informatica.","availableLanguage":["it","en"],"areaServed":"IT","knowsAbout":["Software su misura","Gestionali","E-commerce WooCommerce","Amazon SP-API","Marketplace","App iOS e Android","Portali B2B","Agenti AI","Chatbot","Automazioni n8n e Make","Integrazioni API","SEO","UI/UX design"],
+"hasOfferCatalog":{"@type":"OfferCatalog","name":"Servizi","itemListElement":[
+{"@type":"Offer","itemOffered":{"@type":"Service","name":"Software e gestionali su misura"}},
+{"@type":"Offer","itemOffered":{"@type":"Service","name":"E-commerce e gestione marketplace"}},
+{"@type":"Offer","itemOffered":{"@type":"Service","name":"Automazioni e agenti AI"}},
+{"@type":"Offer","itemOffered":{"@type":"Service","name":"App iOS e Android"}},
+{"@type":"Offer","itemOffered":{"@type":"Service","name":"Siti web, SEO e UI/UX"}}]}},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Quanto costa un software su misura?","acceptedAnswer":{"@type":"Answer","text":"Dipende da moduli, integrazioni e volumi. Dopo una prima analisi ricevi un preventivo chiaro, con fasi e tempi. Il Lab AI ti dà gratis una prima idea della dimensione del progetto."}},
+{"@type":"Question","name":"Quanto tempo serve per realizzarlo?","acceptedAnswer":{"@type":"Answer","text":"In genere un sito o un'integrazione richiedono alcune settimane, un gestionale completo qualche mese. Lavoriamo a sprint brevi con una demo a ogni tappa."}},
+{"@type":"Question","name":"Potete collegare i software che uso già?","acceptedAnswer":{"@type":"Answer","text":"Sì: e-commerce, marketplace, gestionali e strumenti di fatturazione si integrano tramite API o automazioni. Se un sistema ha dei limiti, te lo diciamo prima di iniziare."}},
+{"@type":"Question","name":"Gestite anche Amazon e gli altri marketplace?","acceptedAnswer":{"@type":"Answer","text":"Sì, dalla configurazione del catalogo alla sincronizzazione di prezzi, giacenze e ordini con il tuo e-commerce o gestionale."}},
+{"@type":"Question","name":"Cosa succede dopo il lancio?","acceptedAnswer":{"@type":"Answer","text":"Restiamo al tuo fianco con assistenza e nuove funzioni quando servono."}},
+{"@type":"Question","name":"Lavorate anche in inglese?","acceptedAnswer":{"@type":"Answer","text":"Sì, seguiamo progetti in italiano e in inglese."}}]}]}
+</script>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+<canvas id="orb" aria-hidden="true"></canvas>
+<div class="poster poster-d" aria-hidden="true"><svg viewBox="0 0 512 512" aria-hidden="true"><defs><linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#7AA4F5"/></linearGradient></defs><path d="M148 388 256 136 364 388" fill="none" stroke="#5B8DEF" stroke-opacity=".18" stroke-width="64" stroke-linecap="round" stroke-linejoin="round"/><path d="M148 388 256 136 364 388" fill="none" stroke="url(#pg)" stroke-opacity=".75" stroke-width="7" stroke-dasharray="1 13" stroke-linecap="round" stroke-linejoin="round"/><path d="M160 372 256 150 352 372" fill="none" stroke="#A9C4FF" stroke-opacity=".5" stroke-width="5" stroke-dasharray="1 17" stroke-linecap="round"/><path d="M136 402 256 122 376 402" fill="none" stroke="#A9C4FF" stroke-opacity=".4" stroke-width="5" stroke-dasharray="1 19" stroke-linecap="round"/></svg></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#top" aria-label="Arel Group, home"><svg class="logo-svg" role="img" aria-label="Arel Group" viewBox="0 0 487 160" xmlns="http://www.w3.org/2000/svg">
+<rect x="20" y="20" width="120" height="120" rx="27" fill="#1E3A6E" stroke="rgba(169,196,255,.35)" stroke-width="2"/>
+<path d="M 54.5,110.75 L 80,51.5 L 105.5,110.75" fill="none" stroke="#FFFFFF" stroke-width="13.5" stroke-linecap="round" stroke-linejoin="round"/>
+<g transform="translate(180.0,96.0) scale(0.096000,-0.096000)" fill="#F1F4F9">
+<path transform="translate(0.0,0)" d="M-7.2072404075439 0 306.1632343377412 700H450.4545848688489L764.5621070886625 0H611.9559939301972L348.36657272924344 624.1153262518968H406.4623889009322L142.87296769997832 0ZM143.83676566225884 155.9041838283113 182.46238890093215 268.4144808150878H551.6334272707566L590.9960979839584 155.9041838283113Z"/>
+<path transform="translate(797.0,0)" d="M88.69304140472578 0V700H381.05181010188596Q524.3626707132019 700 604.6774333405593 633.0537611099068Q684.9921959679168 566.1075222198135 684.9921959679168 448.52980706698463Q684.9921959679168 371.21504443962715 648.5718621287665 315.29471060047695Q612.1515282896163 259.3743767613267 544.705289399523 229.47994797311944Q477.25905050942987 199.5855191849122 383.6813353566009 199.5855191849122H169.57381313678735L234.773249512248 264.15543030565794V0ZM540.1231302839801 0 363.700845436809 254.2629525254715H520.0958161716887L697.7810535443313 0ZM234.773249512248 248.47409494905702 169.57381313678735 317.8846737481032H376.7888575764145Q456.7448515066118 317.8846737481032 497.1969434207674 352.4144808150878Q537.649035334923 386.9442878820724 537.649035334923 448.52980706698463Q537.649035334923 510.8523737264253 497.1969434207674 545.0136570561456Q456.7448515066118 579.174940385866 376.7888575764145 579.174940385866H169.57381313678735L234.773249512248 649.3225666594407Z"/>
+<path transform="translate(1570.0,0)" d="M88.69304140472578 0V700H608.3108606113159V580.226750487752H233.72143941036202V119.77324951224799H622.0479080858444V0ZM222.88077173206156 297.2707565575547V413.4662909169738H565.8367656622588V297.2707565575547Z"/>
+<path transform="translate(2281.0,0)" d="M88.69304140472578 0V700H234.773249512248V121.08801213960547H592.7849555603729V0Z"/>
+</g>
+<g transform="translate(180.0,136.0) scale(0.027000,-0.027000)" fill="#9AA6B8">
+<path transform="translate(0.0,0)" d="M421 -8.067057837384745Q340.46647108130765 -8.067057837384745 272.35519698239733 18.432942162615255Q204.24392288348702 44.932942162615255 153.97715842414084 93.35519698239732Q103.71039396479463 141.77745180217937 75.86588432523051 207.04421626152555Q48.02137468566639 272.3109807208717 48.02137468566639 350Q48.02137468566639 427.6890192791283 75.86588432523051 492.95578373847445Q103.71039396479463 558.2225481978206 154.39941324392288 606.6448030176027Q205.08843252305113 655.0670578373847 273.1997066219614 681.5670578373847Q341.3109807208717 708.0670578373847 422.6890192791283 708.0670578373847Q506.3566638725901 708.0670578373847 575.190486169321 681.0Q644.0243084660519 653.9329421626153 692.4023470243085 600.487845766974L629.731768650461 537.5062866722549Q586.7988264878458 580.1282481139983 536.4771584241408 599.5505029337803Q486.15549036043586 618.9727577535624 426.91156747694885 618.9727577535624Q366.57921207041073 618.9727577535624 315.4800922045264 598.9620704107292Q264.3809723386421 578.951383067896 226.7483235540654 542.7409891031014Q189.1156747694887 506.5305951383068 168.68273260687343 457.43147527242246Q148.24979044425817 408.3323554065381 148.24979044425817 350Q148.24979044425817 292.51215423302597 168.68273260687343 243.41303436714165Q189.1156747694887 194.31391450125733 226.7483235540654 157.68126571668063Q264.3809723386421 121.04861693210394 315.05783738474435 101.03792958927075Q365.7347024308466 81.02724224643755 426.06705783738477 81.02724224643755Q481.93294216261523 81.02724224643755 533.2546102263202 98.49371332774518Q584.5762782900251 115.9601844090528 628.8872590108969 156.89312657166806L685.6462699077955 81.08843252305113Q633.8901927912825 36.932942162615255 564.2118608549874 14.432942162615255Q494.53352891869235 -8.067057837384745 421 -8.067057837384745ZM685.6462699077955 81.08843252305113 589.7958927074602 94.06705783738474V353.9786253143336H685.6462699077955Z"/>
+<path transform="translate(2371.7,0)" d="M105.1311818943839 0V700H378.44509639564126Q514.2011735121542 700 592.2682313495391 635.2774518021794Q670.3352891869238 570.5549036043587 670.3352891869238 455.6433361274099Q670.3352891869238 380.2652975691534 635.2240150880134 325.80951383067895Q600.1127409891031 271.3537300922045 534.8124476110645 242.16471081307628Q469.51215423302597 212.97569153394804 378.44509639564126 212.97569153394804H160.04568315171835L204.51508801341157 259.1341156747695V0ZM573.4178541492037 0 394.6404023470243 254H502.4023470243085L682.0243084660519 0ZM204.51508801341157 249.31098072087175 160.04568315171835 297.8474434199497H375.3780385582565Q471.3537300922045 297.8474434199497 520.7303017602683 339.4130343671417Q570.1068734283319 380.9786253143336 570.1068734283319 455.6433361274099Q570.1068734283319 531.3080469404862 520.7303017602683 572.3736378876781Q471.3537300922045 613.43922883487 375.3780385582565 613.43922883487H160.04568315171835L204.51508801341157 662.8202011735121Z"/>
+<path transform="translate(4698.3,0)" d="M420.71724680519407 -8.067057837384745Q340.5229261334392 -8.067057837384745 272.30567932824516 18.855196982397317Q204.08843252305113 45.77745180217938 153.89941324392288 94.19970662196144Q103.71039396479463 142.6219614417435 75.86588432523051 207.6817382443338Q48.02137468566639 272.74151504692406 48.02137468566639 350Q48.02137468566639 427.25848495307594 75.86588432523051 492.31826175566624Q103.71039396479463 557.3780385582565 154.006828943692 605.9221521515327Q204.30326392258937 654.4662657448089 272.2293771415126 681.2666617910968Q340.15549036043586 708.0670578373847 420.53352891869235 708.0670578373847Q500.91156747694885 708.0670578373847 568.5950693739798 681.4168598142408Q636.2785712710107 654.7666617910968 686.3953627520184 606.4946049944588Q736.512154233026 558.2225481978206 764.3566638725902 492.871332774518Q792.2011735121542 427.52011735121545 792.2011735121542 349.9155490360436Q792.2011735121542 272.3109807208717 764.3566638725902 207.04421626152555Q736.512154233026 141.77745180217937 686.3953627520184 93.50539500554126Q636.2785712710107 45.23333820890316 568.5950693739798 18.58314018575921Q500.91156747694885 -8.067057837384745 420.71724680519407 -8.067057837384745ZM420.53352891869235 81.02724224643755Q479.0213746856664 81.02724224643755 528.4162863618019 101.08596244047726Q577.8111980379374 121.14468263451695 614.4590357331347 157.6515533876692Q651.1068734283319 194.15842414082147 671.5398155909472 243.09023549320725Q691.9727577535624 292.022046845593 691.9727577535624 350.2549463062835Q691.9727577535624 408.48784576697403 671.6347043144938 457.0921861302893Q651.296650875425 505.69652649360455 614.6083976127912 542.2502039569242Q577.9201443501574 578.803881420244 528.4707595179119 598.8883195869032Q479.0213746856664 618.9727577535624 420.53352891869235 618.9727577535624Q362.0456831517184 618.9727577535624 312.4001949574767 598.8609293126158Q262.754706763235 578.7491008716693 225.92095745782984 542.1455731091465Q189.08720815242472 505.5420453466238 168.66849929834143 456.8714205195331Q148.24979044425817 408.20079569244234 148.24979044425817 350.2787297825162Q148.24979044425817 292.3566638725901 168.6295816505372 243.42485252020433Q189.00937285681627 194.49304116781855 225.7729177779471 157.6930838697433Q262.53646269907796 120.89312657166806 312.29107292539817 100.9601844090528Q362.0456831517184 81.02724224643755 420.53352891869235 81.02724224643755Z"/>
+<path transform="translate(7138.0,0)" d="M395.3109807208717 -8.067057837384745Q256.79882648784576 -8.067057837384745 177.96500419111482 71.0Q99.1311818943839 150.06705783738474 99.1311818943839 302.28960603520534V700H198.51508801341157V305.82313495389775Q198.51508801341157 189.46940486169322 250.08067896060354 135.2483235540654Q301.6462699077955 81.02724224643755 396.15549036043586 81.02724224643755Q490.6647108130763 81.02724224643755 542.2303017602683 135.2483235540654Q593.7958927074602 189.46940486169322 593.7958927074602 305.82313495389775V700H691.4907795473596V302.28960603520534Q691.4907795473596 150.06705783738474 612.6569572506287 71.0Q533.8231349538977 -8.067057837384745 395.3109807208717 -8.067057837384745Z"/>
+<path transform="translate(9528.7,0)" d="M105.1311818943839 0V700H378.44509639564126Q469.51215423302597 700 534.8124476110645 670.8109807208717Q600.1127409891031 641.6219614417435 635.2240150880134 586.8216680637049Q670.3352891869238 532.0213746856664 670.3352891869238 455.6433361274099Q670.3352891869238 380.2652975691534 635.2240150880134 325.3872590108969Q600.1127409891031 270.5092204526404 534.8124476110645 241.32020117351215Q469.51215423302597 212.1311818943839 378.44509639564126 212.1311818943839H160.04568315171835L204.51508801341157 259.1341156747695V0ZM204.51508801341157 249.31098072087175 160.04568315171835 298.6919530595138H375.3780385582565Q471.3537300922045 298.6919530595138 520.7303017602683 339.8352891869237Q570.1068734283319 380.9786253143336 570.1068734283319 455.6433361274099Q570.1068734283319 531.3080469404862 520.7303017602683 572.3736378876781Q471.3537300922045 613.43922883487 375.3780385582565 613.43922883487H160.04568315171835L204.51508801341157 662.8202011735121Z"/>
+</g>
+</svg></a>
+    <nav class="nav-links" aria-label="Principale">
+      <a href="#soluzioni" data-i18n="nav_sol">Soluzioni</a>
+      <a href="#lab" data-i18n="nav_lab">Lab AI</a>
+      <a href="#lavori" data-i18n="nav_work">Lavori</a>
+      <a href="#metodo" data-i18n="nav_method">Metodo</a>
+      <a href="#faq" data-i18n="nav_faq">FAQ</a>
+    </nav>
+    <div class="nav-right">
+      <button class="lang" id="langBtn" type="button" aria-label="Switch language">EN</button>
+      <a class="btn btn-primary btn-sm" href="#lab" data-magnetic data-i18n="nav_cta">Progetto gratuito</a>
+    </div>
+  </div>
+  <span class="bar" id="bar" aria-hidden="true"></span>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero" data-orb="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-mark" id="heroMark" aria-hidden="true"><div class="poster poster-m"><svg viewBox="0 0 512 512" aria-hidden="true"><defs><linearGradient id="pg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#7AA4F5"/></linearGradient></defs><path d="M148 388 256 136 364 388" fill="none" stroke="#5B8DEF" stroke-opacity=".18" stroke-width="64" stroke-linecap="round" stroke-linejoin="round"/><path d="M148 388 256 136 364 388" fill="none" stroke="url(#pg2)" stroke-opacity=".75" stroke-width="7" stroke-dasharray="1 13" stroke-linecap="round" stroke-linejoin="round"/><path d="M160 372 256 150 352 372" fill="none" stroke="#A9C4FF" stroke-opacity=".5" stroke-width="5" stroke-dasharray="1 17" stroke-linecap="round"/><path d="M136 402 256 122 376 402" fill="none" stroke="#A9C4FF" stroke-opacity=".4" stroke-width="5" stroke-dasharray="1 19" stroke-linecap="round"/></svg></div></div>
+      <p class="eyebrow" data-i18n="hero_eyebrow">Software su misura · E-commerce · AI</p>
+      <h1 class="hero-title"><span data-i18n="hero_l1">Porta un'idea.</span> <span class="accent" data-i18n="hero_l2">Esci con il software che la fa funzionare.</span></h1>
+      <p class="hero-sub" data-i18n-html="hero_sub">Gestionali, e-commerce, app e automazioni AI costruiti sui tuoi processi. <b>Meno lavoro manuale, più vendite, tutto sotto controllo.</b></p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#lab" data-magnetic><span data-i18n="hero_cta1">Ricevi il tuo progetto gratis</span><span class="arr">→</span></a>
+        <a class="btn" href="#contatti" data-magnetic><span data-i18n="hero_cta2">Parla con uno sviluppatore</span></a>
+      </div>
+      <ul class="proofs">
+        <li><span class="ck" aria-hidden="true"></span><span data-i18n="pr1">Blueprint gratuito in 2 minuti</span></li>
+        <li><span class="ck" aria-hidden="true"></span><span data-i18n="pr2">Preventivo chiaro prima di iniziare</span></li>
+        <li><span class="ck" aria-hidden="true"></span><span data-i18n="pr3">Una demo a ogni tappa</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PAINS -->
+  <section id="problemi" data-orb="problemi">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow" data-i18n="pain_eyebrow">Ti riconosci?</p>
+        <h2 class="h2" data-i18n-html="pain_title">Cosa ti blocca oggi? <em>Tocca e scopri.</em></h2>
+      </div>
+      <div class="pick">
+        <div class="pick-tabs" role="tablist" aria-label="Problemi">
+          <button class="pick-tab" role="tab" type="button" id="tab-p1" aria-controls="pickPanel" aria-selected="true" data-pain="p1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h11M4 12h8M4 17h11"/><path d="M17 9l3 3-3 3"/></svg><span data-i18n="p1_l"></span></button>
+          <button class="pick-tab" role="tab" type="button" id="tab-p2" aria-controls="pickPanel" aria-selected="false" data-pain="p2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 11a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 8z"/><path d="M9 11V7a3 3 0 0 1 6 0v4"/></svg><span data-i18n="p2_l"></span></button>
+          <button class="pick-tab" role="tab" type="button" id="tab-p3" aria-controls="pickPanel" aria-selected="false" data-pain="p3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2.5"/><path d="M3 8h18M8 21h8"/><path d="M9 13l2 2 4-4"/></svg><span data-i18n="p3_l"></span></button>
+          <button class="pick-tab" role="tab" type="button" id="tab-p4" aria-controls="pickPanel" aria-selected="false" data-pain="p4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h6v6H9z"/></svg><span data-i18n="p4_l"></span></button>
+          <button class="pick-tab" role="tab" type="button" id="tab-p5" aria-controls="pickPanel" aria-selected="false" data-pain="p5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg><span data-i18n="p5_l"></span></button>
+          <button class="pick-tab" role="tab" type="button" id="tab-p6" aria-controls="pickPanel" aria-selected="false" data-pain="p6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18h2"/></svg><span data-i18n="p6_l"></span></button>
+        </div>
+        <div class="pick-panel" id="pickPanel" role="tabpanel" aria-live="polite">
+          <p class="pick-k" data-i18n="pick_k">La soluzione</p>
+          <h3 class="pick-t" id="pickT"></h3>
+          <p class="pick-d" id="pickD"></p>
+          <button class="btn btn-primary" type="button" id="pickCta" data-prefill="pp1"><span data-i18n="pick_cta">Risolvilo gratis nel Lab AI</span><span class="arr">→</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE -->
+  <section id="valore" data-orb="valore">
+    <div class="wrap">
+      <p class="eyebrow" style="margin-bottom:28px" data-i18n="val_eyebrow">Cosa cambia</p>
+      <p class="value-text" id="valText"></p>
+    </div>
+  </section>
+
+  <!-- OUTCOMES -->
+  <section id="soluzioni" data-orb="soluzioni">
+    <div class="wrap sec-head">
+      <p class="eyebrow" data-i18n="sol_eyebrow">Soluzioni</p>
+      <h2 class="h2" data-i18n-html="sol_title">Scegli il risultato. <em>Al come ci pensiamo noi.</em></h2>
+    </div>
+    <div class="h-wrap">
+      <div class="h-track" id="hTrack" aria-label="Soluzioni">
+        <article class="panel">
+          <div class="p-top">
+            <span class="p-ico" aria-hidden="true"><svg viewBox="0 0 28 28" fill="none" stroke="#F1F4F9" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9h18l-1.6 13.2a2 2 0 0 1-2 1.8H8.6a2 2 0 0 1-2-1.8L5 9z"/><path d="M10 12V8a4 4 0 0 1 8 0v4"/><path d="M10 19l3-3 2 2 3-3"/></svg></span>
+            <span class="p-num">01</span>
+          </div>
+          <p class="p-kick" data-i18n="o1_k">E-commerce e marketplace</p>
+          <h3 data-i18n="o1_t">Vendi di più online</h3>
+          <ul class="p-chips">
+            <li data-i18n="o1_i1">E-commerce WooCommerce e custom</li>
+            <li data-i18n="o1_i2">Gestione Amazon</li>
+            <li data-i18n="o1_i3">Altri marketplace</li>
+            <li data-i18n="o1_i4">SEO e advertising</li>
+          </ul>
+          <button class="p-cta" type="button" data-prefill="pf1"><b data-i18n="o_cta">Progetta il mio</b><span>→</span></button>
+        </article>
+        <article class="panel">
+          <div class="p-top">
+            <span class="p-ico" aria-hidden="true"><svg viewBox="0 0 28 28" fill="none" stroke="#F1F4F9" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="14" r="3.2"/><circle cx="5.5" cy="6.5" r="2"/><circle cx="22.5" cy="6.5" r="2"/><circle cx="5.5" cy="21.5" r="2"/><circle cx="22.5" cy="21.5" r="2"/><path d="M7.2 7.8l4.3 4M20.8 7.8l-4.3 4M7.2 20.2l4.3-4M20.8 20.2l-4.3-4"/></svg></span>
+            <span class="p-num">02</span>
+          </div>
+          <p class="p-kick" data-i18n="o2_k">AI e automazioni</p>
+          <h3 data-i18n="o2_t">Elimini il lavoro ripetitivo</h3>
+          <ul class="p-chips">
+            <li data-i18n="o2_i1">Agenti AI e chatbot su misura</li>
+            <li data-i18n="o2_i2">Automazioni e integrazioni API</li>
+            <li data-i18n="o2_i3">Elaborazione di grandi file di dati</li>
+            <li data-i18n="o2_i4">Consulenza AI</li>
+          </ul>
+          <button class="p-cta" type="button" data-prefill="pf2"><b data-i18n="o_cta">Progetta il mio</b><span>→</span></button>
+        </article>
+        <article class="panel">
+          <div class="p-top">
+            <span class="p-ico" aria-hidden="true"><svg viewBox="0 0 28 28" fill="none" stroke="#F1F4F9" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="22" height="20" rx="3"/><path d="M3 9h22"/><path d="M8 20v-5M13 20v-8M18 20v-3M22 20v-6"/></svg></span>
+            <span class="p-num">03</span>
+          </div>
+          <p class="p-kick" data-i18n="o3_k">Software e gestionali</p>
+          <h3 data-i18n="o3_t">Controlli l'azienda da un unico posto</h3>
+          <ul class="p-chips">
+            <li data-i18n="o3_i1">Gestionali su misura</li>
+            <li data-i18n="o3_i2">Portali B2B</li>
+            <li data-i18n="o3_i3">Integrazione con i tuoi software</li>
+            <li data-i18n="o3_i4">Consulenza informatica</li>
+          </ul>
+          <button class="p-cta" type="button" data-prefill="pf3"><b data-i18n="o_cta">Progetta il mio</b><span>→</span></button>
+        </article>
+        <article class="panel">
+          <div class="p-top">
+            <span class="p-ico" aria-hidden="true"><svg viewBox="0 0 28 28" fill="none" stroke="#F1F4F9" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="3" width="12" height="22" rx="3"/><path d="M12 21h4"/><path d="M3 11c1.5-1.5 1.5-4.5 0-6M25 11c-1.5-1.5-1.5-4.5 0-6"/></svg></span>
+            <span class="p-num">04</span>
+          </div>
+          <p class="p-kick" data-i18n="o4_k">App e web</p>
+          <h3 data-i18n="o4_t">Raggiungi i clienti ovunque</h3>
+          <ul class="p-chips">
+            <li data-i18n="o4_i1">App iOS e Android</li>
+            <li data-i18n="o4_i2">Siti web</li>
+            <li data-i18n="o4_i3">UI/UX design</li>
+          </ul>
+          <button class="p-cta" type="button" data-prefill="pf4"><b data-i18n="o_cta">Progetta il mio</b><span>→</span></button>
+        </article>
+      </div>
+    </div>
+    <div class="wrap"><p class="swipe" aria-hidden="true"><span class="dots" id="solDots"><i class="on"></i><i></i><i></i><i></i></span></p></div>
+  </section>
+
+  <!-- LAB -->
+  <section id="lab" data-orb="lab">
+    <div class="wrap lab-grid">
+      <div class="lab-intro">
+        <p class="eyebrow" data-i18n="lab_eyebrow">Lab AI</p>
+        <span class="free" data-i18n="lab_free">Gratis · 2 minuti · nessun impegno</span>
+        <h2 class="h2" data-i18n-html="lab_title">Descrivi l'idea. <em>Ricevi il progetto.</em></h2>
+        <p class="lead" data-i18n="lab_desc">Scrivi l'idea con parole tue. In 2 minuti ricevi moduli, tecnologie, fasi e tempi.</p>
+        <ol class="stepper">
+          <li><b>1</b><span data-i18n="ls1">Idea</span></li>
+          <li><b>2</b><span data-i18n="ls2">3 domande</span></li>
+          <li><b>3</b><span data-i18n="ls3">Blueprint</span></li>
+        </ol>
+        <p class="proto-note" data-i18n="lab_note">Prototipo: qui l'AI gira sul tuo account Claude. Nel sito pubblico useremo un backend dedicato e il brief arriverà direttamente al team.</p>
+      </div>
+      <div class="app" id="term">
+        <div class="app-bar">
+          <svg class="app-ico" viewBox="0 0 512 512" aria-hidden="true"><rect width="512" height="512" rx="112" fill="#1E3A6E"/><path d="M 148,388 L 256,136 L 364,388" fill="none" stroke="#FFFFFF" stroke-width="58" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div><b>Lab AI</b><small data-i18n="app_sub">Configuratore di progetti</small></div>
+          <span class="pill" id="modePill" data-i18n="mode_wait">connessione</span>
+        </div>
+        <div class="app-body" id="termBody" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="lavori" data-orb="lavori">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow" data-i18n="work_eyebrow">Lavori</p>
+        <h2 class="h2" data-i18n-html="work_title">Progetti veri, <em>in produzione.</em></h2>
+      </div>
+      <div class="work-grid">
+        <article class="card">
+          <div class="shot" aria-hidden="true">
+            <div class="mock">
+              <div class="mock-bar"><b>ARELpneumatici</b><span data-i18n="mock_area">area rivenditori</span></div>
+              <div class="mock-search"><span class="on">205/55 R16</span><span data-i18n="mock_s1">estivo</span><span>91V</span></div>
+              <div class="mock-rows">
+                <div class="mock-row"><em>205/55 R16 91V</em><i>+</i></div>
+                <div class="mock-row"><em>205/55 R16 94W XL</em><i>+</i></div>
+                <div class="mock-row"><em>205/55 R16 91H</em><i>+</i></div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-tag" data-i18n="w1_tag">Portale B2B · E-commerce</p>
+            <h3>ARELpneumatici</h3>
+            <p data-i18n="w1_d">Portale B2B per la vendita di pneumatici ai rivenditori, con il catalogo del fornitore integrato.</p>
+            <p class="res" data-i18n="w_res">Risultato: [da inserire]</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="shot ph" aria-hidden="true"><span data-i18n="w_shot">[screenshot]</span></div>
+          <div class="card-body">
+            <p class="card-tag" data-i18n="w_ph_tag">[Area]</p>
+            <h3>Renergia</h3>
+            <p data-i18n="w2_d">[Cosa avete realizzato per Renergia, in una riga.]</p>
+            <p class="res" data-i18n="w_res">Risultato: [da inserire]</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="shot ph" aria-hidden="true"><span data-i18n="w_shot">[screenshot]</span></div>
+          <div class="card-body">
+            <p class="card-tag" data-i18n="w_ph_tag">[Area]</p>
+            <h3 data-i18n="w3_t">[Progetto 3]</h3>
+            <p data-i18n="w_ph_d">[Il problema del cliente e cosa avete costruito, in una riga.]</p>
+            <p class="res" data-i18n="w_res">Risultato: [da inserire]</p>
+          </div>
+        </article>
+      </div>
+      <p class="swipe swipe-work" aria-hidden="true"><span class="dots" id="workDots"><i class="on"></i><i></i><i></i></span></p>
+    </div>
+  </section>
+
+  <!-- METHOD -->
+  <section id="metodo" data-orb="metodo">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow" data-i18n="met_eyebrow">Metodo</p>
+        <h2 class="h2" data-i18n-html="met_title">Sai sempre cosa succede, <em>e quando.</em></h2>
+      </div>
+      <div class="method" id="method">
+        <div class="m-line" aria-hidden="true"><div class="m-fill" id="mFill"></div></div>
+        <ol class="m-grid">
+          <li class="m-step"><span class="m-num">01</span><h3 data-i18n="m1_t">Idea</h3><p data-i18n="m1_d">Call conoscitiva o blueprint dal Lab AI: obiettivo, utenti, vincoli.</p></li>
+          <li class="m-step"><span class="m-num">02</span><h3 data-i18n="m2_t">Analisi</h3><p data-i18n="m2_d">Requisiti, architettura e un preventivo chiaro, con fasi e tempi.</p></li>
+          <li class="m-step"><span class="m-num">03</span><h3 data-i18n="m3_t">Sviluppo</h3><p data-i18n="m3_d">Sprint brevi con una demo a ogni tappa: vedi il progetto crescere.</p></li>
+          <li class="m-step"><span class="m-num">04</span><h3 data-i18n="m4_t">Lancio</h3><p data-i18n="m4_d">Messa online, assistenza e nuove funzioni quando servono.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" data-orb="faq">
+    <div class="wrap faq-grid">
+      <div class="sec-head" style="margin:0;align-content:start">
+        <p class="eyebrow" data-i18n="faq_eyebrow">Domande frequenti</p>
+        <h2 class="h2" data-i18n-html="faq_title">Le risposte, <em>prima delle domande.</em></h2>
+        <p class="lead" data-i18n="faq_desc">Non trovi la tua? Scrivila nel Lab AI o contattaci: rispondiamo con domande concrete, non con un listino.</p>
+      </div>
+      <div class="faq">
+        <details><summary data-i18n="f1q">Quanto costa un software su misura?</summary><p data-i18n="f1a">Dipende da moduli, integrazioni e volumi. Dopo una prima analisi ricevi un preventivo chiaro, con fasi e tempi. Il Lab AI ti dà gratis una prima idea della dimensione del progetto.</p></details>
+        <details><summary data-i18n="f2q">Quanto tempo serve per realizzarlo?</summary><p data-i18n="f2a">In genere un sito o un'integrazione richiedono alcune settimane, un gestionale completo qualche mese. Lavoriamo a sprint brevi con una demo a ogni tappa.</p></details>
+        <details><summary data-i18n="f3q">Potete collegare i software che uso già?</summary><p data-i18n="f3a">Sì: e-commerce, marketplace, gestionali e strumenti di fatturazione si integrano tramite API o automazioni. Se un sistema ha dei limiti, te lo diciamo prima di iniziare.</p></details>
+        <details><summary data-i18n="f4q">Gestite anche Amazon e gli altri marketplace?</summary><p data-i18n="f4a">Sì, dalla configurazione del catalogo alla sincronizzazione di prezzi, giacenze e ordini con il tuo e-commerce o gestionale.</p></details>
+        <details><summary data-i18n="f5q">Cosa succede dopo il lancio?</summary><p data-i18n="f5a">Restiamo al tuo fianco con assistenza e nuove funzioni quando servono.</p></details>
+        <details><summary data-i18n="f6q">Lavorate anche in inglese?</summary><p data-i18n="f6a">Sì, seguiamo progetti in italiano e in inglese.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contatti" data-orb="contatti">
+    <div class="wrap">
+      <div class="cta-box">
+        <p class="eyebrow" style="margin-bottom:24px" data-i18n="cta_eyebrow">Inizia adesso</p>
+        <h2 class="cta-title"><span data-i18n="cta_l1">La tua idea merita</span> <span class="accent" data-i18n="cta_l2">un progetto vero.</span></h2>
+        <div class="cta-row">
+          <div style="display:grid;gap:22px;max-width:30.5em">
+            <p class="lead" data-i18n="cta_d">In 2 minuti ricevi gratis un primo blueprint. Se ti convince, lo trasformiamo in software.</p>
+            <div class="hero-ctas">
+              <a class="btn btn-primary" href="#lab" data-magnetic><span data-i18n="cta_btn">Ricevi il tuo progetto gratis</span><span class="arr">→</span></a>
+            </div>
+          </div>
+          <div class="contacts">
+            <p><span data-i18n="c_email">Email</span>[email da inserire]</p>
+            <p><span data-i18n="c_phone">Telefono</span>[telefono da inserire]</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div style="display:grid;gap:16px;align-content:start;max-width:22.0em">
+        <svg class="logo-svg" role="img" aria-label="Arel Group" viewBox="0 0 487 160" xmlns="http://www.w3.org/2000/svg">
+<rect x="20" y="20" width="120" height="120" rx="27" fill="#1E3A6E" stroke="rgba(169,196,255,.35)" stroke-width="2"/>
+<path d="M 54.5,110.75 L 80,51.5 L 105.5,110.75" fill="none" stroke="#FFFFFF" stroke-width="13.5" stroke-linecap="round" stroke-linejoin="round"/>
+<g transform="translate(180.0,96.0) scale(0.096000,-0.096000)" fill="#F1F4F9">
+<path transform="translate(0.0,0)" d="M-7.2072404075439 0 306.1632343377412 700H450.4545848688489L764.5621070886625 0H611.9559939301972L348.36657272924344 624.1153262518968H406.4623889009322L142.87296769997832 0ZM143.83676566225884 155.9041838283113 182.46238890093215 268.4144808150878H551.6334272707566L590.9960979839584 155.9041838283113Z"/>
+<path transform="translate(797.0,0)" d="M88.69304140472578 0V700H381.05181010188596Q524.3626707132019 700 604.6774333405593 633.0537611099068Q684.9921959679168 566.1075222198135 684.9921959679168 448.52980706698463Q684.9921959679168 371.21504443962715 648.5718621287665 315.29471060047695Q612.1515282896163 259.3743767613267 544.705289399523 229.47994797311944Q477.25905050942987 199.5855191849122 383.6813353566009 199.5855191849122H169.57381313678735L234.773249512248 264.15543030565794V0ZM540.1231302839801 0 363.700845436809 254.2629525254715H520.0958161716887L697.7810535443313 0ZM234.773249512248 248.47409494905702 169.57381313678735 317.8846737481032H376.7888575764145Q456.7448515066118 317.8846737481032 497.1969434207674 352.4144808150878Q537.649035334923 386.9442878820724 537.649035334923 448.52980706698463Q537.649035334923 510.8523737264253 497.1969434207674 545.0136570561456Q456.7448515066118 579.174940385866 376.7888575764145 579.174940385866H169.57381313678735L234.773249512248 649.3225666594407Z"/>
+<path transform="translate(1570.0,0)" d="M88.69304140472578 0V700H608.3108606113159V580.226750487752H233.72143941036202V119.77324951224799H622.0479080858444V0ZM222.88077173206156 297.2707565575547V413.4662909169738H565.8367656622588V297.2707565575547Z"/>
+<path transform="translate(2281.0,0)" d="M88.69304140472578 0V700H234.773249512248V121.08801213960547H592.7849555603729V0Z"/>
+</g>
+<g transform="translate(180.0,136.0) scale(0.027000,-0.027000)" fill="#9AA6B8">
+<path transform="translate(0.0,0)" d="M421 -8.067057837384745Q340.46647108130765 -8.067057837384745 272.35519698239733 18.432942162615255Q204.24392288348702 44.932942162615255 153.97715842414084 93.35519698239732Q103.71039396479463 141.77745180217937 75.86588432523051 207.04421626152555Q48.02137468566639 272.3109807208717 48.02137468566639 350Q48.02137468566639 427.6890192791283 75.86588432523051 492.95578373847445Q103.71039396479463 558.2225481978206 154.39941324392288 606.6448030176027Q205.08843252305113 655.0670578373847 273.1997066219614 681.5670578373847Q341.3109807208717 708.0670578373847 422.6890192791283 708.0670578373847Q506.3566638725901 708.0670578373847 575.190486169321 681.0Q644.0243084660519 653.9329421626153 692.4023470243085 600.487845766974L629.731768650461 537.5062866722549Q586.7988264878458 580.1282481139983 536.4771584241408 599.5505029337803Q486.15549036043586 618.9727577535624 426.91156747694885 618.9727577535624Q366.57921207041073 618.9727577535624 315.4800922045264 598.9620704107292Q264.3809723386421 578.951383067896 226.7483235540654 542.7409891031014Q189.1156747694887 506.5305951383068 168.68273260687343 457.43147527242246Q148.24979044425817 408.3323554065381 148.24979044425817 350Q148.24979044425817 292.51215423302597 168.68273260687343 243.41303436714165Q189.1156747694887 194.31391450125733 226.7483235540654 157.68126571668063Q264.3809723386421 121.04861693210394 315.05783738474435 101.03792958927075Q365.7347024308466 81.02724224643755 426.06705783738477 81.02724224643755Q481.93294216261523 81.02724224643755 533.2546102263202 98.49371332774518Q584.5762782900251 115.9601844090528 628.8872590108969 156.89312657166806L685.6462699077955 81.08843252305113Q633.8901927912825 36.932942162615255 564.2118608549874 14.432942162615255Q494.53352891869235 -8.067057837384745 421 -8.067057837384745ZM685.6462699077955 81.08843252305113 589.7958927074602 94.06705783738474V353.9786253143336H685.6462699077955Z"/>
+<path transform="translate(2371.7,0)" d="M105.1311818943839 0V700H378.44509639564126Q514.2011735121542 700 592.2682313495391 635.2774518021794Q670.3352891869238 570.5549036043587 670.3352891869238 455.6433361274099Q670.3352891869238 380.2652975691534 635.2240150880134 325.80951383067895Q600.1127409891031 271.3537300922045 534.8124476110645 242.16471081307628Q469.51215423302597 212.97569153394804 378.44509639564126 212.97569153394804H160.04568315171835L204.51508801341157 259.1341156747695V0ZM573.4178541492037 0 394.6404023470243 254H502.4023470243085L682.0243084660519 0ZM204.51508801341157 249.31098072087175 160.04568315171835 297.8474434199497H375.3780385582565Q471.3537300922045 297.8474434199497 520.7303017602683 339.4130343671417Q570.1068734283319 380.9786253143336 570.1068734283319 455.6433361274099Q570.1068734283319 531.3080469404862 520.7303017602683 572.3736378876781Q471.3537300922045 613.43922883487 375.3780385582565 613.43922883487H160.04568315171835L204.51508801341157 662.8202011735121Z"/>
+<path transform="translate(4698.3,0)" d="M420.71724680519407 -8.067057837384745Q340.5229261334392 -8.067057837384745 272.30567932824516 18.855196982397317Q204.08843252305113 45.77745180217938 153.89941324392288 94.19970662196144Q103.71039396479463 142.6219614417435 75.86588432523051 207.6817382443338Q48.02137468566639 272.74151504692406 48.02137468566639 350Q48.02137468566639 427.25848495307594 75.86588432523051 492.31826175566624Q103.71039396479463 557.3780385582565 154.006828943692 605.9221521515327Q204.30326392258937 654.4662657448089 272.2293771415126 681.2666617910968Q340.15549036043586 708.0670578373847 420.53352891869235 708.0670578373847Q500.91156747694885 708.0670578373847 568.5950693739798 681.4168598142408Q636.2785712710107 654.7666617910968 686.3953627520184 606.4946049944588Q736.512154233026 558.2225481978206 764.3566638725902 492.871332774518Q792.2011735121542 427.52011735121545 792.2011735121542 349.9155490360436Q792.2011735121542 272.3109807208717 764.3566638725902 207.04421626152555Q736.512154233026 141.77745180217937 686.3953627520184 93.50539500554126Q636.2785712710107 45.23333820890316 568.5950693739798 18.58314018575921Q500.91156747694885 -8.067057837384745 420.71724680519407 -8.067057837384745ZM420.53352891869235 81.02724224643755Q479.0213746856664 81.02724224643755 528.4162863618019 101.08596244047726Q577.8111980379374 121.14468263451695 614.4590357331347 157.6515533876692Q651.1068734283319 194.15842414082147 671.5398155909472 243.09023549320725Q691.9727577535624 292.022046845593 691.9727577535624 350.2549463062835Q691.9727577535624 408.48784576697403 671.6347043144938 457.0921861302893Q651.296650875425 505.69652649360455 614.6083976127912 542.2502039569242Q577.9201443501574 578.803881420244 528.4707595179119 598.8883195869032Q479.0213746856664 618.9727577535624 420.53352891869235 618.9727577535624Q362.0456831517184 618.9727577535624 312.4001949574767 598.8609293126158Q262.754706763235 578.7491008716693 225.92095745782984 542.1455731091465Q189.08720815242472 505.5420453466238 168.66849929834143 456.8714205195331Q148.24979044425817 408.20079569244234 148.24979044425817 350.2787297825162Q148.24979044425817 292.3566638725901 168.6295816505372 243.42485252020433Q189.00937285681627 194.49304116781855 225.7729177779471 157.6930838697433Q262.53646269907796 120.89312657166806 312.29107292539817 100.9601844090528Q362.0456831517184 81.02724224643755 420.53352891869235 81.02724224643755Z"/>
+<path transform="translate(7138.0,0)" d="M395.3109807208717 -8.067057837384745Q256.79882648784576 -8.067057837384745 177.96500419111482 71.0Q99.1311818943839 150.06705783738474 99.1311818943839 302.28960603520534V700H198.51508801341157V305.82313495389775Q198.51508801341157 189.46940486169322 250.08067896060354 135.2483235540654Q301.6462699077955 81.02724224643755 396.15549036043586 81.02724224643755Q490.6647108130763 81.02724224643755 542.2303017602683 135.2483235540654Q593.7958927074602 189.46940486169322 593.7958927074602 305.82313495389775V700H691.4907795473596V302.28960603520534Q691.4907795473596 150.06705783738474 612.6569572506287 71.0Q533.8231349538977 -8.067057837384745 395.3109807208717 -8.067057837384745Z"/>
+<path transform="translate(9528.7,0)" d="M105.1311818943839 0V700H378.44509639564126Q469.51215423302597 700 534.8124476110645 670.8109807208717Q600.1127409891031 641.6219614417435 635.2240150880134 586.8216680637049Q670.3352891869238 532.0213746856664 670.3352891869238 455.6433361274099Q670.3352891869238 380.2652975691534 635.2240150880134 325.3872590108969Q600.1127409891031 270.5092204526404 534.8124476110645 241.32020117351215Q469.51215423302597 212.1311818943839 378.44509639564126 212.1311818943839H160.04568315171835L204.51508801341157 259.1341156747695V0ZM204.51508801341157 249.31098072087175 160.04568315171835 298.6919530595138H375.3780385582565Q471.3537300922045 298.6919530595138 520.7303017602683 339.8352891869237Q570.1068734283319 380.9786253143336 570.1068734283319 455.6433361274099Q570.1068734283319 531.3080469404862 520.7303017602683 572.3736378876781Q471.3537300922045 613.43922883487 375.3780385582565 613.43922883487H160.04568315171835L204.51508801341157 662.8202011735121Z"/>
+</g>
+</svg>
+        <p style="color:var(--muted);font-size:15px" data-i18n="foot_d">Software su misura, e-commerce, app e automazioni AI per aziende che vogliono crescere.</p>
+      </div>
+      <div><p class="fh" data-i18n="fh1">Soluzioni</p><ul>
+        <li><a href="#soluzioni" data-i18n="fl1">E-commerce e marketplace</a></li>
+        <li><a href="#soluzioni" data-i18n="fl2">Gestione Amazon</a></li>
+        <li><a href="#soluzioni" data-i18n="fl3">Automazioni e agenti AI</a></li>
+        <li><a href="#soluzioni" data-i18n="fl4">Gestionali su misura</a></li>
+        <li><a href="#soluzioni" data-i18n="fl5">App iOS e Android</a></li>
+      </ul></div>
+      <div><p class="fh" data-i18n="fh2">Risorse</p><ul>
+        <li><a href="#lab" data-i18n="fl6">Lab AI</a></li>
+        <li><a href="#lavori" data-i18n="fl7">Lavori</a></li>
+        <li><a href="#faq" data-i18n="fl8">Domande frequenti</a></li>
+      </ul></div>
+      <div><p class="fh" data-i18n="fh3">Contatti</p><ul>
+        <li><a href="#contatti">[email da inserire]</a></li>
+        <li><a href="#contatti">[telefono da inserire]</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 AREL GROUP S.R.L.S. · P. IVA [__________]</span>
+      <span><span data-i18n="foot_proto">Anteprima · non indicizzata</span> · <a href="/privacy.html" data-i18n="privacy_link">Informativa privacy</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="m-cta" id="mCta"><a class="btn btn-primary" href="#lab"><span data-i18n="nav_cta">Progetto gratuito</span><span class="arr">→</span></a></div>
+
+<!-- Netlify Forms: modulo statico nascosto per il rilevamento al deploy (l'invio avviene via JavaScript dal Lab AI) -->
+<form name="brief" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="text" name="bot-field"><input type="text" name="name"><input type="email" name="email"><input type="tel" name="phone"><input type="text" name="lang"><input type="text" name="consent"><textarea name="brief"></textarea>
+</form>
+<script src="/assets/js/site.js?v=1" defer></script>
+</body>
+</html>

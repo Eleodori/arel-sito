@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sitemap attuale: solo le pagine che esistono. Quella completa pianificata è in docs/seo/sitemap-pianificata.xml.
+     Sostituire DOMINIO al lancio. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.DOMINIO.it/</loc></url>
+  <url><loc>https://www.DOMINIO.it/privacy.html</loc></url>
+</urlset>

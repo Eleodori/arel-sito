@@ -1,0 +1,22 @@
+# Arel Group
+
+> Arel Group S.r.l.s. è una software house italiana. Progetta e sviluppa software e gestionali su misura, e-commerce (WooCommerce e custom), gestione di Amazon e altri marketplace, app iOS e Android, portali B2B, automazioni e agenti AI, siti web, SEO e advertising. Lavora in italiano e in inglese. Sul sito, il Lab AI permette di descrivere un'idea e ricevere gratis un primo blueprint di progetto (moduli, tecnologie, fasi, tempi indicativi).
+
+Informazioni chiave:
+- Per chi: aziende e PMI che vogliono vendere di più online, ridurre il lavoro manuale, gestire l'azienda da un unico sistema o raggiungere i clienti con app e siti.
+- Come lavora: call conoscitiva o blueprint dal Lab AI → analisi con preventivo chiaro, fasi e tempi → sviluppo a sprint brevi con una demo a ogni tappa → lancio, assistenza ed evoluzioni.
+- Prezzi: su preventivo, dopo una prima analisi; il Lab AI è gratuito e senza impegno.
+- Lingue: italiano, inglese.
+- Contatti: [email da inserire] · [telefono da inserire]
+
+## Pagine
+
+- [Home](https://www.DOMINIO.it/): cosa offre Arel, soluzioni, lavori, metodo e domande frequenti.
+- [Lab AI](https://www.DOMINIO.it/#lab): descrivi un'idea e ricevi gratis un primo blueprint di progetto.
+- [Soluzioni](https://www.DOMINIO.it/#soluzioni): e-commerce e marketplace (WooCommerce, Amazon), AI e automazioni (agenti, chatbot, integrazioni API, n8n/Make, grandi file di dati), software e gestionali su misura (portali B2B), app iOS e Android, siti web e UI/UX, consulenza informatica.
+- [Domande frequenti](https://www.DOMINIO.it/#faq)
+
+## Lavori
+
+- ARELpneumatici: portale B2B per la vendita di pneumatici ai rivenditori, con il catalogo del fornitore integrato.
+- Renergia: [descrizione da inserire]
