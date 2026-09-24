@@ -11,14 +11,32 @@
 //  5. limiti: per IP al giorno (domande e blueprint), pausa minima tra due richieste,
 //     tetto globale giornaliero per tutto il sito
 //  6. risposte brevi: max_tokens bassi e output solo JSON
-// In più: impostare un limite di spesa mensile nella Console Anthropic.
+// In più: impostare un limite di spesa (o usare un piano gratuito) presso il fornitore AI.
+//
+// Fornitori supportati (variabile LAB_PROVIDER, oppure scelta automatica in base alla chiave presente):
+//  - groq       GROQ_API_KEY       piano gratuito, nessuna carta (gpt-oss-20b / gpt-oss-120b)
+//  - gemini     GEMINI_API_KEY     piano gratuito Google AI Studio (i contenuti possono essere usati da Google)
+//  - anthropic  ANTHROPIC_API_KEY  Claude Haiku / Sonnet, a consumo
 
 import { getStore } from "@netlify/blobs";
 import { createHash } from "node:crypto";
 
 const env = (k, d) => (process.env[k] ?? d);
-const MODEL_QUICK = env("LAB_MODEL_QUICK", "claude-haiku-4-5-20251001");
-const MODEL_MAIN = env("LAB_MODEL_MAIN", "claude-sonnet-5");
+const PROVIDERS = {
+  anthropic: { key: "ANTHROPIC_API_KEY", quick: "claude-haiku-4-5-20251001", main: "claude-sonnet-5" },
+  groq: { key: "GROQ_API_KEY", base: "https://api.groq.com/openai/v1", quick: "openai/gpt-oss-20b", main: "openai/gpt-oss-120b",
+    extra: { reasoning_effort: "low", include_reasoning: false, response_format: { type: "json_object" } }, reasoning: true },
+  gemini: { key: "GEMINI_API_KEY", base: "https://generativelanguage.googleapis.com/v1beta/openai", quick: "gemini-3.5-flash-lite", main: "gemini-3.5-flash",
+    extra: { response_format: { type: "json_object" } }, reasoning: true },
+};
+function provider() {
+  let name = env("LAB_PROVIDER", "").toLowerCase();
+  if (!PROVIDERS[name]) name = ["groq", "gemini", "anthropic"].find(n => env(PROVIDERS[n].key, "")) || "";
+  if (!name) return null;
+  const p = PROVIDERS[name], key = env(PROVIDERS[name].key, "");
+  if (!key) return null;
+  return { name, key, base: env("LAB_API_BASE", p.base || ""), quick: env("LAB_MODEL_QUICK", p.quick), main: env("LAB_MODEL_MAIN", p.main), extra: p.extra || {}, reasoning: !!p.reasoning };
+}
 const LIMITS = {
   questionsPerIp: +env("LAB_LIMIT_QUESTIONS_PER_IP", 8),
   blueprintsPerIp: +env("LAB_LIMIT_BLUEPRINTS_PER_IP", 3),
@@ -81,22 +99,38 @@ async function checkAndCount(ip, kind) {
   return null;
 }
 
-// ---------- Claude ----------
-async function claude(model, system, user, maxTokens) {
-  const key = env("ANTHROPIC_API_KEY", "");
-  const r = await fetch("https://api.anthropic.com/v1/messages", {
-    method: "POST",
-    headers: { "x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json" },
-    body: JSON.stringify({ model, max_tokens: maxTokens, system, messages: [{ role: "user", content: user }] }),
-    signal: AbortSignal.timeout(50000),
-  });
+// ---------- modello AI ----------
+async function callModel(kind, system, user, maxTokens) {
+  const p = provider();
+  if (!p) throw new Error("disabled");
+  const model = kind === "quick" ? p.quick : p.main;
+  let r;
+  if (p.name === "anthropic") {
+    r = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: { "x-api-key": p.key, "anthropic-version": "2023-06-01", "content-type": "application/json" },
+      body: JSON.stringify({ model, max_tokens: maxTokens, system, messages: [{ role: "user", content: user }] }),
+      signal: AbortSignal.timeout(50000),
+    });
+  } else {
+    // API compatibile OpenAI (Groq, Gemini). I modelli "ragionanti" usano token extra: margine sul massimo.
+    r = await fetch(p.base.replace(/\/$/, "") + "/chat/completions", {
+      method: "POST",
+      headers: { authorization: "Bearer " + p.key, "content-type": "application/json" },
+      body: JSON.stringify({ model, max_completion_tokens: p.reasoning ? maxTokens * 2 : maxTokens, temperature: 0.4,
+        messages: [{ role: "system", content: system }, { role: "user", content: user }], ...p.extra }),
+      signal: AbortSignal.timeout(50000),
+    });
+  }
   if (!r.ok) {
     const t = await r.text().catch(() => "");
-    console.error("anthropic_error", r.status, t.slice(0, 300));
-    throw new Error(r.status === 429 || r.status === 529 ? "busy" : "upstream");
+    console.error("ai_error", p.name, r.status, t.slice(0, 300));
+    throw new Error(r.status === 429 || r.status === 529 || r.status === 503 ? "busy" : "upstream");
   }
   const data = await r.json();
-  const text = (data.content || []).filter(c => c.type === "text").map(c => c.text).join("");
+  const text = p.name === "anthropic"
+    ? (data.content || []).filter(c => c.type === "text").map(c => c.text).join("")
+    : (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) || "";
   return parseJson(text);
 }
 
@@ -120,7 +154,7 @@ Always reply with JSON only, no other text.`;
 }
 
 async function doQuestions(lang, idea) {
-  const out = await claude(MODEL_QUICK, systemPrompt("pre-sales analyst"),
+  const out = await callModel("quick", systemPrompt("pre-sales analyst"),
 `<idea>${idea}</idea>
 If this is a valid project idea: ask 2 or 3 short, concrete questions whose answers would most change the project's scope (users, volumes, systems to integrate, platforms, deadline). Write them in ${langName(lang)}. Each question under 18 words, each with a short example answer to use as a placeholder, starting with "${lang === "en" ? "E.g." : "Es."}".
 Reply with only JSON: {"questions":[{"text":"...","placeholder":"..."}]}`, 400);
@@ -133,7 +167,7 @@ Reply with only JSON: {"questions":[{"text":"...","placeholder":"..."}]}`, 400);
 
 async function doBlueprint(lang, idea, qa) {
   const answers = qa.length ? qa.map(x => `Q: ${x.q}\nA: ${x.a || "(no answer)"}`).join("\n") : "(the client skipped the questions)";
-  const out = await claude(MODEL_MAIN, systemPrompt("lead software architect"),
+  const out = await callModel("main", systemPrompt("lead software architect"),
 `<idea>${idea}</idea>
 <answers>
 ${answers}
@@ -158,7 +192,7 @@ Use 4-6 modules, 4-7 stack items, 3-5 phases, 2-4 open points.`, 1400);
 
 // ---------- handler ----------
 export default async (req, context) => {
-  const enabled = !!env("ANTHROPIC_API_KEY", "") && env("LAB_ENABLED", "true") !== "false";
+  const enabled = !!provider() && env("LAB_ENABLED", "true") !== "false";
   if (req.method === "GET") return json(200, { enabled });
   if (req.method !== "POST") return json(405, { error: "method" });
   if (!enabled) return json(503, { error: "disabled" });
@@ -192,8 +226,8 @@ export default async (req, context) => {
     if (res.error) return json(res.error === "off_topic" ? 422 : 502, res);
     return json(200, res);
   } catch (e) {
-    const code = e && e.message === "busy" ? "busy" : e && e.message === "invalid_json" ? "invalid_json" : "upstream";
-    return json(code === "busy" ? 503 : 502, { error: code });
+    const m = e && e.message; const code = m === "busy" || m === "disabled" || m === "invalid_json" ? m : "upstream";
+    return json(code === "busy" || code === "disabled" ? 503 : 502, { error: code });
   }
 };
 

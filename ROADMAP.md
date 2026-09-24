@@ -2,7 +2,7 @@
 
 ## v0.4 · Anteprima online (questa versione)
 - [x] Home mobile first con identità dal logo, IT/EN
-- [x] Lab AI collegato a Claude via Netlify Function, con limiti anti-abuso
+- [x] Lab AI via Netlify Function con limiti anti-abuso (fornitore: Groq gratuito; Gemini e Claude pronti)
 - [x] Brief via Netlify Forms con notifica email
 - [x] Favicon, meta tag, immagine social, dati strutturati di base
 - [x] Sito non indicizzato (meta + header `X-Robots-Tag`)
@@ -25,7 +25,7 @@
 - [ ] `og:image` con URL assoluto del dominio
 - [ ] Redirect 301 dal vecchio sito del socio
 - [ ] Search Console + Bing Webmaster Tools, invio della sitemap
-- [ ] Limite di spesa mensile sulla Console Anthropic
+- [ ] Se si passa a Claude: `ANTHROPIC_API_KEY` su Netlify e limite di spesa mensile sulla Console Anthropic
 
 ## Fase 2 · SEO e SEO dinamica (decisa: si fa dopo)
 - [ ] Ricerca parole chiave e mappa parola chiave → pagina

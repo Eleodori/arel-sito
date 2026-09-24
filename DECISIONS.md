@@ -1,10 +1,13 @@
 # DECISIONS
 
+## 2026-09-24 · Fornitore AI gratuito per partire: Groq
+Per ora nessun costo: Groq (piano gratuito, nessuna carta) con gpt-oss-20b per le domande e gpt-oss-120b per il blueprint, modalità JSON e ragionamento "low". La funzione supporta anche Gemini e Claude: si cambia fornitore con una variabile, senza toccare il codice. Si valuta il passaggio a Claude quando il Lab porta contatti reali.
+
 ## 2026-09-24 · Sito statico + Netlify Functions per l'anteprima
 Home in HTML/CSS/JS senza build, deploy su Netlify da GitHub. Veloce da pubblicare e da modificare. La scelta dello stack definitivo per le pagine dinamiche (Next.js consigliato) è rimandata alla fase 2 SEO.
 
-## 2026-09-24 · Lab AI: Claude via API, con limiti
-Domande con Claude Haiku 4.5 (veloce, economico), blueprint con Claude Sonnet 5. Chiave solo nelle variabili di Netlify. Prompt solo lato server. Protezioni: origine, validazione, filtro gratuito anti-manipolazione, filtro di pertinenza con il modello economico prima del blueprint, limiti per IP e globali in Netlify Blobs, max_tokens bassi, fail-closed se i limiti non sono disponibili. Tetto di spesa sulla Console Anthropic.
+## 2026-09-24 · Lab AI: protezioni anti-abuso
+Prima scelta di fornitore: Claude (Haiku 4.5 per le domande, Sonnet 5 per il blueprint), poi sostituito da Groq gratuito per partire (vedi sopra). Chiave solo nelle variabili di Netlify. Prompt solo lato server. Protezioni: origine, validazione, filtro gratuito anti-manipolazione, filtro di pertinenza con il modello economico prima del blueprint, limiti per IP e globali in Netlify Blobs, max_tokens bassi, fail-closed se i limiti non sono disponibili. Con un fornitore a pagamento: tetto di spesa sulla sua console.
 
 ## 2026-09-24 · Lead via Netlify Forms
 Modulo `brief` (nome, email, telefono facoltativo, consenso) con honeypot e filtro spam di Netlify; notifica email. Nessun database da gestire. Gratuito entro la soglia del piano.

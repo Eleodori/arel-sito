@@ -6,7 +6,7 @@ Sito di Arel Group S.r.l.s. (software house: gestionali, e-commerce, Amazon, app
 ## Stack
 - Sito statico, nessun build: `index.html` + `assets/css/site.css` + `assets/js/site.js`.
 - 3D: three.js r128 e GSAP 3.12.5 self-hosted in `assets/vendor/`, caricati in modo differito (3D al primo tocco/scroll).
-- Lab AI: `netlify/functions/lab.mjs` (Netlify Functions v2, `/api/lab`), chiama l'API di Claude. Limiti in Netlify Blobs.
+- Lab AI: `netlify/functions/lab.mjs` (Netlify Functions v2, `/api/lab`). Fornitore AI scelto da variabile: Groq (gratuito, attuale), Gemini o Claude. Limiti in Netlify Blobs.
 - Lead: Netlify Forms, modulo `brief` (modulo statico nascosto in fondo a `index.html` + invio via fetch).
 - Lingue: IT/EN nello stesso file; testi nel dizionario `I18N` in `site.js`, elementi con `data-i18n` / `data-i18n-html`.
 

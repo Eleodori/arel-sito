@@ -1,6 +1,6 @@
 # Arel Group · sito
 
-Home del nuovo sito Arel Group: pagina statica (HTML/CSS/JS, nessun build) con il **Lab AI**, che genera un primo blueprint di progetto tramite una Netlify Function collegata a Claude. I brief arrivano via **Netlify Forms**.
+Home del nuovo sito Arel Group: pagina statica (HTML/CSS/JS, nessun build) con il **Lab AI**, che genera un primo blueprint di progetto tramite una Netlify Function collegata a un modello AI (per ora Groq, gratuito; si passa a Claude cambiando solo una variabile). I brief arrivano via **Netlify Forms**.
 
 ```
 index.html                 home (IT/EN nello stesso file, testi in assets/js/site.js → I18N)
@@ -39,7 +39,7 @@ Git e OneDrive non vanno d'accordo (file bloccati, `index.lock`). Copia la carte
 3. **Project configuration → Environment variables**, aggiungi:
    | Variabile | Valore |
    |---|---|
-   | `ANTHROPIC_API_KEY` | la chiave da console.anthropic.com → API Keys |
+   | `GROQ_API_KEY` | la chiave gratuita da console.groq.com → API Keys (segna *Contains secret values*) |
    | `IP_SALT` | una stringa casuale lunga (es. generata da un password manager) |
    | `ALLOWED_ORIGINS` | l'indirizzo del sito, es. `https://arel-sito.netlify.app` (poi aggiungi il dominio) |
 
@@ -47,9 +47,11 @@ Git e OneDrive non vanno d'accordo (file bloccati, `index.lock`). Copia la carte
 4. **Deploys → Trigger deploy → Deploy site** (le variabili valgono dal deploy successivo).
 5. **Forms**: *Project configuration → Forms → Enable form detection*, poi un nuovo deploy. Quando compare il modulo `brief`, in *Forms → Form notifications* aggiungi una **notifica email** verso il vostro indirizzo.
 
-## 4. Metti un tetto alla spesa AI
+## 4. Fornitore AI
 
-In **console.anthropic.com → Settings → Limits** imposta un limite di spesa mensile (es. 20 €). È l'ultima rete di sicurezza oltre ai limiti del codice.
+- **Ora (gratis):** Groq, piano gratuito senza carta. Limiti del piano: circa 1.000 richieste e 200.000 token al giorno, abbastanza per qualche decina di blueprint al giorno. Oltre, il Lab risponde "molto richiesto, riprova più tardi".
+- **Alternativa gratuita:** Google Gemini (`GEMINI_API_KEY` da aistudio.google.com). Nel piano gratuito Google può usare i contenuti per migliorare i suoi prodotti: da dichiarare nell'informativa.
+- **Più avanti (a pagamento, qualità migliore):** Claude. Aggiungi `ANTHROPIC_API_KEY`, togli `GROQ_API_KEY` (o imposta `LAB_PROVIDER=anthropic`) e rifai il deploy. Nella Console Anthropic imposta un tetto di spesa mensile.
 
 ## 5. Verifica dopo il deploy
 
@@ -68,7 +70,7 @@ La funzione `netlify/functions/lab.mjs` spende token solo se tutte queste condiz
 1. la richiesta arriva dal vostro sito (controllo dell'origine);
 2. il testo supera i controlli gratuiti: lunghezza, parole vere, niente tentativi di manipolare l'AI, niente raffiche di link;
 3. il visitatore non ha superato i limiti: **8 analisi e 3 blueprint al giorno per IP**, almeno **6 secondi** tra due richieste, **150 chiamate al giorno** in totale (tutti configurabili);
-4. il primo passaggio, fatto col modello veloce ed economico (Claude Haiku), conferma che è un progetto pertinente; altrimenti si ferma lì e il blueprint (Claude Sonnet) non parte.
+4. il primo passaggio, fatto col modello veloce ed economico, conferma che è un progetto pertinente; altrimenti si ferma lì e il blueprint (modello più capace) non parte.
 
 Le risposte sono brevi e solo in formato JSON. Gli IP sono salvati anonimizzati, solo per il giorno corrente, in Netlify Blobs. Se il sistema dei limiti non risponde, la funzione **non** chiama l'AI.
 
@@ -77,7 +79,7 @@ Le risposte sono brevi e solo in formato JSON. Gli IP sono salvati anonimizzati,
 ```powershell
 npm install
 npm i -g netlify-cli
-copy .env.example .env   # compila ANTHROPIC_API_KEY, IP_SALT e ALLOW_LOCALHOST=true
+copy .env.example .env   # compila GROQ_API_KEY, IP_SALT e ALLOW_LOCALHOST=true
 netlify dev
 ```
 
