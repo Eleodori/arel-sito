@@ -21,9 +21,7 @@ const I18N = {
   q4:"Il software che uso mi obbliga a lavorare come vuole lui.", a4:"Costruiamo il gestionale sui tuoi processi, non il contrario.",
   q5:"Vorrei usare l'AI, ma non so da dove partire.", a5:"Partiamo da un caso concreto e misurabile: un agente, un chatbot, un'automazione.",
   q6:"I miei clienti mi cercano dal telefono, ma non ho un'app.", a6:"App iOS e Android progettate per i tuoi clienti e pubblicate sugli store.",
-  val_eyebrow:"Cosa cambia",
-  val_text:"Meno lavoro *manuale.* Più ordini, dati sempre aggiornati. Più tempo per *crescere.*",
-  sol_eyebrow:"Soluzioni", sol_title:"Scegli il risultato. <em>Al come ci pensiamo noi.</em>",
+  sol_eyebrow:"Soluzioni", sol_title:"Scegli il risultato.<br><em>Al come ci pensiamo noi.</em>", sol_lead:"Meno lavoro manuale. Più clienti, dati sempre aggiornati. Più tempo per far crescere la tua azienda.",
   o_cta:"Progetta il mio",
   o1_k:"E-commerce e marketplace", o1_t:"Vendi di più online", o1_d:"Negozi che convertono e canali marketplace gestiti con metodo, collegati al tuo magazzino.",
   o1_i1:"E-commerce WooCommerce e custom", o1_i2:"Gestione Amazon", o1_i3:"Altri marketplace", o1_i4:"SEO e advertising",
@@ -32,7 +30,7 @@ const I18N = {
   o3_k:"Software e gestionali", o3_t:"Controlli l'azienda da un unico posto", o3_d:"Gestionali e portali costruiti sui tuoi processi e collegati ai software che usi già.",
   o3_i1:"Gestionali su misura", o3_i2:"Portali B2B", o3_i3:"Integrazione con i tuoi software", o3_i4:"Consulenza informatica",
   o4_k:"App e web", o4_t:"Raggiungi i clienti ovunque", o4_d:"App e siti veloci, chiari e pensati per trasformare chi arriva in cliente.",
-  o4_i1:"App iOS e Android", o4_i2:"Siti web", o4_i3:"UI/UX design",
+  o4_i1:"App iOS e Android", o4_i4:"Web app", o4_i2:"Siti web", o4_i3:"UI/UX design",
   pf1:"Voglio vendere di più online: ", pf2:"Voglio automatizzare questo lavoro ripetitivo: ", pf3:"Mi serve un gestionale per ", pf4:"Mi serve un'app o un sito per ",
   lab_eyebrow:"Lab AI", lab_free:"Gratis · 2 minuti · nessun impegno", lab_title:"Descrivi l'idea. <em>Ricevi il progetto.</em>",
   lab_desc:"Scrivi l'idea con parole tue. In 2 minuti ricevi moduli, tecnologie, fasi e tempi.",
@@ -97,9 +95,7 @@ const I18N = {
   q4:"My software forces me to work its way.", a4:"We build the system around your processes, not the other way round.",
   q5:"I'd like to use AI, but don't know where to start.", a5:"We start from one concrete, measurable case: an agent, a chatbot, an automation.",
   q6:"My customers look for me on their phones, but I have no app.", a6:"iOS and Android apps designed for your customers and published on the stores.",
-  val_eyebrow:"What changes",
-  val_text:"Less *manual* work. More orders, data always up to date. More time to *grow.*",
-  sol_eyebrow:"Solutions", sol_title:"Pick the outcome. <em>We'll handle the how.</em>",
+  sol_eyebrow:"Solutions", sol_title:"Pick the outcome.<br><em>We'll handle the how.</em>", sol_lead:"Less manual work. More customers, data always up to date. More time to grow your business.",
   o_cta:"Design mine",
   o1_k:"E-commerce and marketplaces", o1_t:"Sell more online", o1_d:"Stores that convert and marketplace channels run with method, connected to your stock.",
   o1_i1:"WooCommerce and custom e-commerce", o1_i2:"Amazon management", o1_i3:"Other marketplaces", o1_i4:"SEO and advertising",
@@ -108,7 +104,7 @@ const I18N = {
   o3_k:"Software and management systems", o3_t:"Run the business from one place", o3_d:"Systems and portals built on your processes and connected to the software you already use.",
   o3_i1:"Custom management systems", o3_i2:"B2B portals", o3_i3:"Integration with your software", o3_i4:"IT consulting",
   o4_k:"Apps and web", o4_t:"Reach customers everywhere", o4_d:"Fast, clear apps and websites designed to turn visitors into customers.",
-  o4_i1:"iOS and Android apps", o4_i2:"Websites", o4_i3:"UI/UX design",
+  o4_i1:"iOS and Android apps", o4_i4:"Web apps", o4_i2:"Websites", o4_i3:"UI/UX design",
   pf1:"I want to sell more online: ", pf2:"I want to automate this repetitive work: ", pf3:"I need a management system for ", pf4:"I need an app or a website for ",
   lab_eyebrow:"AI Lab", lab_free:"Free · 2 minutes · no commitment", lab_title:"Describe the idea. <em>Get the project.</em>",
   lab_desc:"Write your idea in your own words. In 2 minutes you get modules, technologies, phases and timing.",
@@ -169,7 +165,6 @@ function applyLang(){
   $$('[data-i18n]').forEach(el => { el.textContent = T(el.dataset.i18n); });
   $$('[data-i18n-html]').forEach(el => { el.innerHTML = T(el.dataset.i18nHtml); });
   const lb = $('#langBtn'); lb.textContent = LANG === 'it' ? 'EN' : 'IT'; lb.setAttribute('aria-label', LANG === 'it' ? 'EN · English version' : 'IT · Versione italiana');
-  buildValue();
   renderPick(curPain, false);
   renderLab();
   if (window.ScrollTrigger) requestAnimationFrame(() => ScrollTrigger.refresh());
@@ -180,25 +175,6 @@ $('#langBtn').addEventListener('click', () => {
   applyLang();
 });
 
-/* ---------------- value words ---------------- */
-let valWords = [], valST = null;
-function buildValue(){
-  const box = $('#valText');
-  box.textContent = '';
-  T('val_text').split(' ').forEach((w, i, arr) => {
-    const s = document.createElement('span');
-    s.className = 'w on' + (w.startsWith('*') ? ' key' : '');
-    s.textContent = w.replace(/\*/g, '');
-    box.appendChild(s);
-    if (i < arr.length - 1) box.appendChild(document.createTextNode(' '));
-  });
-  valWords = $$('.w', box);
-  if (valST) litWords(valST.progress);
-}
-function litWords(p){
-  const n = Math.round(p * valWords.length * 1.15);
-  valWords.forEach((w, i) => w.classList.toggle('on', i < n));
-}
 
 /* ---------------- scroll bar + mobile cta ---------------- */
 const bar = $('#bar'), mCta = $('#mCta');
@@ -229,13 +205,13 @@ $$('.panel').forEach(p => p.addEventListener('pointermove', e => {
 const orb = { cur:{x:.5,y:0,s:1,a:1,m:0,f:0,e:0}, tgt:{x:.5,y:0,s:1,a:1,m:0,f:1,e:0}, boost:0, forceForm:null };
 const STATES_D = {
   hero:{x:.55,y:.02,s:1.05,a:1,m:0,f:1}, problemi:{x:.78,y:.1,s:.7,a:.35,m:.4,f:0},
-  valore:{x:.15,y:0,s:1.5,a:.3,m:.5,f:0}, soluzioni:{x:.8,y:.66,s:.34,a:.5,m:.2,f:1},
+  soluzioni:{x:.8,y:.66,s:.34,a:.5,m:.2,f:1},
   lab:{x:.82,y:.68,s:.4,a:.95,m:.3,f:0}, lavori:{x:.8,y:-.5,s:.5,a:.3,m:.3,f:1},
   metodo:{x:.72,y:.45,s:.7,a:.35,m:.6,f:.5}, faq:{x:-.8,y:-.5,s:.6,a:.25,m:.4,f:0}, contatti:{x:.62,y:.05,s:.85,a:.9,m:.1,f:1}
 };
 const STATES_M = {
   hero:{x:0,y:.5,s:.6,a:.95,m:0,f:1}, problemi:{x:0,y:-.55,s:.34,a:.18,m:.4,f:0},
-  valore:{x:0,y:-.5,s:.5,a:.15,m:.5,f:0}, soluzioni:{x:0,y:-.4,s:.4,a:.2,m:.2,f:0},
+  soluzioni:{x:0,y:-.4,s:.4,a:.2,m:.2,f:0},
   lab:{x:0,y:-.45,s:.35,a:.3,m:.3,f:0}, lavori:{x:0,y:.5,s:.34,a:.18,m:.3,f:1},
   metodo:{x:0,y:0,s:.5,a:.15,m:.6,f:.5}, faq:{x:0,y:-.55,s:.34,a:.15,m:.4,f:0}, contatti:{x:0,y:.45,s:.4,a:.45,m:.1,f:1}
 };
@@ -274,8 +250,6 @@ function initScroll(){
   if (!window.gsap || !window.ScrollTrigger || REDUCE) return;
   gsap.registerPlugin(ScrollTrigger);
   document.documentElement.classList.add('js-anim');
-  valST = ScrollTrigger.create({ trigger:'#valore', start:'top 75%', end:'bottom 55%', onUpdate: s => litWords(s.progress) });
-  litWords(valST.progress);
   gsap.utils.toArray('.panel').forEach((c, i) => {
     gsap.fromTo(c, { y: 30 + (i % 4) * 22 }, { y: 0, ease:'none', scrollTrigger:{ trigger:'#hTrack', start:'top bottom', end:'top 35%', scrub:.6 } });
   });
@@ -576,7 +550,20 @@ function paintProgress(){
   const e = $('#elapsed'); if (e) e.textContent = Math.round((Date.now() - lab.t0) / 1000) + 's';
 }
 
+/* keep the Lab box in view when its content changes size (new idea, back, result) */
+function keepLabInView(force){
+  const t = $('#term'); if (!t) return;
+  const nav = $('.nav'); const navH = nav ? nav.offsetHeight : 0;
+  document.documentElement.style.setProperty('--navh', navH + 'px');
+  const r = t.getBoundingClientRect();
+  if (force || r.top < navH || r.top > innerHeight * .6) scrollTo({ top: scrollY + r.top - navH - 12, behavior: REDUCE ? 'auto' : 'smooth' });
+}
 function renderLab(){
+  const changed = lab.shown !== undefined && lab.shown !== lab.step; lab.shown = lab.step;
+  drawLab();
+  if (changed) keepLabInView(lab.step === 'result');
+}
+function drawLab(){
   setPill();
   clearInterval(lab.timer);
   body.textContent = '';
@@ -649,7 +636,7 @@ function renderLab(){
     body.appendChild(wrap);
     const acts = el('div', 't-actions');
     acts.append(btn(T('b_send') + '  →', 'btn-primary', () => { lab.leadOpen = true; renderLab(); const f = $('#leadName'); f && f.focus(); }),
-      btn(T('b_copy'), 'btn-ghost', copyBrief), btn(T('b_restart'), 'btn-ghost', () => { lab.step = 'idle'; lab.idea = ''; lab.bp = null; lab.answers = []; lab.msg = ''; orb.forceForm = null; renderLab(); }));
+      btn(T('b_copy'), 'btn-ghost', copyBrief), btn(T('b_restart'), 'btn-ghost', () => { lab.step = 'idle'; lab.idea = ''; lab.bp = null; lab.answers = []; lab.msg = ''; lab.leadOpen = false; orb.forceForm = null; renderLab(); const ta = $('#ideaIn'); ta && ta.focus({ preventScroll:true }); }));
     body.appendChild(acts);
     const m = el('p', 't-msg'); m.id = 'labMsg'; body.appendChild(m); showMsg();
     const cb = el('textarea', 'copybox'); cb.id = 'copyBox'; cb.readOnly = true; cb.hidden = true; cb.setAttribute('aria-label', 'Brief'); body.appendChild(cb);
@@ -702,7 +689,7 @@ async function generate(skip){
   const qa = skip ? [] : lab.questions.map((q, i) => ({ q:q.text, a:S(lab.answers[i], 400).trim() }));
   lab.step = 'generating'; lab.t0 = Date.now(); lab.msg = ''; energy(true); renderLab();
   lab.retry = () => generate(skip);
-  const done = () => { lab.step = 'result'; orb.boost = 0; orb.forceForm = 1; renderLab(); const t = $('#term'); t && t.scrollIntoView({ behavior: REDUCE ? 'auto' : 'smooth', block:'start' }); };
+  const done = () => { lab.step = 'result'; orb.boost = 0; orb.forceForm = 1; renderLab(); };
   if (!apiOn || lab.demo) {
     await new Promise(r => setTimeout(r, 6000));
     if (lab.step !== 'generating') return;

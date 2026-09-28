@@ -90,7 +90,7 @@ header,main,footer{position:relative;z-index:1}
 }
 .hero-title{font-family:var(--display);font-weight:800;font-size:clamp(38px,5.6vw,92px);line-height:1.02;letter-spacing:-.035em;max-width:9.5em}
 .hero-title .accent{color:var(--accent2)}
-.hero-title,.h2,.eyebrow,.hero-sub,.value-text,.cta-title{text-shadow:0 2px 28px rgba(10,18,38,.85),0 0 2px rgba(10,18,38,.6)}
+.hero-title,.h2,.eyebrow,.hero-sub,.cta-title{text-shadow:0 2px 28px rgba(10,18,38,.85),0 0 2px rgba(10,18,38,.6)}
 .hero-sub{max-width:32.9em;font-size:clamp(17px,1.4vw,20px);color:var(--soft)}
 .hero-sub b{color:var(--text);font-weight:700}
 .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
@@ -100,7 +100,7 @@ header,main,footer{position:relative;z-index:1}
 .ck{width:20px;height:20px;border-radius:50%;background:rgba(91,141,239,.18);display:grid;place-items:center;flex:none}
 .ck::after{content:"";width:8px;height:4px;border-left:2px solid var(--accent2);border-bottom:2px solid var(--accent2);transform:translateY(-1px) rotate(-45deg)}
 
-section{padding-block:clamp(88px,11vw,160px)}
+section{padding-block:clamp(64px,7vw,112px)}
 .sec-head{display:grid;gap:18px;margin-bottom:clamp(36px,5vw,64px)}
 
 /* pains */
@@ -131,13 +131,11 @@ section{padding-block:clamp(88px,11vw,160px)}
 @media (min-width:900px){.pick{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:24px;align-items:stretch}.pick-panel{padding:44px;align-content:center}.pick-tab{padding:16px 18px;font-size:15.5px}}
 
 /* value statement */
-.value-text{font-family:var(--display);font-weight:700;font-size:clamp(28px,3.6vw,54px);line-height:1.18;letter-spacing:-.025em;max-width:16.3em}
-.value-text .w{color:#62718F;transition:color .45s}
-.value-text .w.on{color:var(--text)}
-.value-text .w.key.on{color:var(--accent2)}
+.sec-head .lead em{font-style:normal;color:var(--text)}
+#term{scroll-margin-top:calc(var(--navh,84px) + 12px)}
 
 /* outcomes (horizontal) */
-#soluzioni{padding-bottom:clamp(64px,9vw,120px)}
+#soluzioni{padding-bottom:clamp(48px,6vw,88px)}
 .h-wrap{overflow:visible}
 .h-track{display:grid;gap:20px;padding-inline:var(--gutter);max-width:var(--maxw);margin-inline:auto}
 .panel{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:clamp(26px,3vw,40px);display:flex;flex-direction:column;gap:20px;overflow:hidden;
