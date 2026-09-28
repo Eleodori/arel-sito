@@ -6,7 +6,7 @@
 - [x] Brief via Netlify Forms con notifica email
 - [x] Favicon, meta tag, immagine social, dati strutturati di base
 - [x] Sito non indicizzato (meta + header `X-Robots-Tag`)
-- [ ] Primo deploy su Netlify e verifica (checklist nel README)
+- [x] Primo deploy su Netlify e verifica (checklist nel README)
 
 ## Contenuti da completare prima del lancio
 - [ ] Email, telefono, P. IVA (footer, sezione contatti, privacy, llms.txt)
@@ -17,13 +17,12 @@
 - [ ] Informativa privacy completata e verificata da un consulente
 
 ## Checklist di lancio
-- [ ] Dominio collegato su Netlify (HTTPS automatico) e aggiunto a `ALLOWED_ORIGINS`
+- [ ] Dominio nuovo intestato ad Arel Group (il vecchio è di Marit Srl, non si usa), collegato su Netlify (HTTPS automatico) e aggiunto a `ALLOWED_ORIGINS`
 - [ ] Sostituire `DOMINIO` in `sitemap.xml`, `robots.txt`, `llms.txt`
 - [ ] Togliere `<meta name="robots" content="noindex, nofollow">` da `index.html` (e da `privacy.html` se va indicizzata)
 - [ ] Togliere `X-Robots-Tag` da `netlify.toml`
 - [ ] Aggiungere `canonical` e `hreflang` in `index.html` (modello in `docs/seo/head-meta.html`)
 - [ ] `og:image` con URL assoluto del dominio
-- [ ] Redirect 301 dal vecchio sito del socio
 - [ ] Search Console + Bing Webmaster Tools, invio della sitemap
 - [ ] Se si passa a Claude: `ANTHROPIC_API_KEY` su Netlify e limite di spesa mensile sulla Console Anthropic
 

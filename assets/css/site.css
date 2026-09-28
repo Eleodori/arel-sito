@@ -132,6 +132,8 @@ section{padding-block:clamp(88px,11vw,160px)}
 
 /* value statement */
 .value-text{font-family:var(--display);font-weight:700;font-size:clamp(28px,3.6vw,54px);line-height:1.18;letter-spacing:-.025em;max-width:16.3em}
+.sec-head .lead em{font-style:normal;color:var(--text)}
+#term{scroll-margin-top:calc(var(--navh,84px) + 12px)}
 .value-text .w{color:#62718F;transition:color .45s}
 .value-text .w.on{color:var(--text)}
 .value-text .w.key.on{color:var(--accent2)}
