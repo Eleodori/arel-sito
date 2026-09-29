@@ -205,7 +205,7 @@ $$('.panel').forEach(p => p.addEventListener('pointermove', e => {
 const orb = { cur:{x:.5,y:0,s:1,a:1,m:0,f:0,e:0}, tgt:{x:.5,y:0,s:1,a:1,m:0,f:1,e:0}, boost:0, forceForm:null };
 const STATES_D = {
   hero:{x:.55,y:.02,s:1.05,a:1,m:0,f:1}, problemi:{x:.78,y:.1,s:.7,a:.35,m:.4,f:0},
-  soluzioni:{x:.8,y:.66,s:.34,a:.5,m:.2,f:1},
+  soluzioni:{x:.8,y:.4,s:.34,a:.5,m:.2,f:1},
   lab:{x:.82,y:.68,s:.4,a:.95,m:.3,f:0}, lavori:{x:.8,y:-.5,s:.5,a:.3,m:.3,f:1},
   metodo:{x:.72,y:.45,s:.7,a:.35,m:.6,f:.5}, faq:{x:-.8,y:-.5,s:.6,a:.25,m:.4,f:0}, contatti:{x:.62,y:.05,s:.85,a:.9,m:.1,f:1}
 };
@@ -379,7 +379,8 @@ function initOrb(){
   root.add(sat);
 
   let W = 1, H = 1;
-  function resize(){ W = innerWidth; H = innerHeight; renderer.setSize(W, H, false); camera.aspect = W / H; camera.updateProjectionMatrix(); }
+  const navEl = $('.nav'); let navH = 0;
+  function resize(){ W = innerWidth; H = innerHeight; navH = navEl ? navEl.offsetHeight : 0; renderer.setSize(W, H, false); camera.aspect = W / H; camera.updateProjectionMatrix(); }
   resize(); addEventListener('resize', () => { resize(); setOrb(curSection); });
   const mouse = { x:0, y:0, tx:0, ty:0, hover:0, last:0 };
   addEventListener('pointermove', e => { mouse.tx = (e.clientX / W) * 2 - 1; mouse.ty = -((e.clientY / H) * 2 - 1); mouse.last = performance.now(); }, { passive:true });
@@ -410,8 +411,17 @@ function initOrb(){
       c.y += (ty - c.y) * (1 - Math.pow(.0005, dt));
       sMax = Math.min(sMax, (r.height / H) * 2 * halfH / 3.3);
     }
-    root.position.set(c.x * halfW, c.y * halfH, 0);
-    root.scale.setScalar(Math.min(c.s, sMax));
+    const sc = Math.min(c.s, sMax);
+    let px = c.x * halfW, py = c.y * halfH;
+    if (curSection !== 'hero') {
+      // keep the formed mark fully on screen, below the nav (clouds may bleed off the edges)
+      const top = halfH * (1 - 2 * (navH + 20) / H) - sc * 1.85, bot = -halfH * (1 - 2 * 20 / H) + sc * 1.7, side = halfW * (1 - 2 * 16 / W) - sc * 1.6;
+      const w = Math.min(1, Math.max(0, c.f * 1.4 - .2));
+      if (top > bot) py += (Math.min(top, Math.max(bot, py)) - py) * w;
+      if (side > 0) px += (Math.min(side, Math.max(-side, px)) - px) * w;
+    }
+    root.position.set(px, py, 0);
+    root.scale.setScalar(sc);
     root.rotation.x = mouse.y * -.25; root.rotation.y = mouse.x * .4;
     spin.rotation.y = (1 - c.f) * t * (.08 + c.e * .6) + c.f * Math.sin(t * .4) * .25;
     ring.rotation.z += dt * .05 * (1 + c.e * 3);
