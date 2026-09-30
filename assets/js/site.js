@@ -242,6 +242,7 @@ function boot(){
     loadScript('/assets/vendor/three.min.js').then(initOrb).catch(() => {});
   };
   ['pointerdown','touchstart','scroll','keydown','mousemove','wheel'].forEach(ev => addEventListener(ev, start3d, { passive:true }));
+  // auto-start late (keeps PageSpeed clean); first touch/scroll starts it at once, three.js is already prefetched
   setTimeout(() => idle(start3d), 4500);
 }
 if (document.readyState === 'complete') boot(); else addEventListener('load', boot);
@@ -386,7 +387,7 @@ function initOrb(){
   addEventListener('pointermove', e => { mouse.tx = (e.clientX / W) * 2 - 1; mouse.ty = -((e.clientY / H) * 2 - 1); mouse.last = performance.now(); }, { passive:true });
 
   const anchorEl = $('#heroMark');
-  Object.assign(orb.cur, orb.tgt, { f:0 });
+  Object.assign(orb.cur, orb.tgt);  // start in the target shape: seamless hand-over from the static mark
   if (REDUCE) orb.cur.f = orb.tgt.f;
   let t = 0, prev = performance.now(), running = true;
   document.addEventListener('visibilitychange', () => { running = !document.hidden; if (running) { prev = performance.now(); requestAnimationFrame(loop); } });
