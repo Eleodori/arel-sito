@@ -235,14 +235,16 @@ function boot(){
       .then(() => loadScript('/assets/vendor/ScrollTrigger.min.js'))
       .then(initScroll).catch(() => {});
   });
+  // 3D mark: lightweight WebGL (no library). Starts on the first touch/scroll/mouse move
   let started = false;
+  const EV = ['pointerdown','touchstart','scroll','keydown','mousemove','wheel'];
   const start3d = () => {
     if (started) return; started = true;
-    ['pointerdown','touchstart','scroll','keydown','mousemove','wheel'].forEach(ev => removeEventListener(ev, start3d, { passive:true }));
-    loadScript('/assets/vendor/three.min.js').then(initOrb).catch(() => {});
+    EV.forEach(ev => removeEventListener(ev, start3d, { passive:true }));
+    requestAnimationFrame(() => { try { initOrb(); } catch(e){} });
   };
-  ['pointerdown','touchstart','scroll','keydown','mousemove','wheel'].forEach(ev => addEventListener(ev, start3d, { passive:true }));
-  // auto-start late (keeps PageSpeed clean); first touch/scroll starts it at once, three.js is already prefetched
+  EV.forEach(ev => addEventListener(ev, start3d, { passive:true }));
+  // auto-start after a few seconds: creating the WebGL context early would slow the first load on devices without a GPU
   setTimeout(() => idle(start3d), 4500);
 }
 if (document.readyState === 'complete') boot(); else addEventListener('load', boot);
@@ -290,20 +292,43 @@ float snoise(vec3 v){
   return 42.0*dot(mm*mm,vec4(dot(p0,x0),dot(p1,x1),dot(p2,x2),dot(p3,x3)));
 }`;
 function initOrb(){
-  if (!window.THREE) return;
   const canvas = $('#orb');
-  let renderer;
-  try { renderer = new THREE.WebGLRenderer({ canvas, antialias:true, alpha:true, powerPreference:'high-performance' }); }
-  catch(e){ return; }
+  let gl = null;
+  try { gl = canvas.getContext('webgl', { alpha:true, antialias:true, premultipliedAlpha:true, depth:false, stencil:false, powerPreference:'high-performance' }); } catch(e){}
+  if (!gl) return;
   const DPR = Math.min(devicePixelRatio || 1, COARSE ? 1.5 : 2);
-  renderer.setPixelRatio(DPR);
-  renderer.setClearColor(0x000000, 0);
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(45, 1, .1, 100);
-  camera.position.z = 6;
-  const root = new THREE.Group(); scene.add(root);
-  const spin = new THREE.Group(); root.add(spin);
+  const FOV = 45 * Math.PI / 180, CAMZ = 6;
 
+  /* ---- tiny mat4 helpers (column-major, same conventions as three.js) ---- */
+  const mul = (a, b) => { const o = new Float32Array(16); for (let c = 0; c < 4; c++) for (let r = 0; r < 4; r++) { let s = 0; for (let k = 0; k < 4; k++) s += a[k*4+r] * b[c*4+k]; o[c*4+r] = s; } return o; };
+  const trs = (tx, ty, tz, x, y, z, s) => {           // translate * rotation(Euler XYZ) * uniform scale
+    const a = Math.cos(x), b = Math.sin(x), c = Math.cos(y), d = Math.sin(y), e = Math.cos(z), f = Math.sin(z);
+    const ae = a*e, af = a*f, be = b*e, bf = b*f;
+    return new Float32Array([ c*e*s, (af+be*d)*s, (bf-ae*d)*s, 0,  -c*f*s, (ae-bf*d)*s, (be+af*d)*s, 0,  d*s, -b*c*s, a*c*s, 0,  tx, ty, tz, 1 ]);
+  };
+  const persp = asp => { const t = 1 / Math.tan(FOV / 2), n = .1, fa = 100, nf = 1 / (n - fa); return new Float32Array([t/asp,0,0,0, 0,t,0,0, 0,0,(fa+n)*nf,-1, 0,0,2*fa*n*nf,0]); };
+  const VIEW = trs(0, 0, -CAMZ, 0, 0, 0, 1);
+
+  const PAR = gl.getExtension('KHR_parallel_shader_compile');   // compile off the main thread when possible
+  function program(vs, fs){
+    const mk = (type, src) => { const sh = gl.createShader(type); gl.shaderSource(sh, src); gl.compileShader(sh); return sh; };
+    const p = gl.createProgram(); gl.attachShader(p, mk(gl.VERTEX_SHADER, vs)); gl.attachShader(p, mk(gl.FRAGMENT_SHADER, fs)); gl.linkProgram(p);
+    return { p, u: {} };
+  }
+  const ready = prog => !PAR || gl.getProgramParameter(prog.p, PAR.COMPLETION_STATUS_KHR);
+  function finish(prog){
+    if (!gl.getProgramParameter(prog.p, gl.LINK_STATUS)) throw new Error('shader');
+    const n = gl.getProgramParameter(prog.p, gl.ACTIVE_UNIFORMS);
+    for (let i = 0; i < n; i++) { const name = gl.getActiveUniform(prog.p, i).name; prog.u[name] = gl.getUniformLocation(prog.p, name); }
+  }
+  function buffer(data, prog, name, size){
+    const b = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, b); gl.bufferData(gl.ARRAY_BUFFER, data, gl.STATIC_DRAW);
+    return { b, loc: gl.getAttribLocation(prog.p, name), size };
+  }
+  function bind(list){ list.forEach(a => { if (a.loc < 0) return; gl.bindBuffer(gl.ARRAY_BUFFER, a.b); gl.enableVertexAttribArray(a.loc); gl.vertexAttribPointer(a.loc, a.size, gl.FLOAT, false, 0, 0); }); }
+  function unbind(list){ list.forEach(a => { if (a.loc >= 0) gl.disableVertexAttribArray(a.loc); }); }
+
+  /* ---- particles: sphere -> Arel mark ---- */
   const N = COARSE ? 6000 : 14000;
   const pos = new Float32Array(N*3), tgt = new Float32Array(N*3), rnd = new Float32Array(N);
   const GA = Math.PI * (3 - Math.sqrt(5));
@@ -326,18 +351,11 @@ function initOrb(){
     }
     tgt[i*3] = px; tgt[i*3+1] = py + .1; tgt[i*3+2] = (Math.random() - .5) * .34;
   }
-  const geo = new THREE.BufferGeometry();
-  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-  geo.setAttribute('aTarget', new THREE.BufferAttribute(tgt, 3));
-  geo.setAttribute('aRand', new THREE.BufferAttribute(rnd, 1));
-  const uniforms = {
-    uTime:{value:0}, uMorph:{value:0}, uForm:{value:0}, uEnergy:{value:0}, uMouse:{value:new THREE.Vector2()}, uHover:{value:0},
-    uPixel:{value:DPR}, uAlpha:{value:1},
-    uA:{value:new THREE.Color('#7AA4F5')}, uB:{value:new THREE.Color('#1E3A6E')}, uC:{value:new THREE.Color('#FFFFFF')}
-  };
-  const mat = new THREE.ShaderMaterial({
-    uniforms, transparent:true, depthWrite:false, blending:THREE.AdditiveBlending,
-    vertexShader: NOISE + `
+  let pts, ringP, satP;
+  try {
+    pts = program(`precision highp float;
+      attribute vec3 position; uniform mat4 modelViewMatrix; uniform mat4 projectionMatrix;
+      ` + NOISE + `
       uniform float uTime; uniform float uMorph; uniform float uForm; uniform float uEnergy; uniform vec2 uMouse; uniform float uHover; uniform float uPixel;
       attribute vec3 aTarget; attribute float aRand; varying float vMix; varying float vAlpha; varying float vForm;
       void main(){
@@ -357,8 +375,7 @@ function initOrb(){
         gl_PointSize = (1.2 + aRand*1.8 + facing*1.4*(1.0-f)) * uPixel * (6.0 / -mv.z);
         vMix = clamp(n*0.5 + 0.5 + facing*0.5, 0.0, 1.0);
         vAlpha = 0.28 + aRand*0.72; vForm = f;
-      }`,
-    fragmentShader: `
+      }`, `precision highp float;
       uniform vec3 uA; uniform vec3 uB; uniform vec3 uC; uniform float uAlpha; uniform float uEnergy;
       varying float vMix; varying float vAlpha; varying float vForm;
       void main(){
@@ -367,29 +384,43 @@ function initOrb(){
         vec3 col = mix(uB, uA, vMix);
         col = mix(col, uC, max(smoothstep(0.8, 1.0, vMix) * 0.6, vForm * 0.75));
         gl_FragColor = vec4(col, s * vAlpha * uAlpha * (0.8 + uEnergy*0.5));
-      }`
-  });
-  spin.add(new THREE.Points(geo, mat));
+      }`);
+    ringP = program(`attribute vec3 position; uniform mat4 modelViewMatrix; uniform mat4 projectionMatrix;
+      void main(){ gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
+      `precision mediump float; uniform vec4 uColor; void main(){ gl_FragColor = uColor; }`);
+    satP = program(`attribute vec3 position; uniform mat4 modelViewMatrix; uniform mat4 projectionMatrix; uniform float uSize;
+      void main(){ vec4 mv = modelViewMatrix * vec4(position, 1.0); gl_Position = projectionMatrix * mv; gl_PointSize = uSize / -mv.z; }`,
+      `precision mediump float; uniform float uAlpha;
+      void main(){ float d = length(gl_PointCoord - 0.5); if (d > 0.5) discard; gl_FragColor = vec4(1.0, 1.0, 1.0, uAlpha * smoothstep(0.5, 0.38, d)); }`);
+  } catch(e){ return; }
+  let ptsAttr, ringAttr, satAttr;
+  function setup(){
+    ptsAttr = [buffer(pos, pts, 'position', 3), buffer(tgt, pts, 'aTarget', 3), buffer(rnd, pts, 'aRand', 1)];
+    const ringPts = new Float32Array(201 * 3);
+    for (let i = 0; i <= 200; i++) { const a = i / 200 * Math.PI * 2; ringPts[i*3] = Math.cos(a) * 2.3; ringPts[i*3+1] = Math.sin(a) * 2.3; }
+    ringAttr = [buffer(ringPts, ringP, 'position', 3)];
+    satAttr = [buffer(new Float32Array([0, 0, 0]), satP, 'position', 3)];
+    const hex = h => [parseInt(h.slice(1,3),16)/255, parseInt(h.slice(3,5),16)/255, parseInt(h.slice(5,7),16)/255];
+    gl.useProgram(pts.p);
+    gl.uniform3fv(pts.u.uA, hex('#7AA4F5')); gl.uniform3fv(pts.u.uB, hex('#1E3A6E')); gl.uniform3fv(pts.u.uC, hex('#FFFFFF'));
+    gl.uniform1f(pts.u.uPixel, DPR);
+    gl.disable(gl.DEPTH_TEST); gl.enable(gl.BLEND); gl.clearColor(0, 0, 0, 0);
+  }
 
-  const ringMat = new THREE.LineBasicMaterial({ color:0x7AA4F5, transparent:true, opacity:.14 });
-  const pts = [];
-  for (let i = 0; i <= 200; i++) { const a = i / 200 * Math.PI * 2; pts.push(new THREE.Vector3(Math.cos(a)*2.3, Math.sin(a)*2.3, 0)); }
-  const ring = new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), ringMat);
-  ring.rotation.set(1.15, .2, 0); root.add(ring);
-  const sat = new THREE.Mesh(new THREE.SphereGeometry(.045, 16, 16), new THREE.MeshBasicMaterial({ color:0xFFFFFF, transparent:true }));
-  root.add(sat);
-
-  let W = 1, H = 1;
+  let W = 1, H = 1, PROJ = persp(1);
   const navEl = $('.nav'); let navH = 0;
-  function resize(){ W = innerWidth; H = innerHeight; navH = navEl ? navEl.offsetHeight : 0; renderer.setSize(W, H, false); camera.aspect = W / H; camera.updateProjectionMatrix(); }
+  function resize(){
+    W = innerWidth; H = innerHeight; navH = navEl ? navEl.offsetHeight : 0;
+    canvas.width = Math.round(W * DPR); canvas.height = Math.round(H * DPR);
+    gl.viewport(0, 0, canvas.width, canvas.height); PROJ = persp(W / H);
+  }
   resize(); addEventListener('resize', () => { resize(); setOrb(curSection); });
   const mouse = { x:0, y:0, tx:0, ty:0, hover:0, last:0 };
   addEventListener('pointermove', e => { mouse.tx = (e.clientX / W) * 2 - 1; mouse.ty = -((e.clientY / H) * 2 - 1); mouse.last = performance.now(); }, { passive:true });
 
   const anchorEl = $('#heroMark');
   Object.assign(orb.cur, orb.tgt);  // start in the target shape: seamless hand-over from the static mark
-  if (REDUCE) orb.cur.f = orb.tgt.f;
-  let t = 0, prev = performance.now(), running = true;
+  let t = 0, prev = performance.now(), running = true, ringZ = 0;
   document.addEventListener('visibilitychange', () => { running = !document.hidden; if (running) { prev = performance.now(); requestAnimationFrame(loop); } });
   function loop(now){
     if (!running) return;
@@ -403,7 +434,7 @@ function initOrb(){
     mouse.x += (mouse.tx - mouse.x) * (1 - Math.pow(.05, dt));
     mouse.y += (mouse.ty - mouse.y) * (1 - Math.pow(.05, dt));
     mouse.hover += ((now - mouse.last < 1600 ? 1 : 0) - mouse.hover) * (1 - Math.pow(.2, dt));
-    const halfH = Math.tan(THREE.MathUtils.degToRad(22.5)) * camera.position.z, halfW = halfH * camera.aspect;
+    const halfH = Math.tan(FOV / 2) * CAMZ, halfW = halfH * (W / H);
     let sMax = (halfW * .82) / 1.5;
     if (anchorEl && curSection === 'hero' && anchorEl.offsetHeight) {
       const r = anchorEl.getBoundingClientRect();
@@ -421,21 +452,44 @@ function initOrb(){
       if (top > bot) py += (Math.min(top, Math.max(bot, py)) - py) * w;
       if (side > 0) px += (Math.min(side, Math.max(-side, px)) - px) * w;
     }
-    root.position.set(px, py, 0);
-    root.scale.setScalar(sc);
-    root.rotation.x = mouse.y * -.25; root.rotation.y = mouse.x * .4;
-    spin.rotation.y = (1 - c.f) * t * (.08 + c.e * .6) + c.f * Math.sin(t * .4) * .25;
-    ring.rotation.z += dt * .05 * (1 + c.e * 3);
+    const root = mul(VIEW, trs(px, py, 0, mouse.y * -.25, mouse.x * .4, 0, sc));
+    const spinY = (1 - c.f) * t * (.08 + c.e * .6) + c.f * Math.sin(t * .4) * .25;
+    ringZ += dt * .05 * (1 + c.e * 3);
     const a1 = t * (.45 + c.e * 1.6);
-    sat.position.set(Math.cos(a1) * 2.3, Math.sin(a1) * .9, Math.sin(a1) * 2.1);
-    uniforms.uTime.value = t; uniforms.uMorph.value = c.m; uniforms.uForm.value = c.f; uniforms.uEnergy.value = c.e;
-    uniforms.uMouse.value.set(mouse.x, mouse.y); uniforms.uHover.value = mouse.hover; uniforms.uAlpha.value = c.a;
-    ringMat.opacity = .12 * c.a + c.e * .12; sat.material.opacity = c.a;
-    renderer.render(scene, camera);
+
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    // ring (normal blending)
+    gl.blendFuncSeparate(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA, gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+    gl.useProgram(ringP.p);
+    gl.uniformMatrix4fv(ringP.u.projectionMatrix, false, PROJ);
+    gl.uniformMatrix4fv(ringP.u.modelViewMatrix, false, mul(root, trs(0, 0, 0, 1.15, .2, ringZ, 1)));
+    gl.uniform4f(ringP.u.uColor, .478, .643, .961, .12 * c.a + c.e * .12);
+    bind(ringAttr); gl.drawArrays(gl.LINE_STRIP, 0, 201); unbind(ringAttr);
+    // particles (additive)
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
+    gl.useProgram(pts.p);
+    gl.uniformMatrix4fv(pts.u.projectionMatrix, false, PROJ);
+    gl.uniformMatrix4fv(pts.u.modelViewMatrix, false, mul(root, trs(0, 0, 0, 0, spinY, 0, 1)));
+    gl.uniform1f(pts.u.uTime, t); gl.uniform1f(pts.u.uMorph, c.m); gl.uniform1f(pts.u.uForm, c.f); gl.uniform1f(pts.u.uEnergy, c.e);
+    gl.uniform2f(pts.u.uMouse, mouse.x, mouse.y); gl.uniform1f(pts.u.uHover, mouse.hover); gl.uniform1f(pts.u.uAlpha, c.a);
+    bind(ptsAttr); gl.drawArrays(gl.POINTS, 0, N); unbind(ptsAttr);
+    // satellite (normal blending)
+    gl.blendFuncSeparate(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA, gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+    gl.useProgram(satP.p);
+    gl.uniformMatrix4fv(satP.u.projectionMatrix, false, PROJ);
+    gl.uniformMatrix4fv(satP.u.modelViewMatrix, false, mul(root, trs(Math.cos(a1) * 2.3, Math.sin(a1) * .9, Math.sin(a1) * 2.1, 0, 0, 0, 1)));
+    gl.uniform1f(satP.u.uSize, 2 * .045 * sc * (canvas.height / 2) / Math.tan(FOV / 2));
+    gl.uniform1f(satP.u.uAlpha, c.a);
+    bind(satAttr); gl.drawArrays(gl.POINTS, 0, 1); unbind(satAttr);
     requestAnimationFrame(loop);
   }
-  requestAnimationFrame(loop);
-  requestAnimationFrame(() => { canvas.classList.add('on'); document.documentElement.classList.add('orb-live'); });
+  (function wait(){
+    if (![pts, ringP, satP].every(ready)) { setTimeout(wait, 50); return; }
+    try { [pts, ringP, satP].forEach(finish); setup(); } catch(e){ return; }
+    prev = performance.now();
+    requestAnimationFrame(loop);
+    requestAnimationFrame(() => { canvas.classList.add('on'); document.documentElement.classList.add('orb-live'); });
+  })();
 }
 
 /* ---------------- pain picker ---------------- */

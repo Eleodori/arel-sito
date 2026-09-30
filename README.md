@@ -7,7 +7,7 @@ index.html                 home (IT/EN nello stesso file, testi in assets/js/sit
 privacy.html, 404.html     pagine di servizio
 assets/css/site.css        stile
 assets/js/site.js          interazioni, 3D, Lab AI, traduzioni
-assets/vendor/             three.js r128, GSAP 3.12.5 (self-hosted)
+assets/vendor/             GSAP 3.12.5 (self-hosted)
 assets/fonts/              Montserrat e Manrope (woff2, licenza OFL)
 assets/brand/              logo in SVG
 netlify/functions/lab.mjs  API del Lab AI (/api/lab) con limiti anti-abuso
