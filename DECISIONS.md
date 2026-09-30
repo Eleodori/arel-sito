@@ -1,5 +1,8 @@
 # DECISIONS
 
+## 2026-09-30 · Marchio 3D senza three.js
+La A animata ora usa WebGL scritto a mano (circa 10 KB) invece di three.js (600 KB, 150 KB compressi): niente download né parsing della libreria, shader compilati fuori dal thread principale. Dal primo tocco alla A animata: da circa 3,9 s a 1,9 s in un test mobile rallentato. La A statica iniziale è fatta di particelle come quella 3D, con stessa forma e posizione, e l'animazione parte già formata: il passaggio non si vede. L'avvio automatico resta a 4,5 s: anticiparlo (provato a 1-1,2 s) fa scendere PageSpeed mobile, perché senza GPU la creazione del contesto WebGL blocca la pagina per circa 2 s.
+
 ## 2026-09-24 · Fornitore AI gratuito per partire: Groq
 Per ora nessun costo: Groq (piano gratuito, nessuna carta) con gpt-oss-20b per le domande e gpt-oss-120b per il blueprint, modalità JSON e ragionamento "low". La funzione supporta anche Gemini e Claude: si cambia fornitore con una variabile, senza toccare il codice. Si valuta il passaggio a Claude quando il Lab porta contatti reali.
 

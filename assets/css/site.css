@@ -78,11 +78,12 @@ header,main,footer{position:relative;z-index:1}
 .hero-mark{display:none}
 .poster{pointer-events:none;transition:opacity 1.4s ease}
 .poster svg{width:100%;height:100%;display:block;overflow:visible}
-.poster-d{position:fixed;z-index:0;left:77.5%;top:51%;height:57vh;aspect-ratio:1;transform:translate(-50%,-50%)}
-.poster-m{position:relative;height:100%;aspect-ratio:1;margin-inline:auto;transform:scale(.8)}
+.sprite{position:absolute;width:0;height:0;overflow:hidden}
+.poster-d{position:fixed;z-index:0;left:77.5%;top:51%;height:57vh;aspect-ratio:1;transform:translate(-50%,-50%) scale(2.02)}
+.poster-m{position:relative;height:100%;aspect-ratio:1;margin-inline:auto;transform:translateY(-3%) scale(1.56);--dot:1.9}
 .orb-live .poster{opacity:0}
 @media (max-width:759px){.poster-d{display:none}}
-@media (min-width:760px) and (max-width:899px){.poster-d{left:55%;top:55%;height:36vh;opacity:.5}}
+@media (min-width:760px) and (max-width:899px){.poster-d{left:55%;top:55%;height:36vh;opacity:.5;transform:translate(-50%,-50%)}}
 @media (max-width:759px){
   .hero{align-content:start;padding-top:96px;min-height:auto;padding-bottom:40px}
   .hero-grid{gap:22px}
