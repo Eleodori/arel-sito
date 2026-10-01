@@ -7,16 +7,18 @@ Informazioni chiave:
 - Come lavora: call conoscitiva o blueprint dal Lab AI → analisi con preventivo chiaro, fasi e tempi → sviluppo a sprint brevi con una demo a ogni tappa → lancio, assistenza ed evoluzioni.
 - Prezzi: su preventivo, dopo una prima analisi; il Lab AI è gratuito e senza impegno.
 - Lingue: italiano, inglese.
-- Contatti: [email da inserire] · [telefono da inserire]
+- Sede: Perugia (PG), Italia. Lavora da remoto con aziende in tutta Italia.
+- Società: Arel Group S.r.l.s., P. IVA 04043580549.
+- Contatti: info@arelgroup.it · +39 327 076 3344 · +39 379 104 3810
 
 ## Pagine
 
-- [Home](https://www.DOMINIO.it/): cosa offre Arel, soluzioni, lavori, metodo e domande frequenti.
-- [Lab AI](https://www.DOMINIO.it/#lab): descrivi un'idea e ricevi gratis un primo blueprint di progetto.
-- [Soluzioni](https://www.DOMINIO.it/#soluzioni): e-commerce e marketplace (WooCommerce, Amazon), AI e automazioni (agenti, chatbot, integrazioni API, n8n/Make, grandi file di dati), software e gestionali su misura (portali B2B), app iOS e Android, siti web e UI/UX, consulenza informatica.
-- [Domande frequenti](https://www.DOMINIO.it/#faq)
+- [Home](https://arelgroup.it/): cosa offre Arel, soluzioni, Lab AI, metodo e domande frequenti.
+- [Lab AI](https://arelgroup.it/#lab): descrivi un'idea e ricevi gratis un primo blueprint di progetto.
+- [Soluzioni](https://arelgroup.it/#soluzioni): e-commerce e marketplace (WooCommerce, Amazon), AI e automazioni (agenti, chatbot, integrazioni API, n8n/Make, grandi file di dati), software e gestionali su misura (portali B2B), app iOS e Android, siti web e UI/UX, consulenza informatica.
+- [Domande frequenti](https://arelgroup.it/#faq)
 
 ## Lavori
 
 - ARELpneumatici: portale B2B per la vendita di pneumatici ai rivenditori, con il catalogo del fornitore integrato.
-- Renergia: [descrizione da inserire]
+- WC Smart Search: plugin WooCommerce per un e-commerce food & beverage, con ricerca semantica (sinonimi, varianti delle parole, oltre 100 categorie) e ricerca con la fotocamera tramite codice a barre.

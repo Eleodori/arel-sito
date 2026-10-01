@@ -1,5 +1,8 @@
 # DECISIONS
 
+## 2026-10-01 · Passaggio ad Astro
+Il sito passa da HTML scritto a mano ad Astro (output statico, nessun JavaScript aggiunto). Motivi: le pagine servizio della fase SEO usano lo stesso layout e gli stessi meta; sitemap generata da sola; CSS in pagina (niente richiesta che blocca il rendering) e JS minificato con hash (cache di un anno). Aspetto identico (confronto pixel per pixel). Lighthouse mobile in locale: da 97-98 a 99, LCP da circa 2,3 a 1,7 s. L'indicizzazione è automatica: `index` solo in produzione sul dominio arelgroup.it. URL privacy da `/privacy.html` a `/privacy/` con redirect 301.
+
 ## 2026-09-30 · Marchio 3D senza three.js
 La A animata ora usa WebGL scritto a mano (circa 10 KB) invece di three.js (600 KB, 150 KB compressi): niente download né parsing della libreria, shader compilati fuori dal thread principale. Dal primo tocco alla A animata: da circa 3,9 s a 1,9 s in un test mobile rallentato. La A statica iniziale è fatta di particelle come quella 3D, con stessa forma e posizione, e l'animazione parte già formata: il passaggio non si vede. L'avvio automatico resta a 4,5 s: anticiparlo (provato a 1-1,2 s) fa scendere PageSpeed mobile, perché senza GPU la creazione del contesto WebGL blocca la pagina per circa 2 s.
 

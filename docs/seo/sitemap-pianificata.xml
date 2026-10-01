@@ -5,39 +5,39 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.DOMINIO.it/</loc>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.DOMINIO.it/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.DOMINIO.it/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.DOMINIO.it/"/>
+    <loc>https://arelgroup.it/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://arelgroup.it/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arelgroup.it/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arelgroup.it/"/>
   </url>
   <url>
-    <loc>https://www.DOMINIO.it/lab-ai/</loc>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.DOMINIO.it/lab-ai/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.DOMINIO.it/en/ai-lab/"/>
+    <loc>https://arelgroup.it/lab-ai/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://arelgroup.it/lab-ai/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arelgroup.it/en/ai-lab/"/>
   </url>
   <url>
-    <loc>https://www.DOMINIO.it/servizi/</loc>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.DOMINIO.it/servizi/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.DOMINIO.it/en/services/"/>
+    <loc>https://arelgroup.it/servizi/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://arelgroup.it/servizi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arelgroup.it/en/services/"/>
   </url>
-  <url><loc>https://www.DOMINIO.it/servizi/software-gestionali-su-misura/</loc></url>
-  <url><loc>https://www.DOMINIO.it/servizi/portali-b2b/</loc></url>
-  <url><loc>https://www.DOMINIO.it/servizi/elaborazione-automazione-file-dati/</loc></url>
-  <url><loc>https://www.DOMINIO.it/servizi/ecommerce-woocommerce/</loc></url>
-  <url><loc>https://www.DOMINIO.it/servizi/gestione-amazon/</loc></url>
-  <url><loc>https://www.DOMINIO.it/servizi/marketplace/</loc></url>
-  <url><loc>https://www.DOMINIO.it/servizi/seo-advertising/</loc></url>
-  <url><loc>https://www.DOMINIO.it/servizi/agenti-ai-chatbot/</loc></url>
-  <url><loc>https://www.DOMINIO.it/servizi/automazioni-integrazioni-api/</loc></url>
-  <url><loc>https://www.DOMINIO.it/servizi/consulenza-ai/</loc></url>
-  <url><loc>https://www.DOMINIO.it/servizi/app-ios-android/</loc></url>
-  <url><loc>https://www.DOMINIO.it/servizi/siti-web/</loc></url>
-  <url><loc>https://www.DOMINIO.it/servizi/ui-ux-design/</loc></url>
-  <url><loc>https://www.DOMINIO.it/servizi/consulenza-informatica/</loc></url>
-  <url><loc>https://www.DOMINIO.it/lavori/</loc></url>
-  <url><loc>https://www.DOMINIO.it/lavori/arelpneumatici/</loc></url>
-  <url><loc>https://www.DOMINIO.it/lavori/renergia/</loc></url>
-  <url><loc>https://www.DOMINIO.it/guide/</loc></url>
-  <url><loc>https://www.DOMINIO.it/faq/</loc></url>
-  <url><loc>https://www.DOMINIO.it/contatti/</loc></url>
+  <url><loc>https://arelgroup.it/servizi/software-gestionali-su-misura/</loc></url>
+  <url><loc>https://arelgroup.it/servizi/portali-b2b/</loc></url>
+  <url><loc>https://arelgroup.it/servizi/elaborazione-automazione-file-dati/</loc></url>
+  <url><loc>https://arelgroup.it/servizi/ecommerce-woocommerce/</loc></url>
+  <url><loc>https://arelgroup.it/servizi/gestione-amazon/</loc></url>
+  <url><loc>https://arelgroup.it/servizi/marketplace/</loc></url>
+  <url><loc>https://arelgroup.it/servizi/seo-advertising/</loc></url>
+  <url><loc>https://arelgroup.it/servizi/agenti-ai-chatbot/</loc></url>
+  <url><loc>https://arelgroup.it/servizi/automazioni-integrazioni-api/</loc></url>
+  <url><loc>https://arelgroup.it/servizi/consulenza-ai/</loc></url>
+  <url><loc>https://arelgroup.it/servizi/app-ios-android/</loc></url>
+  <url><loc>https://arelgroup.it/servizi/siti-web/</loc></url>
+  <url><loc>https://arelgroup.it/servizi/ui-ux-design/</loc></url>
+  <url><loc>https://arelgroup.it/servizi/consulenza-informatica/</loc></url>
+  <url><loc>https://arelgroup.it/lavori/</loc></url>
+  <url><loc>https://arelgroup.it/lavori/arelpneumatici/</loc></url>
+  <url><loc>https://arelgroup.it/lavori/renergia/</loc></url>
+  <url><loc>https://arelgroup.it/guide/</loc></url>
+  <url><loc>https://arelgroup.it/faq/</loc></url>
+  <url><loc>https://arelgroup.it/contatti/</loc></url>
 </urlset>

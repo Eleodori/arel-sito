@@ -1,5 +1,4 @@
 # robots.txt — Arel Group
-# Sostituire DOMINIO con il dominio definitivo prima della messa online.
 
 User-agent: *
 Allow: /
@@ -43,4 +42,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://www.DOMINIO.it/sitemap.xml
+Sitemap: https://arelgroup.it/sitemap-index.xml
