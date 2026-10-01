@@ -172,7 +172,7 @@ async function doBlueprint(lang, idea, qa) {
 <answers>
 ${answers}
 </answers>
-If this is a valid project idea: draft a first project plan in ${langName(lang)}. Never use the word "blueprint". Rules: stay within Arel's services; be concrete and specific to this idea; frame modules by the benefit they bring to the client; no prices or costs; durations are indicative ranges in weeks (like "2-3"); do not invent facts about the client — if something is unknown, put it in open_points.
+If this is a valid project idea: draft a first reading of the project in ${langName(lang)}. Never use the word "blueprint". Rules: stay within Arel's services; be concrete and specific to this idea; frame modules by the benefit they bring to the client; no prices or costs; durations are indicative ranges in weeks (like "2-3"); do not invent facts about the client — if something is unknown, put it in open_points.
 Reply with only JSON of this shape, keys in this order:
 {"title":"project name, max 5 words","summary":"2 sentences","modules":[{"name":"max 4 words","description":"max 16 words"}],"stack":["technology"],"phases":[{"name":"max 4 words","weeks":"2-3","deliverable":"max 12 words"}],"open_points":["max 14 words"],"total_weeks":"10-14"}
 Use 4-6 modules, 4-7 stack items, 3-5 phases, 2-4 open points.`, 1400);

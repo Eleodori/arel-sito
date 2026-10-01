@@ -367,3 +367,16 @@ footer{border-top:1px solid var(--line);padding-block:56px calc(40px + env(safe-
 .hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
 .privacy-hint{font-size:13px;color:var(--muted)}
 .doc{max-width:46em;padding-block:140px 80px}.doc h1{font-family:var(--display);font-size:clamp(30px,4vw,48px);line-height:1.1;margin-bottom:24px}.doc h2{font-family:var(--display);font-size:22px;margin:36px 0 10px}.doc p,.doc li{color:var(--soft);margin:0 0 10px}.doc ul{list-style:disc;padding-left:22px}.doc .note{border:1px dashed var(--line2);border-radius:14px;padding:14px 16px;color:var(--muted);font-size:14px;margin-bottom:28px}
+
+/* copy v2 */
+.hero-note{margin-top:-6px}
+.pick-l{display:grid;gap:8px;margin:2px 0 4px}
+.pick-l li{position:relative;padding-left:26px;color:var(--text);font-weight:600;font-size:15.5px;line-height:1.4}
+.pick-l li::before{content:"";position:absolute;left:2px;top:.42em;width:12px;height:7px;border-left:2px solid var(--accent2);border-bottom:2px solid var(--accent2);transform:rotate(-45deg)}
+.pick-n{font-size:13.5px;color:var(--muted)}
+.pick-panel.swap .pick-l{animation:swap .45s cubic-bezier(.2,.7,.2,1)}
+.bp-next{font-size:15px;color:var(--soft);line-height:1.5}
+.cta-main{display:grid;gap:22px;flex:1 1 30em;max-width:38em}
+.a-form{background:rgba(10,18,38,.35)}
+.a-msg{min-height:96px}
+.cta-title{font-size:clamp(34px,5.2vw,76px);max-width:13em}
