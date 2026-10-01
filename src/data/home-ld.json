@@ -21,7 +21,7 @@
     "addressRegion": "PG",
     "addressCountry": "IT"
    },
-   "description": "Software house: software e gestionali su misura, e-commerce, gestione Amazon e marketplace, app iOS e Android, automazioni e agenti AI, siti web, SEO e consulenza informatica.",
+   "description": "Software house: sviluppo software e gestionali su misura, soluzioni e agenti AI, Forward Deployed Engineer, automazioni, e-commerce e marketplace, app iOS e Android, siti web e consulenza informatica.",
    "availableLanguage": [
     "it",
     "en"
@@ -35,6 +35,7 @@
     "Marketplace",
     "App iOS e Android",
     "Portali B2B",
+    "Forward Deployed Engineer",
     "Agenti AI",
     "Chatbot",
     "Automazioni n8n e Make",
@@ -58,6 +59,14 @@
       "itemOffered": {
        "@type": "Service",
        "name": "E-commerce e gestione marketplace"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Forward Deployed Engineer",
+       "description": "Un ingegnere AI che lavora con il team del cliente, sui suoi dati e sistemi, fino alla messa in produzione."
       }
      },
      {
@@ -92,7 +101,7 @@
      "name": "Quanto costa un software su misura?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Dipende da moduli, integrazioni e volumi. Dopo una prima analisi ricevi un preventivo chiaro, con fasi e tempi. Il Lab AI ti dà gratis una prima idea della dimensione del progetto."
+      "text": "Dipende da funzioni, integrazioni e volumi. Dopo una prima analisi ricevi un preventivo chiaro, con fasi e tempi. Con il Lab AI hai subito, gratis, un'idea della dimensione del progetto."
      }
     },
     {
@@ -109,6 +118,14 @@
      "acceptedAnswer": {
       "@type": "Answer",
       "text": "Sì: e-commerce, marketplace, gestionali e strumenti di fatturazione si integrano tramite API o automazioni. Se un sistema ha dei limiti, te lo diciamo prima di iniziare."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Cos'è un Forward Deployed Engineer?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "È un nostro ingegnere che lavora con il tuo team, sui tuoi dati e sistemi, finché la soluzione AI o il software non sono in produzione. Utile quando serve competenza tecnica continua senza assumere."
      }
     },
     {

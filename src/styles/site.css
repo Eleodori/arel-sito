@@ -173,6 +173,9 @@ section{padding-block:clamp(64px,7vw,112px)}
   .h-track>.panel{flex:0 0 84%;scroll-snap-align:center}
 }
 @media (min-width:760px){.h-track{grid-template-columns:1fr 1fr}}
+.p-body{display:grid;gap:12px}
+@media (min-width:760px){.panel-wide{grid-column:1/-1}}
+@media (min-width:1024px){.panel-wide{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:22px 56px;align-items:center}.panel-wide .p-top{grid-column:1/-1}.panel-wide .p-chips{margin-top:0}.panel-wide .p-cta{grid-column:1}}
 .swipe{display:none;margin:18px 0 0;justify-content:center}
 @media (max-width:759px){.swipe{display:flex}}
 @media (min-width:760px) and (max-width:899px){.swipe-work{display:flex}}
@@ -193,7 +196,6 @@ section{padding-block:clamp(64px,7vw,112px)}
 .lab-steps{display:grid;margin-top:4px}
 .lab-steps li{display:grid;grid-template-columns:40px 1fr;gap:8px;align-items:center;padding:13px 0;border-top:1px solid var(--line);color:var(--soft);font-weight:600}
 .lab-steps li b{font-family:var(--display);font-weight:700;color:var(--accent);font-size:14px}
-.proto-note{font-size:13.5px;color:var(--muted);border:1px dashed var(--line2);border-radius:14px;padding:14px 16px}
 
 .app{background:linear-gradient(180deg,rgba(22,36,68,.9),rgba(13,22,44,.92));border:1px solid var(--line2);border-radius:26px;overflow:hidden;
   backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 50px 120px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.06)}

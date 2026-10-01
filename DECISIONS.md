@@ -1,5 +1,8 @@
 # DECISIONS
 
+## 2026-10-01 · Nuovo copy prima del lancio
+Core business dichiarato: sviluppo software su misura e AI (eyebrow, sottotitolo, meta, JSON-LD, llms.txt). Nuovo servizio **Forward Deployed Engineer**: quinta scheda in Soluzioni (a tutta larghezza da tablet in su, quinta slide su mobile), nuova FAQ, voce nel footer. La parola "blueprint" non si usa più: diventa "piano di progetto" (anche nel prompt del Lab, che vieta il termine; il nome interno dell'azione API resta `blueprint`). Tolti i riquadri di avvertenza (nota sotto gli step del Lab e disclaimer sotto il risultato); resta solo la riga breve sui dati personali, utile per la privacy. Struttura della pagina invariata.
+
 ## 2026-10-01 · Passaggio ad Astro
 Il sito passa da HTML scritto a mano ad Astro (output statico, nessun JavaScript aggiunto). Motivi: le pagine servizio della fase SEO usano lo stesso layout e gli stessi meta; sitemap generata da sola; CSS in pagina (niente richiesta che blocca il rendering) e JS minificato con hash (cache di un anno). Aspetto identico (confronto pixel per pixel). Lighthouse mobile in locale: da 97-98 a 99, LCP da circa 2,3 a 1,7 s. L'indicizzazione è automatica: `index` solo in produzione sul dominio arelgroup.it. URL privacy da `/privacy.html` a `/privacy/` con redirect 301.
 
