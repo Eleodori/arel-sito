@@ -417,7 +417,11 @@ function initOrb(){
 
   const anchorEl = $('#heroMark');
   Object.assign(orb.cur, orb.tgt);  // start in the target shape: seamless hand-over from the static mark
-  let t = 0, prev = performance.now(), running = true, ringZ = 0;
+  // riparte dalla stessa oscillazione della A statica, così il passaggio al 3D non si vede
+  const swayEl = [...document.querySelectorAll('.poster .sw')].find(e => e.offsetParent);
+  const swayAn = swayEl && swayEl.getAnimations ? swayEl.getAnimations()[0] : null;
+  let t = swayAn && swayAn.currentTime != null && !REDUCE ? swayAn.currentTime / 1000 : 0;
+  let prev = performance.now(), running = true, ringZ = 0;
   document.addEventListener('visibilitychange', () => { running = !document.hidden; if (running) { prev = performance.now(); requestAnimationFrame(loop); } });
   function loop(now){
     if (!running) return;

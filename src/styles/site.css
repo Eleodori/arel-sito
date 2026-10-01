@@ -79,6 +79,15 @@ header,main,footer{position:relative;z-index:1}
 .hero-mark{display:none}
 .poster{pointer-events:none;transition:opacity 1.4s ease}
 .poster svg{width:100%;height:100%;display:block;overflow:visible}
+/* la A statica si muove subito (solo transform/opacity: costo quasi zero) finché parte il 3D */
+.poster .sw{position:relative;width:100%;height:100%;animation:sway 7.854s ease-in-out -3.927s infinite alternate}
+.poster .sw svg{position:absolute;inset:0}
+.poster .tw{animation:twinkle 2.6s ease-in-out infinite alternate}
+.poster .tw2{animation-duration:3.4s;animation-delay:-1.2s}
+.poster .tw3{animation-duration:4.1s;animation-delay:-2.3s}
+@keyframes sway{from{transform:perspective(560px) rotateY(-14.3deg)}to{transform:perspective(560px) rotateY(14.3deg)}}
+@keyframes twinkle{from{opacity:.45}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.poster .sw,.poster .tw{animation:none}}
 .sprite{position:absolute;width:0;height:0;overflow:hidden}
 .poster-d{position:fixed;z-index:0;left:77.5%;top:51%;height:57vh;aspect-ratio:1;transform:translate(-50%,-50%) scale(2.02)}
 .poster-m{position:relative;height:100%;aspect-ratio:1;margin-inline:auto;transform:translateY(-3%) scale(1.56);--dot:1.9}
