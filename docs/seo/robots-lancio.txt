@@ -43,4 +43,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://www.DOMINIO.it/sitemap.xml
+Sitemap: https://arelgroup.it/sitemap-index.xml

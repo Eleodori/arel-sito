@@ -1,0 +1,141 @@
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "ProfessionalService",
+   "@id": "#org",
+   "name": "Arel Group S.r.l.s.",
+   "alternateName": "Arel Group",
+   "url": "https://arelgroup.it/",
+   "email": "info@arelgroup.it",
+   "telephone": [
+    "+393270763344",
+    "+393791043810"
+   ],
+   "vatID": "IT04043580549",
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via di Ponente, 37",
+    "postalCode": "06132",
+    "addressLocality": "Perugia",
+    "addressRegion": "PG",
+    "addressCountry": "IT"
+   },
+   "description": "Software house: software e gestionali su misura, e-commerce, gestione Amazon e marketplace, app iOS e Android, automazioni e agenti AI, siti web, SEO e consulenza informatica.",
+   "availableLanguage": [
+    "it",
+    "en"
+   ],
+   "areaServed": "IT",
+   "knowsAbout": [
+    "Software su misura",
+    "Gestionali",
+    "E-commerce WooCommerce",
+    "Amazon SP-API",
+    "Marketplace",
+    "App iOS e Android",
+    "Portali B2B",
+    "Agenti AI",
+    "Chatbot",
+    "Automazioni n8n e Make",
+    "Integrazioni API",
+    "SEO",
+    "UI/UX design"
+   ],
+   "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servizi",
+    "itemListElement": [
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Software e gestionali su misura"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "E-commerce e gestione marketplace"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Automazioni e agenti AI"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "App iOS e Android"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Siti web, SEO e UI/UX"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Quanto costa un software su misura?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Dipende da moduli, integrazioni e volumi. Dopo una prima analisi ricevi un preventivo chiaro, con fasi e tempi. Il Lab AI ti dà gratis una prima idea della dimensione del progetto."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Quanto tempo serve per realizzarlo?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "In genere un sito o un'integrazione richiedono alcune settimane, un gestionale completo qualche mese. Lavoriamo a sprint brevi con una demo a ogni tappa."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Potete collegare i software che uso già?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Sì: e-commerce, marketplace, gestionali e strumenti di fatturazione si integrano tramite API o automazioni. Se un sistema ha dei limiti, te lo diciamo prima di iniziare."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Gestite anche Amazon e gli altri marketplace?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Sì, dalla configurazione del catalogo alla sincronizzazione di prezzi, giacenze e ordini con il tuo e-commerce o gestionale."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Cosa succede dopo il lancio?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Restiamo al tuo fianco con assistenza e nuove funzioni quando servono."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Lavorate anche in inglese?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Sì, seguiamo progetti in italiano e in inglese."
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -8,21 +8,27 @@
 - [x] Sito non indicizzato (meta + header `X-Robots-Tag`)
 - [x] Primo deploy su Netlify e verifica (checklist nel README)
 
+## v0.5 · Astro e lancio
+- [x] Sito portato su Astro (aspetto identico, CSS in pagina, JS minificato, sitemap automatica)
+- [x] Indicizzazione automatica: `index` solo in produzione su arelgroup.it
+- [ ] Dominio arelgroup.it collegato su Netlify come dominio principale + `ALLOWED_ORIGINS` aggiornato
+- [ ] Search Console + Bing Webmaster Tools, invio di `sitemap-index.xml`
+
 ## Contenuti da completare prima del lancio
-- [ ] Email, telefono, P. IVA (footer, sezione contatti, privacy, llms.txt)
+- [x] Sezione Lavori tolta per il lancio: torna quando ci sono almeno 2-3 casi completi (ARELpneumatici, WC Smart Search, Renergia)
+- [x] Email, telefono, P. IVA, sede legale (footer, sezione contatti, privacy, llms.txt, dati strutturati)
 - [ ] Renergia: area, descrizione, risultato, screenshot
 - [ ] Terzo caso studio
 - [ ] Risultato di ARELpneumatici
 - [ ] Conferma dei tempi indicativi nelle FAQ
-- [ ] Informativa privacy completata e verificata da un consulente
+- [x] Informativa privacy completata (consigliata comunque una rilettura del consulente)
 
 ## Checklist di lancio
 - [ ] Dominio nuovo intestato ad Arel Group (il vecchio è di Marit Srl, non si usa), collegato su Netlify (HTTPS automatico) e aggiunto a `ALLOWED_ORIGINS`
-- [ ] Sostituire `DOMINIO` in `sitemap.xml`, `robots.txt`, `llms.txt`
-- [ ] Togliere `<meta name="robots" content="noindex, nofollow">` da `index.html` (e da `privacy.html` se va indicizzata)
-- [ ] Togliere `X-Robots-Tag` da `netlify.toml`
-- [ ] Aggiungere `canonical` e `hreflang` in `index.html` (modello in `docs/seo/head-meta.html`)
-- [ ] `og:image` con URL assoluto del dominio
+- [x] Sostituire `DOMINIO` in `sitemap.xml`, `robots.txt`, `llms.txt` (arelgroup.it)
+- [x] `noindex` e `X-Robots-Tag`: sostituiti dalla regola automatica in `src/lib/site.js`
+- [x] `canonical` in `index.html` (hreflang quando ci saranno URL separati per l'inglese)
+- [x] `og:image` con URL assoluto del dominio
 - [ ] Search Console + Bing Webmaster Tools, invio della sitemap
 - [ ] Se si passa a Claude: `ANTHROPIC_API_KEY` su Netlify e limite di spesa mensile sulla Console Anthropic
 

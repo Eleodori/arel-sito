@@ -1,18 +1,18 @@
 # Arel Group · sito
 
-Home del nuovo sito Arel Group: pagina statica (HTML/CSS/JS, nessun build) con il **Lab AI**, che genera un primo blueprint di progetto tramite una Netlify Function collegata a un modello AI (per ora Groq, gratuito; si passa a Claude cambiando solo una variabile). I brief arrivano via **Netlify Forms**.
+Sito di Arel Group in **Astro** (statico), con il **Lab AI** che genera un primo blueprint di progetto tramite una Netlify Function collegata a un modello AI (per ora Groq, gratuito; si passa a Claude cambiando solo una variabile). I brief arrivano via **Netlify Forms**.
 
 ```
-index.html                 home (IT/EN nello stesso file, testi in assets/js/site.js → I18N)
-privacy.html, 404.html     pagine di servizio
-assets/css/site.css        stile
-assets/js/site.js          interazioni, 3D, Lab AI, traduzioni
-assets/vendor/             GSAP 3.12.5 (self-hosted)
-assets/fonts/              Montserrat e Manrope (woff2, licenza OFL)
-assets/brand/              logo in SVG
+src/pages/                 pagine: index.astro (home IT/EN), privacy.astro, 404.astro
+src/layouts/Base.astro     <head> comune: meta, canonical, Open Graph, robots, JSON-LD
+src/styles/site.css        stile (messo in pagina al build)
+src/scripts/site.js        interazioni, 3D, Lab AI, traduzioni (I18N)
+src/data/home-ld.json      dati strutturati della home
+src/lib/site.js            dominio e regola di indicizzazione
+public/                    file statici: font, GSAP, logo, favicon, og, robots.txt, llms.txt
 netlify/functions/lab.mjs  API del Lab AI (/api/lab) con limiti anti-abuso
-netlify.toml               configurazione, header di sicurezza e cache
-docs/seo/                  piano SEO, file per il lancio
+netlify.toml               build, redirect, header di sicurezza e cache
+docs/                      SEO, brand, materiali
 ```
 
 ## 1. Metti la cartella nel posto giusto
@@ -35,7 +35,7 @@ Git e OneDrive non vanno d'accordo (file bloccati, `index.lock`). Copia la carte
 ## 3. Netlify
 
 1. app.netlify.com → **Add new project → Import an existing project → GitHub** → scegli `arel-sito`.
-2. Build command: vuoto · Publish directory: `.` (li legge da `netlify.toml`) → **Deploy**.
+2. Build command e cartella li legge da `netlify.toml` (`npm run build`, `dist`) → **Deploy**.
 3. **Project configuration → Environment variables**, aggiungi:
    | Variabile | Valore |
    |---|---|
@@ -78,9 +78,8 @@ Le risposte sono brevi e solo in formato JSON. Gli IP sono salvati anonimizzati,
 
 ```powershell
 npm install
-npm i -g netlify-cli
-copy .env.example .env   # compila GROQ_API_KEY, IP_SALT e ALLOW_LOCALHOST=true
-netlify dev
+npm run dev              # sito su http://localhost:4321 (Lab AI in modalità demo)
+npm run build            # controlla che il build finisca senza errori
 ```
 
-Quando modifichi `site.css` o `site.js`, aumenta il numero `?v=` in `index.html`, così i browser scaricano la versione nuova.
+Per provare anche il Lab AI in locale: `npm i -g netlify-cli`, `copy .env.example .env` (compila GROQ_API_KEY, IP_SALT e ALLOW_LOCALHOST=true) e `netlify dev`.

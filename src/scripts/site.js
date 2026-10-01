@@ -50,7 +50,7 @@ const I18N = {
   bp_kick:"Il tuo blueprint",
   l_modules:"Moduli", l_stack:"Tecnologie proposte", l_phases:"Fasi", l_open:"Da chiarire in call", l_total:"Tempi indicativi complessivi", u_weeks:"settimane",
   t_copied:"Brief copiato negli appunti.", t_copyfail:"Copia non riuscita: seleziona il testo qui sotto e copialo.",
-  t_send:"Nel sito finale il brief arriverà direttamente al team Arel, che ti ricontatta. In questo prototipo copialo e invialo a [email da inserire].",
+  t_send:"Il brief arriva direttamente al team Arel, che ti ricontatta. Puoi anche copiarlo e scriverci a info@arelgroup.it.",
   t_disclaimer:"Stime indicative generate dall'AI, da confermare dopo l'analisi con il team.",
   t_demo:"L'AI non è disponibile in questa vista: ti mostro un esempio dimostrativo.",
   e_rate:"Troppe richieste ravvicinate. Riprova tra qualche minuto.", e_session:"Sessione scaduta: accedi di nuovo a Claude e riprova.",
@@ -124,7 +124,7 @@ const I18N = {
   bp_kick:"Your blueprint",
   l_modules:"Modules", l_stack:"Proposed technologies", l_phases:"Phases", l_open:"To clarify on the call", l_total:"Indicative overall timing", u_weeks:"weeks",
   t_copied:"Brief copied to the clipboard.", t_copyfail:"Copy failed: select the text below and copy it.",
-  t_send:"On the final site the brief goes straight to the Arel team, who will get back to you. In this prototype, copy it and send it to [email to add].",
+  t_send:"The brief goes straight to the Arel team, who will get back to you. You can also copy it and write to us at info@arelgroup.it.",
   t_disclaimer:"Indicative AI-generated estimates, to be confirmed after analysis with the team.",
   t_demo:"The AI isn't available in this view: here is a demo example.",
   e_rate:"Too many requests in a row. Try again in a few minutes.", e_session:"Session expired: sign in to Claude again and retry.",
@@ -260,9 +260,6 @@ function initScroll(){
   gsap.fromTo('#mFill', { scaleX:0 }, { scaleX:1, ease:'none',
     scrollTrigger:{ trigger:'#method', start:'top 75%', end:'bottom 55%', scrub:.5,
       onUpdate: s => steps.forEach((st, i) => st.classList.toggle('on', s.progress >= i / steps.length + .02)) } });
-  gsap.utils.toArray('.card').forEach((c, i) => {
-    gsap.fromTo(c, { y: 36 + i*22 }, { y: 0, ease:'none', scrollTrigger:{ trigger:'#lavori', start:'top bottom', end:'center center', scrub:.6 } });
-  });
   ScrollTrigger.refresh();
 }
 
@@ -795,7 +792,7 @@ function leadForm(){
   const hp = el('label', 'hp'); hp.setAttribute('aria-hidden', 'true'); const hpi = el('input'); hpi.name = 'bot-field'; hpi.tabIndex = -1; hpi.autocomplete = 'off'; hp.appendChild(hpi); box.appendChild(hp);
   const c = el('label', 'consent'); const cb = el('input'); cb.type = 'checkbox'; cb.id = 'leadConsent'; cb.checked = !!(lab.lead && lab.lead.consent);
   cb.addEventListener('change', () => { lab.lead = lab.lead || {}; lab.lead.consent = cb.checked; });
-  const ct = el('span', '', T('f_consent') + ' '); const a = el('a', '', T('privacy_link')); a.href = '/privacy.html'; a.target = '_blank'; a.rel = 'noopener'; ct.appendChild(a);
+  const ct = el('span', '', T('f_consent') + ' '); const a = el('a', '', T('privacy_link')); a.href = '/privacy/'; a.target = '_blank'; a.rel = 'noopener'; ct.appendChild(a);
   c.append(cb, ct); box.appendChild(c);
   const acts = el('div', 't-actions'); const sub = el('button', 'btn btn-primary btn-sm', T('b_submit') + '  →'); sub.type = 'submit'; acts.appendChild(sub); box.appendChild(acts);
   const m = el('p', 't-msg'); m.id = 'leadMsg'; box.appendChild(m);

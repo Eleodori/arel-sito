@@ -11,31 +11,31 @@ Informazioni chiave:
 
 ## Soluzioni
 
-- [Software e gestionali su misura](https://www.DOMINIO.it/servizi/software-gestionali-su-misura/): gestionali costruiti sui processi dell'azienda e collegati ai software già in uso.
-- [Portali B2B](https://www.DOMINIO.it/servizi/portali-b2b/): portali per rivenditori con cataloghi, listini e ordini online.
-- [Elaborazione e automazione di grandi file di dati](https://www.DOMINIO.it/servizi/elaborazione-automazione-file-dati/): import, pulizia e sincronizzazione di listini e file Excel/CSV di grandi dimensioni.
-- [E-commerce WooCommerce e custom](https://www.DOMINIO.it/servizi/ecommerce-woocommerce/): negozi online collegati a magazzino, gestionale e marketplace.
-- [Gestione Amazon](https://www.DOMINIO.it/servizi/gestione-amazon/): catalogo, prezzi, giacenze e ordini Amazon sincronizzati via SP-API.
-- [Altri marketplace](https://www.DOMINIO.it/servizi/marketplace/): eBay e altri canali gestiti da un unico pannello.
-- [SEO e advertising](https://www.DOMINIO.it/servizi/seo-advertising/): posizionamento su Google e campagne a pagamento.
-- [Agenti AI e chatbot su misura](https://www.DOMINIO.it/servizi/agenti-ai-chatbot/): assistenti che rispondono ai clienti ed eseguono attività al posto del team.
-- [Automazioni e integrazioni API](https://www.DOMINIO.it/servizi/automazioni-integrazioni-api/): flussi n8n e Make, integrazioni tra software.
-- [Consulenza AI](https://www.DOMINIO.it/servizi/consulenza-ai/): individuare dove l'AI porta un risultato misurabile e come introdurla.
-- [App iOS e Android](https://www.DOMINIO.it/servizi/app-ios-android/): app per clienti e per il personale, pubblicate sugli store.
-- [Siti web](https://www.DOMINIO.it/servizi/siti-web/) e [UI/UX design](https://www.DOMINIO.it/servizi/ui-ux-design/): siti veloci, ottimizzati SEO e progettati per convertire.
-- [Consulenza informatica](https://www.DOMINIO.it/servizi/consulenza-informatica/): supporto tecnico nelle decisioni su software e infrastruttura.
+- [Software e gestionali su misura](https://arelgroup.it/servizi/software-gestionali-su-misura/): gestionali costruiti sui processi dell'azienda e collegati ai software già in uso.
+- [Portali B2B](https://arelgroup.it/servizi/portali-b2b/): portali per rivenditori con cataloghi, listini e ordini online.
+- [Elaborazione e automazione di grandi file di dati](https://arelgroup.it/servizi/elaborazione-automazione-file-dati/): import, pulizia e sincronizzazione di listini e file Excel/CSV di grandi dimensioni.
+- [E-commerce WooCommerce e custom](https://arelgroup.it/servizi/ecommerce-woocommerce/): negozi online collegati a magazzino, gestionale e marketplace.
+- [Gestione Amazon](https://arelgroup.it/servizi/gestione-amazon/): catalogo, prezzi, giacenze e ordini Amazon sincronizzati via SP-API.
+- [Altri marketplace](https://arelgroup.it/servizi/marketplace/): eBay e altri canali gestiti da un unico pannello.
+- [SEO e advertising](https://arelgroup.it/servizi/seo-advertising/): posizionamento su Google e campagne a pagamento.
+- [Agenti AI e chatbot su misura](https://arelgroup.it/servizi/agenti-ai-chatbot/): assistenti che rispondono ai clienti ed eseguono attività al posto del team.
+- [Automazioni e integrazioni API](https://arelgroup.it/servizi/automazioni-integrazioni-api/): flussi n8n e Make, integrazioni tra software.
+- [Consulenza AI](https://arelgroup.it/servizi/consulenza-ai/): individuare dove l'AI porta un risultato misurabile e come introdurla.
+- [App iOS e Android](https://arelgroup.it/servizi/app-ios-android/): app per clienti e per il personale, pubblicate sugli store.
+- [Siti web](https://arelgroup.it/servizi/siti-web/) e [UI/UX design](https://arelgroup.it/servizi/ui-ux-design/): siti veloci, ottimizzati SEO e progettati per convertire.
+- [Consulenza informatica](https://arelgroup.it/servizi/consulenza-informatica/): supporto tecnico nelle decisioni su software e infrastruttura.
 
 ## Lavori
 
-- [ARELpneumatici](https://www.DOMINIO.it/lavori/arelpneumatici/): portale B2B per la vendita di pneumatici ai rivenditori, con il catalogo del fornitore integrato.
-- [Renergia](https://www.DOMINIO.it/lavori/renergia/): [descrizione da inserire]
+- [ARELpneumatici](https://arelgroup.it/lavori/arelpneumatici/): portale B2B per la vendita di pneumatici ai rivenditori, con il catalogo del fornitore integrato.
+- [Renergia](https://arelgroup.it/lavori/renergia/): [descrizione da inserire]
 
 ## Strumenti
 
-- [Lab AI](https://www.DOMINIO.it/lab-ai/): descrivi un'idea e ricevi gratis un primo blueprint di progetto.
+- [Lab AI](https://arelgroup.it/lab-ai/): descrivi un'idea e ricevi gratis un primo blueprint di progetto.
 
 ## Optional
 
-- [Domande frequenti](https://www.DOMINIO.it/faq/)
-- [Contatti](https://www.DOMINIO.it/contatti/)
-- [English version](https://www.DOMINIO.it/en/)
+- [Domande frequenti](https://arelgroup.it/faq/)
+- [Contatti](https://arelgroup.it/contatti/)
+- [English version](https://arelgroup.it/en/)

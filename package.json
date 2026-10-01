@@ -1,17 +1,20 @@
 {
   "name": "arel-sito",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "private": true,
   "type": "module",
-  "description": "Sito Arel Group: pagina statica + Lab AI (Netlify Function)",
+  "description": "Sito Arel Group: Astro (statico) + Lab AI (Netlify Function)",
   "scripts": {
-    "dev": "netlify dev",
-    "check": "node --check assets/js/site.js && node --check netlify/functions/lab.mjs"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "dependencies": {
-    "@netlify/blobs": "^8.1.0"
+    "@netlify/blobs": "^8.1.0",
+    "astro": "^7.3.5",
+    "@astrojs/sitemap": "^3.7.4"
   },
   "engines": {
-    "node": ">=20 <25"
+    "node": ">=22.12 <25"
   }
 }

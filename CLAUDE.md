@@ -4,11 +4,18 @@
 Sito di Arel Group S.r.l.s. (software house: gestionali, e-commerce, Amazon, app, AI). Obiettivo: **convertire il visitatore in cliente**. Il messaggio parla di cosa ottiene il visitatore, non di chi siamo.
 
 ## Stack
-- Sito statico, nessun build: `index.html` + `assets/css/site.css` + `assets/js/site.js`.
+- Astro 7, output statico in `dist/` (Netlify esegue `npm run build`).
+  - `src/layouts/Base.astro`: `<head>` comune (meta, canonical, Open Graph, robots, JSON-LD).
+  - `src/pages/`: una pagina = un file (`index.astro`, `privacy.astro`, `404.astro`). URL a cartella: `/privacy/`.
+  - `src/styles/site.css`: CSS unico, messo in pagina in fase di build (nessun file che blocca il rendering).
+  - `src/scripts/site.js`: JS unico, minificato e con hash nel nome (cache di un anno).
+  - `public/`: file serviti così come sono (font, librerie, favicon, og, `robots.txt`, `llms.txt`).
+  - Sitemap generata in automatico (`@astrojs/sitemap`) a ogni build.
+  - Indicizzazione automatica (`src/lib/site.js`): `index` solo in produzione con dominio principale arelgroup.it; anteprime e `*.netlify.app` restano `noindex`.
 - 3D: WebGL scritto a mano in `site.js` (`initOrb`, nessuna libreria). Parte al primo tocco/scroll/movimento del mouse o dopo 4,5 s; fino ad allora si vede la A statica a particelle (SVG `#archev`), identica per forma e posizione. Non anticipare l'avvio automatico: creare il contesto WebGL nei primi secondi abbassa PageSpeed mobile.
-- GSAP 3.12.5 + ScrollTrigger self-hosted in `assets/vendor/`, caricati in idle.
+- GSAP 3.12.5 + ScrollTrigger self-hosted in `public/assets/vendor/`, caricati in idle.
 - Lab AI: `netlify/functions/lab.mjs` (Netlify Functions v2, `/api/lab`). Fornitore AI scelto da variabile: Groq (gratuito, attuale), Gemini o Claude. Limiti in Netlify Blobs.
-- Lead: Netlify Forms, modulo `brief` (modulo statico nascosto in fondo a `index.html` + invio via fetch).
+- Lead: Netlify Forms, modulo `brief` (modulo statico nascosto in fondo a `src/pages/index.astro` + invio via fetch).
 - Lingue: IT/EN nello stesso file; testi nel dizionario `I18N` in `site.js`, elementi con `data-i18n` / `data-i18n-html`.
 
 ## Regole di design (non negoziabili)
@@ -23,8 +30,9 @@ Sito di Arel Group S.r.l.s. (software house: gestionali, e-commerce, Amazon, app
 - Mai chiavi o prompt dell'AI nel codice client: i prompt vivono solo in `lab.mjs`.
 - Contrasto testi ≥ 4.5:1 (≥ 3:1 per testi grandi), anche sopra l'animazione.
 - Larghezze dei testi in `em`, non in `ch` (evita spostamenti al caricamento dei font).
-- A ogni modifica di `site.css`/`site.js` aumentare `?v=` in `index.html` (e in `privacy.html`/`404.html` per il CSS).
-- Il sito resta **noindex** finché non si completa la checklist di lancio in `ROADMAP.md`.
+- Niente `?v=` da aggiornare: Astro dà a CSS e JS nomi nuovi a ogni modifica.
+- Nessuno script inline (la CSP accetta solo file del sito): il JS va in `src/scripts/`.
+- Prima di una PR: `npm run build` deve finire senza errori.
 
 ## Modo di lavorare
 - Un branch = un tema; una sola PR aperta alla volta; il merge (Squash and merge) lo fa Luca dopo aver visto la deploy preview di Netlify.
