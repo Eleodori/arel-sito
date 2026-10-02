@@ -1,5 +1,14 @@
 # DECISIONS
 
+## 2026-10-01 · Copy v3: mix tra v1 e v2
+Dopo la revisione del titolare: hero "Porta un'idea. / Noi creiamo il software che la fa funzionare." con il sottotitolo della v1; Soluzioni a 4 schede (via la scheda e-commerce, il Forward Deployed Engineer prende il suo posto); Problemi con i testi v2 e ogni frase su una riga propria; CTA finale con titolo della v1 ("La tua idea merita un progetto vero.") e modulo compatto su due colonne, in una sola schermata. Restano: analisi gratuita come CTA, prima lettura del Lab, Metodo e FAQ della v2.
+
+## 2026-10-01 · Copy v2: obiettivo "analisi gratuita"
+Il copy v1 è stato bocciato: "progetto gratis" fuorviante, problemi generici, CTA senza senso. Metodo nuovo: brief strategico (docs nel progetto AREL: `sito/brief-copy-home.md`), copywriter in parallelo per sezione, revisione di un "titolare scettico", approvazione del titolare. Decisioni: unico obiettivo della pagina = richiesta di **analisi gratuita** (30 minuti con uno sviluppatore; gratis solo l'analisi, mai lo sviluppo). Target: PMI con processi a mano, aziende che vogliono l'AI, chi ha un'idea di prodotto. Il Lab AI produce una **prima lettura** e porta all'analisi. Pannello Problemi con titolo, costo, 3 esempi e CTA per scheda (analisi o Lab). Nuovo modulo Netlify `analisi` nella CTA finale, precompilato dalle schede. Struttura e ordine delle sezioni invariati.
+
+## 2026-10-01 · Nuovo copy prima del lancio
+Core business dichiarato: sviluppo software su misura e AI (eyebrow, sottotitolo, meta, JSON-LD, llms.txt). Nuovo servizio **Forward Deployed Engineer**: quinta scheda in Soluzioni (a tutta larghezza da tablet in su, quinta slide su mobile), nuova FAQ, voce nel footer. La parola "blueprint" non si usa più: diventa "piano di progetto" (anche nel prompt del Lab, che vieta il termine; il nome interno dell'azione API resta `blueprint`). Tolti i riquadri di avvertenza (nota sotto gli step del Lab e disclaimer sotto il risultato); resta solo la riga breve sui dati personali, utile per la privacy. Struttura della pagina invariata.
+
 ## 2026-10-01 · Passaggio ad Astro
 Il sito passa da HTML scritto a mano ad Astro (output statico, nessun JavaScript aggiunto). Motivi: le pagine servizio della fase SEO usano lo stesso layout e gli stessi meta; sitemap generata da sola; CSS in pagina (niente richiesta che blocca il rendering) e JS minificato con hash (cache di un anno). Aspetto identico (confronto pixel per pixel). Lighthouse mobile in locale: da 97-98 a 99, LCP da circa 2,3 a 1,7 s. L'indicizzazione è automatica: `index` solo in produzione sul dominio arelgroup.it. URL privacy da `/privacy.html` a `/privacy/` con redirect 301.
 
