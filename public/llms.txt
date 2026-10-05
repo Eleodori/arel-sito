@@ -1,11 +1,11 @@
 # Arel Group
 
-> Arel Group S.r.l.s. è una software house italiana. Progetta e sviluppa software e gestionali su misura, e-commerce (WooCommerce e custom), gestione di Amazon e altri marketplace, app iOS e Android, portali B2B, automazioni e agenti AI, siti web, SEO e advertising. Lavora in italiano e in inglese. Sul sito, il Lab AI permette di descrivere un'idea e ricevere gratis un primo blueprint di progetto (moduli, tecnologie, fasi, tempi indicativi).
+> Arel Group S.r.l.s. è una software house italiana. Il suo core business è lo sviluppo di software su misura e di soluzioni di intelligenza artificiale: gestionali, agenti AI e automazioni, Forward Deployed Engineer (un ingegnere AI che lavora dentro il team del cliente), e inoltre e-commerce (WooCommerce e custom), gestione di Amazon e altri marketplace, app iOS e Android, portali B2B, siti web, SEO e advertising. Lavora in italiano e in inglese. Offre un'analisi gratuita di circa 30 minuti con uno sviluppatore, per capire dove si perde tempo e se conviene sviluppare. Sul sito, il Lab AI permette di descrivere un'idea o un problema e ricevere una prima lettura automatica (funzioni, fasi, tempi di massima).
 
 Informazioni chiave:
-- Per chi: aziende e PMI che vogliono vendere di più online, ridurre il lavoro manuale, gestire l'azienda da un unico sistema o raggiungere i clienti con app e siti.
-- Come lavora: call conoscitiva o blueprint dal Lab AI → analisi con preventivo chiaro, fasi e tempi → sviluppo a sprint brevi con una demo a ogni tappa → lancio, assistenza ed evoluzioni.
-- Prezzi: su preventivo, dopo una prima analisi; il Lab AI è gratuito e senza impegno.
+- Per chi: PMI che lavorano ancora a mano tra Excel, email e gestionali scollegati; aziende che vogliono usare l'AI nei processi reali; imprenditori con un'idea di prodotto digitale.
+- Come lavora: analisi gratuita con uno sviluppatore → preventivo scritto con funzioni, fasi e costi → sviluppo a passi brevi con una demo a ogni passo → lancio e assistenza.
+- Prezzi: su preventivo scritto dopo l'analisi gratuita; lo sviluppo è a pagamento.
 - Lingue: italiano, inglese.
 - Sede: Perugia (PG), Italia. Lavora da remoto con aziende in tutta Italia.
 - Società: Arel Group S.r.l.s., P. IVA 04043580549.
@@ -14,8 +14,9 @@ Informazioni chiave:
 ## Pagine
 
 - [Home](https://arelgroup.it/): cosa offre Arel, soluzioni, Lab AI, metodo e domande frequenti.
-- [Lab AI](https://arelgroup.it/#lab): descrivi un'idea e ricevi gratis un primo blueprint di progetto.
-- [Soluzioni](https://arelgroup.it/#soluzioni): e-commerce e marketplace (WooCommerce, Amazon), AI e automazioni (agenti, chatbot, integrazioni API, n8n/Make, grandi file di dati), software e gestionali su misura (portali B2B), app iOS e Android, siti web e UI/UX, consulenza informatica.
+- [Lab AI](https://arelgroup.it/#lab): descrivi un'idea o un problema e ricevi una prima lettura automatica.
+- [Analisi gratuita](https://arelgroup.it/#contatti): richiedi 30 minuti con uno sviluppatore.
+- [Soluzioni](https://arelgroup.it/#soluzioni): software e gestionali su misura, AI e automazioni, Forward Deployed Engineer, e-commerce e marketplace (WooCommerce, Amazon), AI e automazioni (agenti, chatbot, integrazioni API, n8n/Make, grandi file di dati), software e gestionali su misura (portali B2B), app iOS e Android, siti web e UI/UX, consulenza informatica.
 - [Domande frequenti](https://arelgroup.it/#faq)
 
 ## Lavori
