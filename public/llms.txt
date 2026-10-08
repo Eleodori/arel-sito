@@ -16,7 +16,7 @@ Informazioni chiave:
 - [Home](https://arelgroup.it/): cosa offre Arel, soluzioni, Lab AI, metodo e domande frequenti.
 - [Lab AI](https://arelgroup.it/#lab): descrivi un'idea o un problema e ricevi una prima lettura automatica.
 - [Analisi gratuita](https://arelgroup.it/#contatti): richiedi 30 minuti con uno sviluppatore.
-- [Soluzioni](https://arelgroup.it/#soluzioni): software e gestionali su misura, AI e automazioni, Forward Deployed Engineer, e-commerce e marketplace (WooCommerce, Amazon), AI e automazioni (agenti, chatbot, integrazioni API, n8n/Make, grandi file di dati), software e gestionali su misura (portali B2B), app iOS e Android, siti web e UI/UX, consulenza informatica.
+- [Soluzioni](https://arelgroup.it/#soluzioni): software e gestionali su misura (anche portali B2B), integrazione AI e automazioni (agenti, chatbot, integrazioni API, n8n/Make, grandi file di dati), Forward Deployed Engineer, app iOS e Android e web app, e-commerce e marketplace (WooCommerce, PrestaShop, Amazon), siti web e UI/UX.
 - [Domande frequenti](https://arelgroup.it/#faq)
 
 ## Lavori
