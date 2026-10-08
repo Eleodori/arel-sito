@@ -11,6 +11,15 @@ Informazioni chiave:
 - Società: Arel Group S.r.l.s., P. IVA 04043580549.
 - Contatti: info@arelgroup.it · +39 327 076 3344 · +39 379 104 3810
 
+## Lingue
+
+Il sito è disponibile in quattro lingue, con lo stesso contenuto:
+
+- [Italiano](https://arelgroup.it/) · [Informativa privacy](https://arelgroup.it/privacy/)
+- [English](https://arelgroup.it/en/) · [Privacy notice](https://arelgroup.it/en/privacy/)
+- [Français](https://arelgroup.it/fr/) · [Politique de confidentialité](https://arelgroup.it/fr/privacy/)
+- [Deutsch](https://arelgroup.it/de/) · [Datenschutzerklärung](https://arelgroup.it/de/privacy/)
+
 ## Pagine
 
 - [Home](https://arelgroup.it/): cosa offre Arel, soluzioni, Lab AI, metodo e domande frequenti.

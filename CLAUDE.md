@@ -15,8 +15,8 @@ Sito di Arel Group S.r.l.s. (software house: gestionali, e-commerce, Amazon, app
 - 3D: WebGL scritto a mano in `site.js` (`initOrb`, nessuna libreria). Parte al primo tocco/scroll/movimento del mouse o dopo 4,5 s; fino ad allora si vede la A statica a particelle (SVG `#archev`), identica per forma e posizione. Non anticipare l'avvio automatico: creare il contesto WebGL nei primi secondi abbassa PageSpeed mobile.
 - GSAP 3.12.5 + ScrollTrigger self-hosted in `public/assets/vendor/`, caricati in idle.
 - Lab AI: `netlify/functions/lab.mjs` (Netlify Functions v2, `/api/lab`). Fornitore AI scelto da variabile: Groq (gratuito, attuale), Gemini o Claude. Limiti in Netlify Blobs.
-- Lead: Netlify Forms, modulo `brief` (modulo statico nascosto in fondo a `src/pages/index.astro` + invio via fetch).
-- Lingue: IT/EN nello stesso file; testi nel dizionario `I18N` in `site.js`, elementi con `data-i18n` / `data-i18n-html`.
+- Lead: Netlify Forms, moduli `brief` (dal Lab AI: modulo statico nascosto + invio via fetch) e `analisi` (CTA finale), entrambi in `src/components/Home.astro`; il campo `lang` invia la lingua della pagina.
+- Lingue: IT (default, `/`), EN (`/en/`), FR (`/fr/`), DE (`/de/`), ognuna con la sua pagina generata da Astro e i testi già nell'HTML. Testi in `src/i18n/strings.js` (l'italiano è la lingua di riferimento: ogni chiave nuova va aggiunta in tutte e 4 le lingue). Home e privacy sono componenti (`src/components/Home.astro`, `Privacy.astro`) usati dalle pagine `src/pages/index.astro`, `privacy.astro` e `src/pages/[lang]/`. Lo script client legge la lingua da `<html lang>` e le stringhe dinamiche da `<script type="application/json" id="i18n">`. hreflang, canonical e JSON-LD per lingua in `Base.astro` e `src/i18n/index.js`.
 
 ## Regole di design (non negoziabili)
 - **Mobile first**: si progetta a 390 px, poi si allarga.

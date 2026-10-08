@@ -4,184 +4,15 @@ const REDUCE = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const COARSE = matchMedia('(pointer: coarse)').matches;
 const $ = (s, r=document) => r.querySelector(s);
 const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
-/* ---------------- i18n ---------------- */
-const I18N = {
- it:{
-  nav_sol:"Soluzioni", nav_lab:"Lab AI", nav_method:"Metodo", nav_faq:"FAQ", nav_cta:"Analisi gratuita",
-  hero_eyebrow:"Sviluppo software su misura · Integrazione AI",
-  hero_l1:"Porta un'idea.", hero_l2:"Noi creiamo il software che la fa funzionare.",
-  hero_sub:"Software su misura e soluzioni AI costruiti sui tuoi processi.<br><b>Meno lavoro manuale, più tempo per crescere.</b>",
-  hero_cta1:"Richiedi l'analisi gratuita", hero_cta2:"Descrivi la tua idea",
-  hero_note:"30 minuti con uno sviluppatore.",
-  pr1:"Parli con chi sviluppa", pr2:"Costi scritti prima di iniziare", pr3:"Lo vedi funzionare passo passo",
-  pain_eyebrow:"Ti riconosci?", pain_title:"Quale di queste frasi è tua? <em>Tocca e scopri.</em>",
-  pick_build:"Cosa costruiamo",
-  note_a:"30 minuti con uno sviluppatore, non con un commerciale.", note_l:"Prima una lettura dell'AI, poi ne parliamo.",
-  p1_l:"Ricopio gli stessi dati ovunque", p1_t:"Scrivi un dato una volta sola.", p1_d:"Ogni copia-incolla è tempo pagato per un lavoro che non serve. Basta un errore per sbagliare un ordine o una fattura.",
-  p1_b1:"Gestisci tutta l'azienda dal tuo gestionale", p1_b2:"Listini fornitori aggiornati senza ricopiarli", p1_b3:"Excel da migliaia di righe sistemati da soli", p1_cta:"Mostraci dove ricopi i dati",
-  p2_l:"Tutto passa da WhatsApp ed email", p2_t:"Ogni richiesta in un posto solo.", p2_d:"Un messaggio perso diventa un ordine sbagliato o un cliente che aspetta. Per sapere a che punto sei, devi chiedere in giro.",
-  p2_b1:"Portale dove i clienti ordinano da soli", p2_b2:"Ordini via email letti e caricati da soli", p2_b3:"Stato di ogni ordine, visibile a tutti", p2_cta:"Raccontaci come lavori oggi",
-  p3_l:"I dati non sono mai aggiornati", p3_t:"I numeri dell'azienda, aggiornati ogni giorno.", p3_d:"Decidi su un Excel che qualcuno compone a mano a fine mese. Quando lo leggi, è già vecchio.",
-  p3_b1:"Una schermata con vendite, margini e scadenze", p3_b2:"Dati presi da gestionale, banca ed e-commerce", p3_b3:"Avvisi quando un numero esce dai binari", p3_cta:"Dicci quali numeri ti servono",
-  p4_l:"Il gestionale non mi segue", p4_t:"Un gestionale che lavora come te.", p4_d:"Excel accanto al programma, preventivi rifatti a mano, licenze pagate per funzioni che non usi. Più cresci, più si complica.",
-  p4_b1:"Gestionale fatto sui tuoi passaggi reali", p4_b2:"Preventivi creati dai tuoi listini, non a mano", p4_b3:"Collegato ai programmi che usi già", p4_cta:"Mostraci cosa fai ancora a mano",
-  p5_l:"Voglio l'AI, ma dove?", p5_t:"Prima capiamo dove ti fa risparmiare.", p5_d:"L'hai provata su ChatGPT, ma non sai dove metterla al lavoro. Né a chi affidarti senza buttare soldi.",
-  p5_b1:"Agente che smista e risponde alle email", p5_b2:"Assistente che cerca nei tuoi documenti", p5_b3:"Risposte ai clienti preparate in bozza", p5_cta:"Prova il tuo caso con l'AI",
-  p6_l:"Ho un'idea da sviluppare", p6_t:"Dall'idea a un prodotto che cresce.", p6_d:"Preventivi vaghi, sviluppatori che spariscono a metà, costi che raddoppiano. Alla fine, un prodotto che non può crescere.",
-  p6_b1:"Prima versione con le funzioni essenziali", p6_b2:"Web app o app iOS e Android", p6_b3:"Pannello per gestire utenti e pagamenti", p6_cta:"Descrivi l'idea all'AI",
-  pp1:"Ogni giorno ricopiamo a mano gli stessi dati tra Excel, gestionale ed e-commerce. Vorrei ",
-  pp2:"Ordini e richieste ci arrivano da WhatsApp, email e telefono e si perdono. Vorrei ",
-  pp3:"Per avere i numeri dell'azienda dobbiamo mettere insieme a mano dati da più programmi. Vorrei ",
-  pp4:"Il programma che usiamo non si adatta a come lavoriamo e facciamo molto a mano, per esempio ",
-  pp5:"Vorrei usare l'AI in azienda, per esempio per ", pp6:"Ho un'idea per un prodotto digitale: ",
-  sol_eyebrow:"Cosa sviluppiamo", sol_title:"Cosa costruiamo,<br><em>in concreto.</em>", sol_lead:"Software, integrazione AI e app su misura. Li sviluppiamo noi, senza intermediari.",
-  o3_k:"Software su misura", o3_t:"Gestionali e portali fatti su come lavori", o3_d:"Costruiti sui tuoi passaggi e collegati ai programmi che usi già.",
-  o3_i1:"Gestionali su misura", o3_i2:"Portali B2B per i clienti", o3_i3:"Collegamento ai tuoi software", o3_i4:"Report sempre aggiornati", o3_cta:"Mostraci come lavori",
-  o2_k:"AI e automazioni", o2_t:"L'AI nei tuoi processi, non in una demo", o2_d:"Agenti, chatbot e automazioni collegati ai tuoi dati, solo dove fanno risparmiare tempo.",
-  o2_i1:"Agenti AI e chatbot", o2_i2:"Automazioni tra i tuoi programmi", o2_i3:"Elaborazione di grandi Excel", o2_i4:"Consulenza: dove usare l'AI", o2_cta:"Prova un tuo caso con l'AI",
-  o4_k:"App e piattaforme", o4_t:"La tua idea, costruita per crescere", o4_d:"Web app, piattaforme e app iOS e Android, con costi scritti prima e una demo a ogni passo.",
-  o4_i1:"Web app e piattaforme", o4_i2:"App iOS e Android", o4_i3:"Prima versione da testare", o4_i4:"Pannello di gestione", o4_cta:"Descrivi l'idea all'AI",
-  o1_k:"E-commerce e marketplace", o1_t:"Negozio, magazzino e marketplace sincronizzati", o1_d:"WooCommerce e PrestaShop collegati a gestionale e marketplace: prezzi, giacenze e ordini sempre allineati.",
-  o1_i1:"Sviluppo WooCommerce e PrestaShop", o1_i2:"Plugin su misura", o1_i3:"Integrazione con Amazon e marketplace", o1_i4:"Sincronizzazione col gestionale", o1_cta:"Mostraci il tuo negozio",
-  o5_k:"Forward Deployed Engineer", o5_t:"Un nostro sviluppatore dentro la tua azienda", o5_d:"Lavora con le tue persone, sui tuoi dati e programmi, finché il nuovo strumento lo usate ogni giorno.",
-  o5_i1:"Lavora sui tuoi dati reali", o5_i2:"Competenza senza assumere", o5_i3:"Affianca il tuo team", o5_i4:"Resta finché funziona", o5_cta:"Parliamone in 30 minuti",
-  pf3:"Oggi gestiamo a mano, tra Excel ed email, ", pf2:"Vorrei usare l'AI in azienda per ", pf4:"La mia idea è una piattaforma che ", pf1:"Ho un e-commerce su ", pf5:"Ci servirebbe uno sviluppatore che lavori con noi per ",
-  lab_eyebrow:"Lab AI", lab_free:"2 minuti · senza registrazione", lab_title:"Descrivi cosa ti serve. <em>Vedi da dove partire.</em>",
-  lab_desc:"L'AI ti fa due o tre domande e ti mostra funzioni, fasi e tempi di massima.",
-  ls1:"Descrivi", ls2:"2-3 domande", ls3:"Prima lettura",
-  app_sub:"Prima lettura con l'AI", mode_wait:"connessione", mode_live:"AI attiva", mode_demo:"demo",
-  f_label:"Cosa vorresti risolvere o costruire?", f_hint:"Scrivi come a un collega: cosa non va oggi, cosa vorresti, con quali programmi lavori.",
-  t_ph:"Es. Copiamo a mano gli ordini dalle email al gestionale. Vorrei che arrivassero da soli…",
-  t_ex:"Oppure parti da un esempio",
-  ex1:"Ordini copiati a mano nel gestionale", ex2:"Un assistente AI sui nostri documenti", ex3:"App per prenotare e pagare lezioni", ex4:"Listini Excel enormi aggiornati da soli",
-  b_analyze:"Inizia la lettura", b_generate:"Mostra la prima lettura", b_skip:"Salta le domande", b_stop:"Annulla", b_copy:"Copia il testo", b_restart:"Ricomincia", b_send:"Richiedi l'analisi gratuita", b_retry:"Riprova", b_back:"Modifica il testo",
-  t_short:"Scrivi almeno una frase: cosa non va o cosa vorresti ottenere.",
-  l_idea:"Quello che hai scritto",
-  p_analyze:["Leggo quello che hai scritto","Cerco cosa manca per capire","Preparo due o tre domande"],
-  p_generate:["Metto in fila gli obiettivi","Individuo le funzioni principali","Scelgo gli strumenti adatti","Metto in fila fasi e tempi"],
-  t_questions:"Qualche domanda per capire meglio (puoi anche saltarle):",
-  bp_kick:"Prima lettura · generata dall'AI",
-  l_modules:"Funzioni principali", l_stack:"Strumenti che useremmo", l_phases:"Fasi indicative", l_open:"Da chiarire insieme", l_total:"Tempi di massima", u_weeks:"settimane",
-  bp_next:"È una lettura automatica. In 30 minuti, con uno sviluppatore, capiamo cosa tenere, cosa togliere e se conviene farlo.",
-  t_copied:"Testo copiato negli appunti.", t_copyfail:"Copia non riuscita: seleziona il testo qui sotto e copialo.",
-  t_send:"Lo sviluppatore riceve già questa lettura: non devi rispiegare niente. Ti diciamo cosa conviene fare, anche se la risposta è \"non farlo\".",
-  t_demo:"L'AI ora non è raggiungibile: ecco un esempio dimostrativo.",
-  e_session:"Sessione scaduta. Riprova.",
-  e_json:"La risposta è arrivata incompleta. Premi Riprova.", e_generic:"Connessione interrotta. Riprova.",
-  met_eyebrow:"Metodo", met_title:"Prima capiamo. <em>Poi sviluppiamo.</em>",
-  m1_t:"Analisi gratuita", m1_d:"30 minuti con uno sviluppatore, senza impegno.",
-  m2_t:"Preventivo chiaro", m2_d:"Funzioni, fasi del progetto e costi scritti prima di iniziare.",
-  m3_t:"Sviluppo", m3_d:"Passi brevi: vedi il progetto prendere forma step dopo step.",
-  m4_t:"Lancio", m4_d:"Messa online e assistenza dopo il lancio.",
-  faq_eyebrow:"Domande frequenti", faq_title:"Le domande <em>prima di sentirci.</em>",
-  faq_desc:"Non trovi la tua domanda? Chiedicela durante l'analisi gratuita.",
-  f1q:"Quanto costa un software su misura?", f1a:"Dipende da funzioni, collegamenti e volumi, per questo non abbiamo un listino. Dopo l'analisi ricevi un preventivo scritto: sai quanto spendi prima di iniziare.",
-  f2q:"Cosa include l'analisi gratuita, e cosa no?", f2a:"Una call di circa 30 minuti con uno sviluppatore. Capiamo come lavori o qual è la tua idea e ti diciamo se conviene sviluppare. Lo sviluppo è a pagamento.",
-  f3q:"Ho già provato ChatGPT: cosa cambia?", f3a:"Usiamo modelli simili, ma collegati ai tuoi dati e dentro il tuo lavoro di ogni giorno. Prima di sviluppare verifichiamo dove fanno risparmiare tempo davvero.",
-  f4q:"Cos'è un Forward Deployed Engineer?", f4a:"Un nostro sviluppatore che lavora con il tuo team, sui tuoi dati e programmi, finché il nuovo strumento è in uso ogni giorno. Utile quando serve competenza tecnica continua senza assumere.",
-  f5q:"Potete collegare i programmi che uso già?", f5a:"Nella maggior parte dei casi sì. Se un programma non si può collegare, te lo diciamo durante l'analisi, prima di qualsiasi preventivo.",
-  f6q:"Con chi parlo?", f6a:"Con uno sviluppatore del team. Non ci sono commerciali in mezzo: parli con chi scrive il codice.",
-  f7q:"Il software sarà mio?", f7a:"Sì: a progetto saldato codice, dati e accessi sono tuoi.",
-  f8q:"Lavorate anche fuori Perugia?", f8a:"Sì. Lavoriamo da remoto con aziende di tutta Italia, in italiano o in inglese.",
-  cta_eyebrow:"Inizia adesso", cta_l1:"La tua idea merita", cta_l2:"un progetto vero.",
-  cta_d:"Raccontaci cosa ti serve: in 30 minuti con uno sviluppatore capiamo se e come conviene realizzarlo. L'analisi è gratuita, senza impegno.",
-  a_msg:"Cosa ti serve?", a_ph:"Es. Un gestionale per i nostri ordini, collegato all'e-commerce.", a_sent:"Richiesta inviata. Uno sviluppatore ti scrive per fissare l'analisi.", e_msg:"Scrivi in due righe cosa vorresti sistemare.",
-  c_email:"Email", c_phone:"Telefono",
-  foot_d:"Software su misura e soluzioni AI per aziende che vogliono crescere.",
-  fh1:"Soluzioni", fh2:"Risorse", fh3:"Contatti",
-  fl1:"E-commerce e marketplace", fl2:"Gestione Amazon", fl3:"Agenti AI e automazioni", fl4:"Software e gestionali su misura", fl5:"App iOS e Android", fl6:"Lab AI", fl8:"Domande frequenti", fl9:"Forward Deployed Engineer", fl10:"Analisi gratuita",
-  l_lead:"Fissiamo 30 minuti con uno sviluppatore?", f_name:"Nome e azienda", f_email:"Email", f_phone:"Telefono (facoltativo)", f_consent:"Ho letto l'informativa e acconsento a essere ricontattato per l'analisi.", privacy_link:"Informativa privacy", b_submit:"Richiedi l'analisi gratuita", t_sent:"Fatto. Uno sviluppatore legge la tua prima lettura e ti scrive per fissare l'analisi.", t_senderr:"Invio non riuscito. Riprova, oppure scrivici a info@arelgroup.it.", e_name:"Inserisci il tuo nome.", e_email:"Inserisci un'email valida.", e_consent:"Serve il consenso per poterti ricontattare.", e_offtopic:"Il Lab AI legge idee e problemi di software, automazioni, AI ed e-commerce. Descrivi qualcosa per la tua attività.", e_limit:"Hai raggiunto il limite di letture per oggi. Scrivici: rispondiamo noi.", e_fast:"Un attimo: aspetta qualche secondo e riprova.", e_busy:"Il Lab AI è molto richiesto in questo momento. Riprova più tardi o scrivici.", privacy_hint:"Evita dati personali o riservati.", foot_proto:"Anteprima · non indicizzata"
- },
- en:{
-  nav_sol:"Solutions", nav_lab:"AI Lab", nav_method:"Method", nav_faq:"FAQ", nav_cta:"Free analysis",
-  hero_eyebrow:"Custom software development · AI integration",
-  hero_l1:"Bring an idea.", hero_l2:"We build the software that makes it work.",
-  hero_sub:"Custom software and AI solutions built around your processes.<br><b>Less manual work, more time to grow.</b>",
-  hero_cta1:"Request your free analysis", hero_cta2:"Describe your idea",
-  hero_note:"30 minutes with a developer.",
-  pr1:"You talk to the people who build it", pr2:"Costs in writing before we start", pr3:"You see it working step by step",
-  pain_eyebrow:"Sound familiar?", pain_title:"Which of these sounds like you? <em>Tap to see.</em>",
-  pick_build:"What we build",
-  note_a:"30 minutes with a developer, not a salesperson.", note_l:"First a reading from the AI, then we talk.",
-  p1_l:"I retype the same data everywhere", p1_t:"Enter data once.", p1_d:"Every copy-paste is paid time spent on work nobody needs. One mistake is enough to get an order or an invoice wrong.",
-  p1_b1:"Run your whole business from your system", p1_b2:"Supplier price lists updated without retyping", p1_b3:"Huge Excel files sorted out automatically", p1_cta:"Show us where you retype data",
-  p2_l:"Everything goes through WhatsApp and email", p2_t:"Every request in one place.", p2_d:"A lost message becomes a wrong order or a waiting customer. To know where things stand, you have to ask around.",
-  p2_b1:"A portal where customers order on their own", p2_b2:"Email orders read and entered automatically", p2_b3:"Every order's status, visible to everyone", p2_cta:"Tell us how you work today",
-  p3_l:"Our data is never up to date", p3_t:"Your company's numbers, updated daily.", p3_d:"You decide based on an Excel someone puts together by hand at month end. By the time you read it, it's old.",
-  p3_b1:"One screen with sales, margins and deadlines", p3_b2:"Data from your system, bank and store", p3_b3:"Alerts when a number goes off track", p3_cta:"Tell us which numbers you need",
-  p4_l:"My software doesn't keep up", p4_t:"A system that works the way you do.", p4_d:"Excel next to the program, quotes redone by hand, licences paid for features you don't use. The more you grow, the worse it gets.",
-  p4_b1:"A system built on your real steps", p4_b2:"Quotes created from your price lists", p4_b3:"Connected to the programs you already use", p4_cta:"Show us what you still do by hand",
-  p5_l:"I want AI, but where?", p5_t:"First we find where it saves you time.", p5_d:"You've tried ChatGPT, but you don't know where to put it to work. Or who to trust without wasting money.",
-  p5_b1:"An agent that sorts and answers emails", p5_b2:"An assistant that searches your documents", p5_b3:"Customer replies drafted for you", p5_cta:"Try your case with the AI",
-  p6_l:"I have an idea to build", p6_t:"From idea to a product that grows.", p6_d:"Vague quotes, developers who vanish halfway, costs that double. In the end, a product that can't grow.",
-  p6_b1:"A first version with the essential features", p6_b2:"Web app or iOS and Android app", p6_b3:"A dashboard to manage users and payments", p6_cta:"Describe the idea to the AI",
-  pp1:"Every day we retype the same data by hand between Excel, our system and our store. I'd like ",
-  pp2:"Orders and requests reach us via WhatsApp, email and phone and get lost. I'd like ",
-  pp3:"To get our company's numbers we have to combine data from several programs by hand. I'd like ",
-  pp4:"The program we use doesn't fit how we work and we do a lot by hand, for example ",
-  pp5:"I'd like to use AI in my company, for example to ", pp6:"I have an idea for a digital product: ",
-  sol_eyebrow:"What we build", sol_title:"What we build,<br><em>in practice.</em>", sol_lead:"Custom software, AI integration and apps. We build them ourselves, with no middlemen.",
-  o3_k:"Custom software", o3_t:"Systems and portals built around how you work", o3_d:"Designed on your steps and connected to the programs you already use.",
-  o3_i1:"Custom management systems", o3_i2:"B2B portals for your customers", o3_i3:"Connection to your software", o3_i4:"Always up-to-date reports", o3_cta:"Show us how you work",
-  o2_k:"AI and automation", o2_t:"AI in your processes, not in a demo", o2_d:"Agents, chatbots and automations connected to your data, only where they save time.",
-  o2_i1:"AI agents and chatbots", o2_i2:"Automations across your programs", o2_i3:"Processing of large Excel files", o2_i4:"Consulting: where to use AI", o2_cta:"Try a case of yours with AI",
-  o4_k:"Apps and platforms", o4_t:"Your idea, built to grow", o4_d:"Web apps, platforms and iOS and Android apps, with costs in writing first and a demo at every step.",
-  o4_i1:"Web apps and platforms", o4_i2:"iOS and Android apps", o4_i3:"A first version to test", o4_i4:"Admin dashboard", o4_cta:"Describe the idea to the AI",
-  o1_k:"E-commerce and marketplaces", o1_t:"Store, stock and marketplaces in sync", o1_d:"WooCommerce and PrestaShop connected to your system and marketplaces: prices, stock and orders always aligned.",
-  o1_i1:"WooCommerce and PrestaShop development", o1_i2:"Custom plugins", o1_i3:"Amazon and marketplace integration", o1_i4:"Sync with your management system", o1_cta:"Show us your store",
-  o5_k:"Forward Deployed Engineer", o5_t:"One of our developers inside your company", o5_d:"Works with your people, on your data and programs, until the new tool is part of your daily work.",
-  o5_i1:"Works on your real data", o5_i2:"Expertise without hiring", o5_i3:"Works alongside your team", o5_i4:"Stays until it works", o5_cta:"Let's talk for 30 minutes",
-  pf3:"Today we manage by hand, between Excel and email, ", pf2:"I'd like to use AI in my company to ", pf4:"My idea is a platform that ", pf1:"I have an online store on ", pf5:"We'd need a developer working with us to ",
-  lab_eyebrow:"AI Lab", lab_free:"2 minutes · no sign-up", lab_title:"Describe what you need. <em>See where to start.</em>",
-  lab_desc:"The AI asks you two or three questions and shows you features, phases and rough timing.",
-  ls1:"Describe", ls2:"2-3 questions", ls3:"First reading",
-  app_sub:"First reading with AI", mode_wait:"connecting", mode_live:"AI on", mode_demo:"demo",
-  f_label:"What would you like to fix or build?", f_hint:"Write as you would to a colleague: what's wrong today, what you'd like, which programs you use.",
-  t_ph:"E.g. We copy orders by hand from emails into our system. I'd like them to arrive on their own…",
-  t_ex:"Or start from an example",
-  ex1:"Orders copied by hand into our system", ex2:"An AI assistant on our documents", ex3:"App to book and pay for lessons", ex4:"Huge Excel price lists updated automatically",
-  b_analyze:"Start the reading", b_generate:"Show the first reading", b_skip:"Skip the questions", b_stop:"Cancel", b_copy:"Copy the text", b_restart:"Start over", b_send:"Request your free analysis", b_retry:"Try again", b_back:"Edit the text",
-  t_short:"Write at least one sentence: what's wrong or what you'd like to achieve.",
-  l_idea:"What you wrote",
-  p_analyze:["Reading what you wrote","Finding what's missing","Preparing two or three questions"],
-  p_generate:["Lining up the goals","Finding the main features","Choosing the right tools","Lining up phases and timing"],
-  t_questions:"A few questions to understand better (you can skip them):",
-  bp_kick:"First reading · generated by AI",
-  l_modules:"Main features", l_stack:"Tools we would use", l_phases:"Indicative phases", l_open:"To clarify together", l_total:"Rough timing", u_weeks:"weeks",
-  bp_next:"This is an automatic reading. In 30 minutes, with a developer, we work out what to keep, what to drop and whether it's worth doing.",
-  t_copied:"Text copied to the clipboard.", t_copyfail:"Copy failed: select the text below and copy it.",
-  t_send:"The developer already gets this reading: no need to explain it all again. We tell you what makes sense, even if the answer is \"don't do it\".",
-  t_demo:"The AI can't be reached right now: here is a demo example.",
-  e_session:"Session expired. Try again.",
-  e_json:"The answer came back incomplete. Press Try again.", e_generic:"Connection interrupted. Try again.",
-  met_eyebrow:"Method", met_title:"First we understand. <em>Then we build.</em>",
-  m1_t:"Free analysis", m1_d:"30 minutes with a developer, no commitment.",
-  m2_t:"Clear quote", m2_d:"Features, project phases and costs in writing before we start.",
-  m3_t:"Build", m3_d:"Short steps: watch the project take shape, step by step.",
-  m4_t:"Launch", m4_d:"Go live, with support after launch.",
-  faq_eyebrow:"FAQ", faq_title:"The questions <em>before we talk.</em>",
-  faq_desc:"Can't find your question? Ask us during the free analysis.",
-  f1q:"How much does custom software cost?", f1a:"It depends on features, connections and volumes, which is why we have no price list. After the analysis you get a written quote: you know what you'll spend before we start.",
-  f2q:"What does the free analysis include, and what not?", f2a:"A call of about 30 minutes with a developer. We understand how you work or what your idea is and tell you whether it's worth building. Development is paid.",
-  f3q:"I've already tried ChatGPT: what's different?", f3a:"We use similar models, but connected to your data and inside your daily work. Before building, we check where they really save time.",
-  f4q:"What is a Forward Deployed Engineer?", f4a:"One of our developers working with your team, on your data and programs, until the new tool is in daily use. Useful when you need ongoing technical expertise without hiring.",
-  f5q:"Can you connect the programs I already use?", f5a:"In most cases, yes. If a program can't be connected, we tell you during the analysis, before any quote.",
-  f6q:"Who do I talk to?", f6a:"A developer on the team. No salespeople in between: you talk to the people who write the code.",
-  f7q:"Will the software be mine?", f7a:"Yes: once the project is paid, code, data and access are yours.",
-  f8q:"Do you work outside Perugia?", f8a:"Yes. We work remotely with companies all over Italy, in Italian or English.",
-  cta_eyebrow:"Start now", cta_l1:"Your idea deserves", cta_l2:"a real project.",
-  cta_d:"Tell us what you need: in 30 minutes with a developer we work out whether and how it's worth building. The analysis is free, with no commitment.",
-  a_msg:"What do you need?", a_ph:"E.g. A management system for our orders, connected to our online store.", a_sent:"Request sent. A developer will write to you to set up the analysis.", e_msg:"Write in two lines what you'd like to fix.",
-  c_email:"Email", c_phone:"Phone",
-  foot_d:"Custom software and AI solutions for companies that want to grow.",
-  fh1:"Solutions", fh2:"Resources", fh3:"Contact",
-  fl1:"E-commerce and marketplaces", fl2:"Amazon management", fl3:"AI agents and automation", fl4:"Custom software and management systems", fl5:"iOS and Android apps", fl6:"AI Lab", fl8:"FAQ", fl9:"Forward Deployed Engineer", fl10:"Free analysis",
-  l_lead:"Shall we book 30 minutes with a developer?", f_name:"Name and company", f_email:"Email", f_phone:"Phone (optional)", f_consent:"I have read the privacy notice and agree to be contacted about the analysis.", privacy_link:"Privacy notice", b_submit:"Request your free analysis", t_sent:"Done. A developer will read your first reading and write to you to set up the analysis.", t_senderr:"Sending failed. Try again, or write to us at info@arelgroup.it.", e_name:"Please enter your name.", e_email:"Please enter a valid email.", e_consent:"We need your consent to contact you.", e_offtopic:"The AI Lab reads ideas and problems about software, automation, AI and e-commerce. Describe something for your business.", e_limit:"You've reached today's limit of readings. Write to us: we'll answer.", e_fast:"One moment: wait a few seconds and try again.", e_busy:"The AI Lab is very busy right now. Try again later or write to us.", privacy_hint:"Avoid personal or confidential data.", foot_proto:"Preview · not indexed"
- }
-};
-let LANG = 'it';
-try { const s = localStorage.getItem('arel-lang'); if (s === 'en' || s === 'it') LANG = s; } catch(e){}
-const T = k => (I18N[LANG][k] ?? I18N.it[k] ?? k);
+/* ---------------- i18n ----------------
+   Ogni lingua ha la sua pagina (/, /en/, /fr/, /de/) con i testi già nell'HTML.
+   Qui servono solo le stringhe dinamiche (Lab AI, moduli, schede dei problemi):
+   la pagina le porta in <script type="application/json" id="i18n">, generate al build da src/i18n/. */
+const LANG = document.documentElement.lang || 'it';
+let STR = {};
+try { STR = JSON.parse($('#i18n').textContent); } catch(e){}
+const T = k => (STR[k] ?? k);
+const DEMO = STR.demo;
 /* Montserrat 800 con letter-spacing negativo: "rt" e "ft" si toccano nei titoli grandi.
    Avvolge la r/f seguita da t in uno span .kp (un filo di margine), dopo ogni cambio lingua.
    L'HTML statico ha già gli span, così al caricamento non cambia nulla (CLS 0). */
@@ -199,23 +30,11 @@ function kern(){
     });
   });
 }
-/* trusted, author-written strings only */
-function applyLang(){
-  document.documentElement.lang = LANG;
-  $$('[data-i18n]').forEach(el => { el.textContent = T(el.dataset.i18n); });
-  $$('[data-i18n-html]').forEach(el => { el.innerHTML = T(el.dataset.i18nHtml); });
-  $$('[data-i18n-ph]').forEach(el => { el.placeholder = T(el.dataset.i18nPh); });
-  const lb = $('#langBtn'); lb.textContent = LANG === 'it' ? 'EN' : 'IT'; lb.setAttribute('aria-label', LANG === 'it' ? 'EN · English version' : 'IT · Versione italiana');
+function initLang(){
   kern();
   renderPick(curPain, false);
   renderLab();
-  if (window.ScrollTrigger) requestAnimationFrame(() => ScrollTrigger.refresh());
 }
-$('#langBtn').addEventListener('click', () => {
-  LANG = LANG === 'it' ? 'en' : 'it';
-  try { localStorage.setItem('arel-lang', LANG); } catch(e){}
-  applyLang();
-});
 
 
 /* ---------------- scroll bar + mobile cta ---------------- */
@@ -607,26 +426,7 @@ $$('[data-prefill]').forEach(b => b.addEventListener('click', () => {
   setTimeout(() => { const ta = $('#ideaIn'); if (ta) { ta.focus({ preventScroll:true }); ta.setSelectionRange(ta.value.length, ta.value.length); } }, 700);
 }));
 
-const DEMO = {
- it:{ questions:[
-   {text:"Quante persone useranno il gestionale ogni giorno, e da quali dispositivi?", placeholder:"Es. 12 operatori, PC in ufficio e palmari in magazzino"},
-   {text:"Su quali canali vendete oggi, oltre ad Amazon?", placeholder:"Es. WooCommerce ed eBay"},
-   {text:"Avete già un software di fatturazione o contabilità da collegare?", placeholder:"Es. sì, lo usiamo per tutte le fatture"} ],
-  bp:{ title:"Demo · Gestionale multi-magazzino", summary:"Un gestionale web che unifica giacenze e ordini di tre magazzini e li sincronizza con Amazon e con l'e-commerce. Gli operatori lavorano da PC in ufficio e da app per il picking.",
-   modules:[{name:"Giacenze multi-magazzino",description:"Disponibilità in tempo reale per sede, lotti e soglie di riordino."},{name:"Ordini unificati",description:"Tutti i canali in un'unica coda, con stati e priorità."},{name:"Sync Amazon",description:"Prezzi, giacenze e ordini allineati via SP-API."},{name:"App picking",description:"Liste di prelievo e scansione barcode da smartphone."},{name:"Report e dashboard",description:"Rotazione prodotti, margini per canale ed esportazioni."}],
-   stack:["React","Node.js","PostgreSQL","Amazon SP-API","React Native","Docker"],
-   phases:[{name:"Analisi e UX",weeks:"2-3",deliverable:"Requisiti, flussi e prototipo cliccabile"},{name:"Core gestionale",weeks:"4-6",deliverable:"Giacenze, ordini e ruoli utente"},{name:"Integrazioni",weeks:"3-4",deliverable:"Amazon, e-commerce e contabilità collegati"},{name:"App e lancio",weeks:"2-3",deliverable:"App picking, formazione e messa online"}],
-   open_points:["Gestione dei resi tra magazzini diversi","Numero di prodotti e frequenza di aggiornamento"], total_weeks:"11-16" } },
- en:{ questions:[
-   {text:"How many people will use the system daily, and on which devices?", placeholder:"E.g. 12 operators, office PCs and warehouse handhelds"},
-   {text:"Which channels do you sell on today, besides Amazon?", placeholder:"E.g. WooCommerce and eBay"},
-   {text:"Do you already have invoicing or accounting software to connect?", placeholder:"E.g. yes, we use it for all invoices"} ],
-  bp:{ title:"Demo · Multi-warehouse system", summary:"A web-based management system that unifies stock and orders across three warehouses and syncs them with Amazon and the online store. Staff work from office PCs and a picking app.",
-   modules:[{name:"Multi-warehouse stock",description:"Real-time availability per site, batches and reorder thresholds."},{name:"Unified orders",description:"Every channel in one queue, with statuses and priorities."},{name:"Amazon sync",description:"Prices, stock and orders aligned via SP-API."},{name:"Picking app",description:"Pick lists and barcode scanning from a smartphone."},{name:"Reports and dashboard",description:"Product turnover, margins per channel and exports."}],
-   stack:["React","Node.js","PostgreSQL","Amazon SP-API","React Native","Docker"],
-   phases:[{name:"Analysis and UX",weeks:"2-3",deliverable:"Requirements, flows and clickable prototype"},{name:"Core system",weeks:"4-6",deliverable:"Stock, orders and user roles"},{name:"Integrations",weeks:"3-4",deliverable:"Amazon, store and accounting connected"},{name:"App and launch",weeks:"2-3",deliverable:"Picking app, training and go-live"}],
-   open_points:["Handling returns across warehouses","Number of products and update frequency"], total_weeks:"11-16" } }
-};
+
 
 const S = (v, n) => String(v ?? '').slice(0, n || 400);
 function cleanBp(r){
@@ -787,7 +587,7 @@ async function analyze(){
   if (!apiOn || lab.demo) {
     await new Promise(r => setTimeout(r, 3600));
     if (lab.step !== 'analyzing') return;
-    lab.questions = DEMO[LANG].questions; lab.step = 'questions'; energy(false); lab.msg = sampleReady ? T('t_demo') : ''; renderLab(); focusFirst(); return;
+    lab.questions = DEMO.questions; lab.step = 'questions'; energy(false); lab.msg = sampleReady ? T('t_demo') : ''; renderLab(); focusFirst(); return;
   }
   lab.ctl = new AbortController();
   try {
@@ -807,7 +607,7 @@ async function generate(skip){
   if (!apiOn || lab.demo) {
     await new Promise(r => setTimeout(r, 6000));
     if (lab.step !== 'generating') return;
-    lab.bp = cleanBp(DEMO[LANG].bp); done(); return;
+    lab.bp = cleanBp(DEMO.bp); done(); return;
   }
   lab.ctl = new AbortController();
   try {
@@ -845,7 +645,7 @@ function leadForm(){
   const hp = el('label', 'hp'); hp.setAttribute('aria-hidden', 'true'); const hpi = el('input'); hpi.name = 'bot-field'; hpi.tabIndex = -1; hpi.autocomplete = 'off'; hp.appendChild(hpi); box.appendChild(hp);
   const c = el('label', 'consent'); const cb = el('input'); cb.type = 'checkbox'; cb.id = 'leadConsent'; cb.checked = !!(lab.lead && lab.lead.consent);
   cb.addEventListener('change', () => { lab.lead = lab.lead || {}; lab.lead.consent = cb.checked; });
-  const ct = el('span', '', T('f_consent') + ' '); const a = el('a', '', T('privacy_link')); a.href = '/privacy/'; a.target = '_blank'; a.rel = 'noopener'; ct.appendChild(a);
+  const ct = el('span', '', T('f_consent') + ' '); const a = el('a', '', T('privacy_link')); a.href = T('privacy_href'); a.target = '_blank'; a.rel = 'noopener'; ct.appendChild(a);
   c.append(cb, ct); box.appendChild(c);
   const acts = el('div', 't-actions'); const sub = el('button', 'btn btn-primary btn-sm', T('b_submit') + '  →'); sub.type = 'submit'; acts.appendChild(sub); box.appendChild(acts);
   const m = el('p', 't-msg'); m.id = 'leadMsg'; box.appendChild(m);
@@ -894,5 +694,5 @@ function openAnalisi(text){
   });
 })();
 
-applyLang();
+initLang();
 })();

@@ -1,5 +1,8 @@
 # DECISIONS
 
+## 2026-10-08 · Sito in 4 lingue indicizzabili (IT, EN, FR, DE)
+Prima IT/EN si alternavano via JavaScript sullo stesso URL: Google vedeva solo l'italiano. Ora ogni lingua ha la sua pagina (`/`, `/en/`, `/fr/`, `/de/` e le rispettive privacy), con testi già nell'HTML, canonical verso se stessa, hreflang reciproci + x-default verso `/`, og:locale e JSON-LD tradotti (FAQ identiche a quelle visibili), sitemap con le alternative di lingua. Il dizionario sta in `src/i18n/strings.js`: al build genera le pagine, al client arrivano solo le stringhe dinamiche della lingua della pagina (niente bundle con 4 lingue). Selettore lingua con `<details>` nativo, nessun redirect automatico. La funzione del Lab accetta solo it/en/fr/de. Traduzioni FR ("vous") e DE ("Sie") scritte da madrelingua AI e da far rileggere; termini scelti: FR "analyse gratuite", "première lecture", "Lab IA"; DE "kostenlose Analyse", "Ersteinschätzung", "KI-Lab", "ERP" per gestionale. Rimosso il salvataggio della lingua nel browser (privacy aggiornata: nessun cookie né memoria locale). 404 unica, in italiano con i link alle altre lingue.
+
 ## 2026-10-08 · Spazio tra "rt" e "ft" nei titoli grandi
 In Montserrat 800 con letter-spacing negativo le coppie "rt" e "ft" si toccano ("Porta", "software", "partire"); ridurre il letter-spacing di tutto il titolo non basta. `kern()` in `site.js` avvolge la r/f seguita da t in `<span class="kp">` (margin-right .065em) dentro `.hero-title`, `.h2`, `.cta-title`, dopo ogni `applyLang()`. L'HTML statico ha già gli stessi span, quindi al caricamento non si sposta nulla (CLS invariato). Testi I18N non toccati. A capo dei titoli identici a 360, 390 e 1440 px, in italiano e in inglese.
 

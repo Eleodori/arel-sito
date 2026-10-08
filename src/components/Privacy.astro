@@ -1,8 +1,15 @@
 ---
+// Informativa privacy in una lingua: /privacy/, /en/privacy/, /fr/privacy/, /de/privacy/
 import Base from '../layouts/Base.astro';
+import LangSwitch from './LangSwitch.astro';
+import { I18N, langPath } from '../i18n/index.js';
+interface Props { lang: string }
+const { lang } = Astro.props;
+const T = I18N[lang];
+const home = langPath(lang);
 ---
-<Base title="Pagina non trovata · Arel Group" description="Pagina non trovata." path="/404/" noindex={true}>
-<header class="nav"><div class="wrap nav-in"><a class="logo" href="/" aria-label="Arel Group, home"><svg class="logo-svg" role="img" aria-label="Arel Group" viewBox="0 0 487 160" xmlns="http://www.w3.org/2000/svg">
+<Base lang={lang} sub="privacy/" title={T.priv_title} description={T.priv_desc}>
+<header class="nav"><div class="wrap nav-in"><a class="logo" href={home} aria-label="Arel Group, home"><svg class="logo-svg" role="img" aria-label="Arel Group" viewBox="0 0 487 160" xmlns="http://www.w3.org/2000/svg">
 <rect x="20" y="20" width="120" height="120" rx="27" fill="#1E3A6E" stroke="rgba(169,196,255,.35)" stroke-width="2"/>
 <path d="M 54.5,110.75 L 80,51.5 L 105.5,110.75" fill="none" stroke="#FFFFFF" stroke-width="13.5" stroke-linecap="round" stroke-linejoin="round"/>
 <g transform="translate(180.0,96.0) scale(0.096000,-0.096000)" fill="#F1F4F9">
@@ -18,11 +25,36 @@ import Base from '../layouts/Base.astro';
 <path transform="translate(7138.0,0)" d="M395.3109807208717 -8.067057837384745Q256.79882648784576 -8.067057837384745 177.96500419111482 71.0Q99.1311818943839 150.06705783738474 99.1311818943839 302.28960603520534V700H198.51508801341157V305.82313495389775Q198.51508801341157 189.46940486169322 250.08067896060354 135.2483235540654Q301.6462699077955 81.02724224643755 396.15549036043586 81.02724224643755Q490.6647108130763 81.02724224643755 542.2303017602683 135.2483235540654Q593.7958927074602 189.46940486169322 593.7958927074602 305.82313495389775V700H691.4907795473596V302.28960603520534Q691.4907795473596 150.06705783738474 612.6569572506287 71.0Q533.8231349538977 -8.067057837384745 395.3109807208717 -8.067057837384745Z"/>
 <path transform="translate(9528.7,0)" d="M105.1311818943839 0V700H378.44509639564126Q469.51215423302597 700 534.8124476110645 670.8109807208717Q600.1127409891031 641.6219614417435 635.2240150880134 586.8216680637049Q670.3352891869238 532.0213746856664 670.3352891869238 455.6433361274099Q670.3352891869238 380.2652975691534 635.2240150880134 325.3872590108969Q600.1127409891031 270.5092204526404 534.8124476110645 241.32020117351215Q469.51215423302597 212.1311818943839 378.44509639564126 212.1311818943839H160.04568315171835L204.51508801341157 259.1341156747695V0ZM204.51508801341157 249.31098072087175 160.04568315171835 298.6919530595138H375.3780385582565Q471.3537300922045 298.6919530595138 520.7303017602683 339.8352891869237Q570.1068734283319 380.9786253143336 570.1068734283319 455.6433361274099Q570.1068734283319 531.3080469404862 520.7303017602683 572.3736378876781Q471.3537300922045 613.43922883487 375.3780385582565 613.43922883487H160.04568315171835L204.51508801341157 662.8202011735121Z"/>
 </g>
-</svg></a><div class="nav-right"><a class="btn btn-primary btn-sm" href="/#contatti">Analisi gratuita</a></div></div></header>
+</svg></a><div class="nav-right"><LangSwitch lang={lang} sub="privacy/" /><a class="btn btn-primary btn-sm" href={home + '#contatti'}>{T.nav_cta}</a></div></div></header>
 <main class="wrap doc">
-<h1>Questa pagina non esiste.</h1>
-<p>Forse il link è cambiato. Ma se hai un'idea, sei nel posto giusto.</p>
-<p style="margin-top:28px"><a class="btn btn-primary" href="/#contatti">Richiedi l'analisi gratuita <span class="arr">→</span></a></p>
-<p style="margin-top:18px"><a href="/">← Torna alla home</a> · <a href="/en/" lang="en">English</a> · <a href="/fr/" lang="fr">Français</a> · <a href="/de/" lang="de">Deutsch</a></p>
+<h1>{T.priv_h1}</h1>
+<p class="note">{T.priv_updated}</p>
+<h2>{T.priv_h_owner}</h2>
+<p>{T.priv_owner}</p>
+<h2>{T.priv_h_data}</h2>
+<ul>
+<li set:html={T.priv_data1}></li>
+<li set:html={T.priv_data2}></li>
+<li set:html={T.priv_data3}></li>
+</ul>
+<h2>{T.priv_h_why}</h2>
+<ul>
+<li>{T.priv_why1}</li>
+<li>{T.priv_why2}</li>
+<li>{T.priv_why3}</li>
+</ul>
+<h2>{T.priv_h_share}</h2>
+<ul>
+<li set:html={T.priv_share1}></li>
+<li set:html={T.priv_share2}></li>
+</ul>
+<p>{T.priv_share_p}</p>
+<h2>{T.priv_h_time}</h2>
+<p>{T.priv_time}</p>
+<h2>{T.priv_h_cookie}</h2>
+<p>{T.priv_cookie}</p>
+<h2>{T.priv_h_rights}</h2>
+<p>{T.priv_rights}</p>
+<p><a href={home}>{T.priv_back}</a></p>
 </main>
 </Base>

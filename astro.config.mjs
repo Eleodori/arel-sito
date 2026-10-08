@@ -14,6 +14,10 @@ export default defineConfig({
     build: { assetsInlineLimit: 0 },  // niente script inline: la CSP accetta solo file del sito
   },
   integrations: [
-    sitemap({ filter: (page) => !page.includes('/404') }),
+    sitemap({
+      filter: (page) => !page.includes('/404'),
+      // alternative di lingua (hreflang) nella sitemap: / = it, /en/, /fr/, /de/
+      i18n: { defaultLocale: 'it', locales: { it: 'it', en: 'en', fr: 'fr', de: 'de' } },
+    }),
   ],
 });
