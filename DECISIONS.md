@@ -1,5 +1,8 @@
 # DECISIONS
 
+## 2026-10-08 · Spazio tra "rt" e "ft" nei titoli grandi
+In Montserrat 800 con letter-spacing negativo le coppie "rt" e "ft" si toccano ("Porta", "software", "partire"); ridurre il letter-spacing di tutto il titolo non basta. `kern()` in `site.js` avvolge la r/f seguita da t in `<span class="kp">` (margin-right .065em) dentro `.hero-title`, `.h2`, `.cta-title`, dopo ogni `applyLang()`. L'HTML statico ha già gli stessi span, quindi al caricamento non si sposta nulla (CLS invariato). Testi I18N non toccati. A capo dei titoli identici a 360, 390 e 1440 px, in italiano e in inglese.
+
 ## 2026-10-01 · Copy v3: mix tra v1 e v2
 Dopo la revisione del titolare: hero "Porta un'idea. / Noi creiamo il software che la fa funzionare." con il sottotitolo della v1; Soluzioni a 4 schede (via la scheda e-commerce, il Forward Deployed Engineer prende il suo posto); Problemi con i testi v2 e ogni frase su una riga propria; CTA finale con titolo della v1 ("La tua idea merita un progetto vero.") e modulo compatto su due colonne, in una sola schermata. Restano: analisi gratuita come CTA, prima lettura del Lab, Metodo e FAQ della v2.
 
