@@ -1,0 +1,10 @@
+---
+// Home in inglese, francese e tedesco: /en/, /fr/, /de/
+import Home from '../../components/Home.astro';
+import { LANGS, DEFAULT_LANG } from '../../i18n/index.js';
+export function getStaticPaths() {
+  return LANGS.filter((l) => l !== DEFAULT_LANG).map((lang) => ({ params: { lang } }));
+}
+const { lang } = Astro.params;
+---
+<Home lang={lang} />

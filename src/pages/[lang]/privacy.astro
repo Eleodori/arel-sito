@@ -1,0 +1,10 @@
+---
+// Informativa privacy in inglese, francese e tedesco: /en/privacy/, /fr/privacy/, /de/privacy/
+import Privacy from '../../components/Privacy.astro';
+import { LANGS, DEFAULT_LANG } from '../../i18n/index.js';
+export function getStaticPaths() {
+  return LANGS.filter((l) => l !== DEFAULT_LANG).map((lang) => ({ params: { lang } }));
+}
+const { lang } = Astro.params;
+---
+<Privacy lang={lang} />

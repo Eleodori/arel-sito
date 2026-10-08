@@ -32,6 +32,11 @@
 - [ ] Search Console + Bing Webmaster Tools, invio della sitemap
 - [ ] Se si passa a Claude: `ANTHROPIC_API_KEY` su Netlify e limite di spesa mensile sulla Console Anthropic
 
+## Lingue
+- [x] IT, EN, FR, DE su URL separati con hreflang, sitemap e JSON-LD per lingua
+- [ ] Rilettura madrelingua di FR e DE (testi e privacy)
+- [ ] Immagine social (og) per EN, FR, DE: oggi tutte usano quella italiana
+
 ## Fase 2 · SEO e SEO dinamica (decisa: si fa dopo)
 - [ ] Ricerca parole chiave e mappa parola chiave → pagina
 - [ ] Pagine servizio (14), integrazioni, settori, casi studio, guide

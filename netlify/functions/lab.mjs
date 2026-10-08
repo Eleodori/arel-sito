@@ -144,7 +144,9 @@ function parseJson(text) {
   throw new Error("invalid_json");
 }
 
-const langName = l => (l === "en" ? "English" : "Italian");
+const LANG_NAMES = { it: "Italian", en: "English", fr: "French", de: "German" };
+const EG = { it: "Es.", en: "E.g.", fr: "Ex.", de: "z. B." };
+const langName = l => LANG_NAMES[l] || "Italian";
 
 function systemPrompt(role) {
   return `You work for Arel Group, an Italian software studio. Its services: ${SERVICES}.
@@ -156,7 +158,7 @@ Always reply with JSON only, no other text.`;
 async function doQuestions(lang, idea) {
   const out = await callModel("quick", systemPrompt("pre-sales analyst"),
 `<idea>${idea}</idea>
-If this is a valid project idea: ask 2 or 3 short, concrete questions whose answers would most change the project's scope (users, volumes, systems to integrate, platforms, deadline). Write them in ${langName(lang)}. Each question under 18 words, each with a short example answer to use as a placeholder, starting with "${lang === "en" ? "E.g." : "Es."}".
+If this is a valid project idea: ask 2 or 3 short, concrete questions whose answers would most change the project's scope (users, volumes, systems to integrate, platforms, deadline). Write them in ${langName(lang)}. Each question under 18 words, each with a short example answer to use as a placeholder, starting with "${EG[lang] || "Es."}".
 Reply with only JSON: {"questions":[{"text":"...","placeholder":"..."}]}`, 400);
   if (out && out.off_topic) return { error: "off_topic" };
   const qs = (Array.isArray(out && out.questions) ? out.questions : []).slice(0, 3)
@@ -204,11 +206,12 @@ export default async (req, context) => {
   try { body = JSON.parse(raw); } catch { return json(400, { error: "invalid" }); }
 
   const action = body.action;
-  const lang = body.lang === "en" ? "en" : "it";
+  const lang = Object.hasOwn(LANG_NAMES, body.lang) ? body.lang : null;
   const idea = clean(body.idea, 1500);
   const qa = (Array.isArray(body.qa) ? body.qa : []).slice(0, 3)
     .map(x => ({ q: clean(x && x.q, 200), a: clean(x && x.a, 400) })).filter(x => x.q);
   if (action !== "questions" && action !== "blueprint") return json(400, { error: "invalid" });
+  if (!lang) return json(400, { error: "invalid" });
 
   const pre = precheck(idea);
   if (pre) return json(pre === "invalid" ? 400 : 422, { error: pre });
