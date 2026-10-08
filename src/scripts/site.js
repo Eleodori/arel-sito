@@ -182,6 +182,23 @@ const I18N = {
 let LANG = 'it';
 try { const s = localStorage.getItem('arel-lang'); if (s === 'en' || s === 'it') LANG = s; } catch(e){}
 const T = k => (I18N[LANG][k] ?? I18N.it[k] ?? k);
+/* Montserrat 800 con letter-spacing negativo: "rt" e "ft" si toccano nei titoli grandi.
+   Avvolge la r/f seguita da t in uno span .kp (un filo di margine), dopo ogni cambio lingua.
+   L'HTML statico ha già gli span, così al caricamento non cambia nulla (CLS 0). */
+function kern(){
+  $$('.hero-title, .h2, .cta-title').forEach(root => {
+    const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), nodes = [];
+    while (w.nextNode()) { const n = w.currentNode; if (/[rf](?=t)/.test(n.nodeValue) && !n.parentElement.closest('.kp')) nodes.push(n); }
+    nodes.forEach(n => {
+      const f = document.createDocumentFragment();
+      n.nodeValue.split(/([rf](?=t))/).forEach((part, i) => {
+        if (i % 2) { const s = document.createElement('span'); s.className = 'kp'; s.textContent = part; f.appendChild(s); }
+        else if (part) f.appendChild(document.createTextNode(part));
+      });
+      n.replaceWith(f);
+    });
+  });
+}
 /* trusted, author-written strings only */
 function applyLang(){
   document.documentElement.lang = LANG;
@@ -189,6 +206,7 @@ function applyLang(){
   $$('[data-i18n-html]').forEach(el => { el.innerHTML = T(el.dataset.i18nHtml); });
   $$('[data-i18n-ph]').forEach(el => { el.placeholder = T(el.dataset.i18nPh); });
   const lb = $('#langBtn'); lb.textContent = LANG === 'it' ? 'EN' : 'IT'; lb.setAttribute('aria-label', LANG === 'it' ? 'EN · English version' : 'IT · Versione italiana');
+  kern();
   renderPick(curPain, false);
   renderLab();
   if (window.ScrollTrigger) requestAnimationFrame(() => ScrollTrigger.refresh());

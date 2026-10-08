@@ -391,3 +391,5 @@ footer{border-top:1px solid var(--line);padding-block:56px calc(40px + env(safe-
 .a-msg{min-height:76px}
 @media (min-width:900px){.cta-split{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px}}
 @media (min-width:1360px){.pick{grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr)}.pick-d{max-width:none;font-size:15.5px}.pick-d span{white-space:nowrap}}
+/* r/f seguite da t nei titoli grandi (vedi kern() in site.js) */
+.kp{margin-right:.065em}
