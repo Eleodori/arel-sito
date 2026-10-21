@@ -1,0 +1,9 @@
+---
+// Pagina "Services" in inglese e francese: /en/services/, /fr/services/
+import ServicesHub from '../../../components/ServicesHub.astro';
+export function getStaticPaths() {
+  return ['en', 'fr'].map((lang) => ({ params: { lang } }));
+}
+const { lang } = Astro.params;
+---
+<ServicesHub lang={lang} />

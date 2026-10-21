@@ -1,0 +1,81 @@
+---
+// Pagina "Servizi": /servizi/ (it), /en/services/, /fr/services/. Elenca le pagine servizio con prezzo di partenza.
+import Base from '../layouts/Base.astro';
+import Logo from './Logo.astro';
+import LangSwitch from './LangSwitch.astro';
+import { I18N, kernHtml, langPath } from '../i18n/index.js';
+import { SERVICES, UI, HUB, svcPath, hubAlternates, switchHrefs, priceFrom } from '../data/services.js';
+import { SITE, LIVE } from '../lib/site.js';
+interface Props { lang: string }
+const { lang } = Astro.props;
+const T = I18N[lang];
+const U = UI[lang];
+const H = U.hub;
+const home = langPath(lang);
+const path = HUB[lang];
+const url = new URL(path, SITE).href;
+const list = SERVICES[lang];
+const alts = hubAlternates();
+const jsonld = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'CollectionPage',
+      '@id': url,
+      url,
+      name: H.title,
+      description: H.description,
+      inLanguage: lang,
+      mainEntity: {
+        '@type': 'ItemList',
+        itemListElement: list.map((s, i) => ({ '@type': 'ListItem', position: i + 1, name: s.name, url: new URL(svcPath(lang, s), SITE).href })),
+      },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: U.home, item: new URL(home, SITE).href },
+        { '@type': 'ListItem', position: 2, name: U.services, item: url },
+      ],
+    },
+  ],
+};
+---
+<Base lang={lang} path={path} alt={alts} title={H.title} description={H.description} jsonld={jsonld}>
+<div class="glow" aria-hidden="true"></div>
+<header class="nav"><div class="wrap nav-in"><a class="logo" href={home} aria-label="Arel Group, home"><Logo /></a><div class="nav-right"><LangSwitch lang={lang} hrefs={switchHrefs(alts)} /><a class="btn btn-primary btn-sm" href={home + '#contatti'}>{T.nav_cta}</a></div></div></header>
+<main class="svc">
+  <div class="wrap">
+    <nav class="crumbs" aria-label={U.crumbs}><a href={home}>{U.home}</a> <span aria-hidden="true">›</span> <span aria-current="page">{U.services}</span></nav>
+    <div class="svc-hero">
+      <p class="eyebrow">{U.services}</p>
+      <h1><span set:html={kernHtml(H.h1[0])}></span> <span class="accent" set:html={kernHtml(H.h1[1])}></span></h1>
+      <p class="svc-lead">{H.lead}</p>
+    </div>
+  </div>
+  <section class="svc-sec"><div class="wrap">
+    <div class="svc-cards hub-cards">{list.map((s) => (
+      <a class="svc-card svc-link" href={svcPath(lang, s)}>
+        <h2 class="hub-t">{s.name}</h2>
+        <p>{s.summary}</p>
+        <p class="hub-price">{U.from} {priceFrom(lang, s.price.range[0])}{s.perMonth && <> {U.month}</>}</p>
+        <span class="svc-go">{H.card} <span aria-hidden="true">→</span></span>
+      </a>
+    ))}</div>
+  </div></section>
+  <section class="svc-sec"><div class="wrap">
+    <div class="cta-box">
+      <h2 set:html={kernHtml(H.cta[0])}></h2>
+      <p class="svc-p">{H.cta[1]}</p>
+      <div class="svc-ctas">
+        <a class="btn btn-primary" href={home + '#contatti'}><span>{U.cta}</span><span class="arr">→</span></a>
+        <a class="btn btn-ghost" href={home + '#lab'}>{U.lab}</a>
+      </div>
+    </div>
+  </div></section>
+</main>
+<footer><div class="wrap"><div class="foot-bottom">
+  <span>© 2026 AREL GROUP S.R.L.S. · {T.vat_label} 04043580549 · Via di Ponente 37, 06132 Perugia (PG) · <a href="mailto:info@arelgroup.it">info@arelgroup.it</a></span>
+  <span>{!LIVE && <><span>{T.foot_proto}</span> · </>}<a href={langPath(lang, 'privacy/')}>{T.privacy_link}</a> · <button type="button" class="linkbtn" data-ck-open>{T.ck_prefs}</button></span>
+</div></div></footer>
+</Base>

@@ -1,25 +1,24 @@
 ---
-// Pagina servizio (italiano): /servizi/<slug>/. Contenuti in src/data/servizi.js.
+// Pagina servizio in una lingua: /servizi/<slug>/ (it), /en/services/<slug>/, /fr/services/<slug>/.
+// Contenuti in src/data/servizi.js, services-en.js, services-fr.js; testi comuni e percorsi in services.js.
 // Nessun JavaScript: FAQ con <details> nativo. JSON-LD: Service + BreadcrumbList + FAQPage.
 import Base from '../layouts/Base.astro';
 import Logo from './Logo.astro';
-import { I18N, kernHtml } from '../i18n/index.js';
-import { SERVIZI } from '../data/servizi.js';
+import LangSwitch from './LangSwitch.astro';
+import { I18N, kernHtml, langPath } from '../i18n/index.js';
+import { UI, HUB, svcPath, findSvc, svcAlternates, switchHrefs } from '../data/services.js';
 import { SITE, LIVE } from '../lib/site.js';
-interface Props { s: any }
-const { s } = Astro.props;
-const T = I18N.it;
-const path = `/servizi/${s.slug}/`;
+interface Props { s: any; lang: string }
+const { s, lang } = Astro.props;
+const T = I18N[lang];
+const U = UI[lang];
+const home = langPath(lang);
+const path = svcPath(lang, s);
 const url = new URL(path, SITE).href;
 const [pMin, pMax] = s.price.range;
-// "Come lavoriamo": passi di default (progetti di sviluppo), una pagina può avere i suoi (s.steps)
-const steps = s.steps || [
-  ['Analisi gratuita', '30 minuti con uno sviluppatore: capiamo cosa ti serve e qual è la strada giusta.'],
-  ['Preventivo scritto', 'Funzioni, fasi, tempi e costi messi nero su bianco. Il preventivo è gratuito.'],
-  ['Sviluppo a passi brevi', 'Una demo a ogni passo, da provare con i vostri dati veri.'],
-  ['Avvio e assistenza', 'Importiamo i dati, formiamo il team e restiamo al vostro fianco dopo il lancio.'],
-];
-const related = (s.related || []).map((slug) => SERVIZI.find((x) => x.slug === slug)).filter(Boolean);
+const steps = s.steps || U.steps;
+const related = (s.related || []).map((id) => findSvc(lang, id)).filter(Boolean);
+const alts = svcAlternates(s.id);
 const jsonld = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -30,8 +29,8 @@ const jsonld = {
       serviceType: s.name,
       description: s.lead,
       url,
-      inLanguage: 'it',
-      areaServed: { '@type': 'Country', name: 'Italia' },
+      inLanguage: lang,
+      areaServed: { '@type': 'Country', name: U.country },
       provider: { '@type': 'Organization', '@id': SITE + '/#org', name: 'Arel Group', url: SITE + '/' },
       offers: {
         '@type': 'Offer',
@@ -42,33 +41,34 @@ const jsonld = {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE + '/' },
-        { '@type': 'ListItem', position: 2, name: s.name, item: url },
+        { '@type': 'ListItem', position: 1, name: U.home, item: new URL(home, SITE).href },
+        { '@type': 'ListItem', position: 2, name: U.services, item: new URL(HUB[lang], SITE).href },
+        { '@type': 'ListItem', position: 3, name: s.name, item: url },
       ],
     },
     {
       '@type': 'FAQPage',
       '@id': url + '#faq',
-      inLanguage: 'it',
+      inLanguage: lang,
       mainEntity: s.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
     },
   ],
 };
 ---
-<Base lang="it" path={path} title={s.title} description={s.description} jsonld={jsonld}>
+<Base lang={lang} path={path} alt={alts} title={s.title} description={s.description} jsonld={jsonld}>
 <div class="glow" aria-hidden="true"></div>
-<header class="nav"><div class="wrap nav-in"><a class="logo" href="/" aria-label="Arel Group, home"><Logo /></a><div class="nav-right"><a class="btn btn-primary btn-sm" href="/#contatti">{T.nav_cta}</a></div></div></header>
+<header class="nav"><div class="wrap nav-in"><a class="logo" href={home} aria-label="Arel Group, home"><Logo /></a><div class="nav-right"><LangSwitch lang={lang} hrefs={switchHrefs(alts)} /><a class="btn btn-primary btn-sm" href={home + '#contatti'}>{T.nav_cta}</a></div></div></header>
 <main class="svc">
   <div class="wrap">
-    <nav class="crumbs" aria-label="Percorso"><a href="/">Home</a> <span aria-hidden="true">›</span> <span aria-current="page">{s.name}</span></nav>
+    <nav class="crumbs" aria-label={U.crumbs}><a href={home}>{U.home}</a> <span aria-hidden="true">›</span> <a href={HUB[lang]}>{U.services}</a> <span aria-hidden="true">›</span> <span aria-current="page">{s.name}</span></nav>
     <div class="svc-hero">
       <p class="eyebrow">{s.name}</p>
       <h1><span set:html={kernHtml(s.h1[0])}></span> <span class="accent" set:html={kernHtml(s.h1[1])}></span></h1>
       <p class="svc-lead">{s.lead}</p>
       <p class="svc-lead2">{s.lead2}</p>
       <div class="svc-ctas">
-        <a class="btn btn-primary" href="/#contatti"><span>Richiedi l'analisi gratuita</span><span class="arr">→</span></a>
-        <a class="btn btn-ghost" href="#prezzi">Quanto costa</a>
+        <a class="btn btn-primary" href={home + '#contatti'}><span>{U.cta}</span><span class="arr">→</span></a>
+        <a class="btn btn-ghost" href="#prezzi">{U.priceLink}</a>
       </div>
     </div>
   </div>
@@ -96,24 +96,24 @@ const jsonld = {
 
   <section class="svc-sec" id="prezzi"><div class="wrap">
     <h2 set:html={kernHtml(s.priceTitle)}></h2>
-    <div class="svc-price">{s.price.boxes.map(([k, v, n]) => <div class="price-box"><p class="price-k">{k}</p><p class="price-v">{v.replace(/ €/g, '\u00a0€')}</p><p class="price-n">{n}</p></div>)}</div>
-    <h3 class="svc-h3">Cosa fa variare il prezzo</h3>
+    <div class="svc-price">{s.price.boxes.map(([k, v, n]) => <div class="price-box"><p class="price-k">{k}</p><p class="price-v">{v.replace(/ €/g, ' €')}</p><p class="price-n">{n}</p></div>)}</div>
+    <h3 class="svc-h3">{U.factors}</h3>
     <ul class="svc-list">{s.price.factors.map((x) => <li>{x}</li>)}</ul>
   </div></section>
 
   <section class="svc-sec"><div class="wrap">
-    <h2>Come lavoriamo</h2>
+    <h2>{U.how}</h2>
     <ol class="svc-steps">{steps.map(([t, d]) => <li><h3>{t}</h3><p>{d}</p></li>)}</ol>
   </div></section>
 
   <section class="svc-sec" id="faq"><div class="wrap faq-grid">
-    <h2>Domande frequenti</h2>
+    <h2>{U.faq}</h2>
     <div class="faq">{s.faq.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}</div>
   </div></section>
 
   {related.length > 0 && <section class="svc-sec"><div class="wrap">
-    <h2>Altri servizi</h2>
-    <div class="svc-cards">{related.map((r) => <a class="svc-card svc-link" href={`/servizi/${r.slug}/`}><h3>{r.name}</h3><p>{r.description}</p><span class="svc-go" aria-hidden="true">→</span></a>)}</div>
+    <h2>{U.related}</h2>
+    <div class="svc-cards">{related.map((r) => <a class="svc-card svc-link" href={svcPath(lang, r)}><h3>{r.name}</h3><p>{r.summary}</p><span class="svc-go" aria-hidden="true">→</span></a>)}</div>
   </div></section>}
 
   <section class="svc-sec"><div class="wrap">
@@ -121,14 +121,14 @@ const jsonld = {
       <h2 set:html={kernHtml(s.cta[0])}></h2>
       <p class="svc-p">{s.cta[1]}</p>
       <div class="svc-ctas">
-        <a class="btn btn-primary" href="/#contatti"><span>Richiedi l'analisi gratuita</span><span class="arr">→</span></a>
-        <a class="btn btn-ghost" href="/#lab">Prova il Lab AI</a>
+        <a class="btn btn-primary" href={home + '#contatti'}><span>{U.cta}</span><span class="arr">→</span></a>
+        <a class="btn btn-ghost" href={home + '#lab'}>{U.lab}</a>
       </div>
     </div>
   </div></section>
 </main>
 <footer><div class="wrap"><div class="foot-bottom">
   <span>© 2026 AREL GROUP S.R.L.S. · {T.vat_label} 04043580549 · Via di Ponente 37, 06132 Perugia (PG) · <a href="mailto:info@arelgroup.it">info@arelgroup.it</a></span>
-  <span>{!LIVE && <><span>{T.foot_proto}</span> · </>}<a href="/privacy/">{T.privacy_link}</a> · <button type="button" class="linkbtn" data-ck-open>{T.ck_prefs}</button></span>
+  <span>{!LIVE && <><span>{T.foot_proto}</span> · </>}<a href={langPath(lang, 'privacy/')}>{T.privacy_link}</a> · <button type="button" class="linkbtn" data-ck-open>{T.ck_prefs}</button></span>
 </div></div></footer>
 </Base>
