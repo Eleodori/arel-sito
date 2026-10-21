@@ -13,6 +13,8 @@ let STR = {};
 try { STR = JSON.parse($('#i18n').textContent); } catch(e){}
 const T = k => (STR[k] ?? k);
 const DEMO = STR.demo;
+// eventi per Google Analytics (attivi solo con il consenso: src/scripts/consent.js)
+const track = (name, params) => { try { if (window.arelTrack) window.arelTrack(name, params); } catch (e) { /* mai bloccare il sito */ } };
 /* Montserrat 800 con letter-spacing negativo: "rt" e "ft" si toccano nei titoli grandi.
    Avvolge la r/f seguita da t in uno span .kp (un filo di margine), dopo ogni cambio lingua.
    L'HTML statico ha già gli span, così al caricamento non cambia nulla (CLS 0). */
@@ -595,6 +597,7 @@ async function analyze(){
     const qs = (Array.isArray(r.questions) ? r.questions : []).slice(0, 3).map(q => ({ text:S(q && q.text, 200), placeholder:S(q && q.placeholder, 120) })).filter(q => q.text);
     if (!qs.length) throw { code:'invalid_json' };
     lab.questions = qs; lab.step = 'questions';
+    track('lab_start', { lang: LANG });
   } catch(e) { handleErr(e, 'idle'); return; }
   finally { energy(false); }
   renderLab(); focusFirst();
@@ -613,6 +616,7 @@ async function generate(skip){
   try {
     const r = await callLab({ action:'blueprint', lang:LANG, idea:lab.idea, qa }, lab.ctl.signal);
     lab.bp = cleanBp(r.blueprint);
+    track('lab_complete', { lang: LANG });
   } catch(e) { handleErr(e, lab.questions.length ? 'questions' : 'idle'); return; }
   done();
 }
@@ -661,6 +665,7 @@ function leadForm(){
       const r = await fetch('/', { method:'POST', headers:{ 'content-type':'application/x-www-form-urlencoded' }, body: data.toString() });
       if (!r.ok) throw new Error(r.status);
       lab.leadSent = true; renderLab();
+      track('generate_lead', { form_name: 'brief', lang: LANG });
     } catch (err) { sub.disabled = false; m.textContent = T('t_senderr'); }
   });
   return box;
@@ -689,6 +694,7 @@ function openAnalisi(text){
       const r = await fetch('/', { method:'POST', headers:{ 'content-type':'application/x-www-form-urlencoded' }, body: data.toString() });
       if (!r.ok) throw new Error(r.status);
       f.reset(); m.style.color = 'var(--accent2)'; m.textContent = T('a_sent');
+      track('generate_lead', { form_name: 'analisi', lang: LANG });
     } catch (err) { m.textContent = T('t_senderr'); }
     finally { sub.disabled = false; }
   });

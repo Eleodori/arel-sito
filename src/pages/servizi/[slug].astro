@@ -1,0 +1,10 @@
+---
+// Pagine servizio in italiano: /servizi/<slug>/ (elenco in src/data/servizi.js)
+import Service from '../../components/Service.astro';
+import { SERVIZI } from '../../data/servizi.js';
+export function getStaticPaths() {
+  return SERVIZI.map((s) => ({ params: { slug: s.slug }, props: { s } }));
+}
+const { s } = Astro.props;
+---
+<Service s={s} />
