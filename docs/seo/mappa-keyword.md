@@ -35,8 +35,8 @@ Decisione del 21/10/2026: WooCommerce e PrestaShop non hanno pagine separate. St
 ## Pagina Servizi e traduzioni (22/10/2026)
 
 - `/servizi/` elenca le 6 pagine con il prezzo di partenza; in inglese `/en/services/`, in francese `/fr/services/`.
-- Pagine servizio tradotte in EN e FR con indirizzi nella loro lingua (es. `/en/services/custom-management-software/`, `/fr/services/logiciel-de-gestion-sur-mesure/`). Niente tedesco: non lavoriamo in tedesco.
-- Testi EN/FR da far rivedere a un madrelingua (contenuti in `src/data/services-en.js` e `services-fr.js`).
+- Pagine servizio tradotte in EN, FR e DE con indirizzi nella loro lingua (es. `/en/services/custom-management-software/`, `/fr/services/logiciel-de-gestion-sur-mesure/`, `/de/leistungen/massgeschneiderte-unternehmenssoftware/`). In DE ogni pagina dice che lavoriamo in italiano, inglese e francese.
+- Testi EN/FR/DE da far rivedere a un madrelingua (contenuti in `src/data/services-en.js`, `services-fr.js`, `services-de.js`).
 
 ## Prezzi di Arel (forniti da Luca il 21/10/2026, tutti IVA esclusa)
 

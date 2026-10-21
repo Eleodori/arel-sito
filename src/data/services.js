@@ -1,15 +1,16 @@
 // Pagine servizio in tutte le lingue: indice, percorsi, alternative hreflang e testi comuni.
-// Contenuti: servizi.js (it), services-en.js (en), services-fr.js (fr). Il tedesco non ha pagine
-// servizio (non lavoriamo in tedesco): da /de/ i link restano sulle sezioni della home.
+// Contenuti: servizi.js (it), services-en.js (en), services-fr.js (fr), services-de.js (de).
+// In tedesco le pagine esistono per coerenza e indicizzazione, ma dicono chiaramente che non lavoriamo in tedesco.
 import { SERVIZI } from './servizi.js';
 import { SERVICES_EN } from './services-en.js';
 import { SERVICES_FR } from './services-fr.js';
+import { SERVICES_DE } from './services-de.js';
 
-export const SVC_LANGS = ['it', 'en', 'fr'];
-export const SERVICES = { it: SERVIZI.map((s) => ({ ...s, id: s.slug })), en: SERVICES_EN, fr: SERVICES_FR };
-export const HUB = { it: '/servizi/', en: '/en/services/', fr: '/fr/services/' };
+export const SVC_LANGS = ['it', 'en', 'fr', 'de'];
+export const SERVICES = { it: SERVIZI.map((s) => ({ ...s, id: s.slug })), en: SERVICES_EN, fr: SERVICES_FR, de: SERVICES_DE };
+export const HUB = { it: '/servizi/', en: '/en/services/', fr: '/fr/services/', de: '/de/leistungen/' };
 
-export const svcPath = (lang, s) => (lang === 'it' ? `/servizi/${s.slug}/` : `/${lang}/services/${s.slug}/`);
+export const svcPath = (lang, s) => HUB[lang] + s.slug + '/';
 export const findSvc = (lang, id) => (SERVICES[lang] || []).find((s) => s.id === id);
 export const svcUrl = (lang, id) => { const s = findSvc(lang, id); return s ? svcPath(lang, s) : null; };
 /** Stessa pagina servizio nelle altre lingue: [{ l, path }] */
@@ -18,7 +19,7 @@ export const hubAlternates = () => SVC_LANGS.map((l) => ({ l, path: HUB[l] }));
 /** Link del selettore lingua: le lingue senza la pagina tornano alla loro home (gestito da LangSwitch). */
 export const switchHrefs = (alts) => Object.fromEntries(alts.map((a) => [a.l, a.path]));
 
-/** Prezzo "da" per le schede: 3.500 € · €3,500 · 3 500 € */
+/** Prezzo "da" per le schede: 3.500 € (it, de) · €3,500 · 3 500 € */
 export function priceFrom(lang, n) {
   if (lang === 'en') return '€' + n.toLocaleString('en-GB');
   const sep = lang === 'fr' ? ' ' : '.';
@@ -81,6 +82,25 @@ export const UI = {
       lead: 'Nous développons des logiciels sur mesure et des solutions IA pour les PME de toute l’Italie. Pour chaque service, vous trouverez ce que nous faisons, ce que cela coûte, les délais et les questions les plus fréquentes.',
       card: 'Prix, délais et questions',
       cta: ['Vous ne savez pas par où commencer ?', 'En 30 minutes avec un développeur, nous voyons ce dont vous avez vraiment besoin et quel service vous convient. L’analyse est gratuite et sans engagement.'],
+    },
+  },
+  de: {
+    crumbs: 'Brotkrümelnavigation', home: 'Startseite', services: 'Leistungen', allServices: 'Alle Leistungen', more: 'Preise und Dauer',
+    cta: 'Kostenlose Analyse anfragen', priceLink: 'Preise', factors: 'Was den Preis beeinflusst', how: 'So arbeiten wir',
+    sep: ': ', faq: 'Häufige Fragen', related: 'Weitere Leistungen', lab: 'KI-Lab ausprobieren', country: 'Italien', from: 'ab', month: '/ Monat',
+    steps: [
+      ['Kostenlose Analyse', '30 Minuten mit einem Entwickler: Wir klären, was Sie brauchen und welcher Weg der richtige ist.'],
+      ['Schriftliches Angebot', 'Funktionen, Phasen, Dauer und Kosten schwarz auf weiß. Das Angebot ist kostenlos.'],
+      ['Entwicklung in kurzen Schritten', 'Bei jedem Schritt eine Demo, die Sie mit Ihren echten Daten testen.'],
+      ['Start und Betreuung', 'Wir übernehmen die Daten, schulen Ihr Team und bleiben nach dem Start an Ihrer Seite.'],
+    ],
+    hub: {
+      title: 'Leistungen: Software, E-Commerce, KI und Apps · Arel Group',
+      description: 'Leistungen von Arel Group: Unternehmenssoftware, E-Commerce, Amazon-Betreuung, KI-Agenten, Migrationen und Apps. Klare Preise und kostenlose Analyse.',
+      h1: ['Unsere Leistungen,', 'mit klaren Preisen und Zeiten.'],
+      lead: 'Wir entwickeln maßgeschneiderte Software und KI-Lösungen für KMU in ganz Italien. Zu jeder Leistung finden Sie, was wir tun, was es kostet, wie lange es dauert und die häufigsten Fragen. Gespräche führen wir auf Italienisch, Englisch oder Französisch.',
+      card: 'Preise, Dauer und Fragen',
+      cta: ['Sie wissen nicht, wo Sie anfangen sollen?', 'In 30 Minuten mit einem Entwickler klären wir, was Sie wirklich brauchen und welche Leistung passt. Die Analyse ist kostenlos und unverbindlich, auf Italienisch, Englisch oder Französisch.'],
     },
   },
 };

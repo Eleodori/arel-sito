@@ -30,7 +30,7 @@ Il sito è disponibile in quattro lingue, con lo stesso contenuto:
 
 ## Servizi
 
-Elenco con prezzi di partenza: [Servizi](https://arelgroup.it/servizi/). Le stesse pagine esistono in inglese ([Services](https://arelgroup.it/en/services/)) e in francese ([Services](https://arelgroup.it/fr/services/)).
+Elenco con prezzi di partenza: [Servizi](https://arelgroup.it/servizi/). Le stesse pagine esistono in inglese ([Services](https://arelgroup.it/en/services/)), in francese ([Services](https://arelgroup.it/fr/services/)) e in tedesco ([Leistungen](https://arelgroup.it/de/leistungen/), anche se non lavoriamo in tedesco).
 
 - [Gestionale su misura](https://arelgroup.it/servizi/gestionale-su-misura/): cosa può fare, su misura o pronto, prezzi (3.500–20.000 € IVA esclusa), tempi (circa 2 mesi per la prima versione), assistenza (50–250 € al mese) e domande frequenti.
 - [Sviluppo e-commerce](https://arelgroup.it/servizi/sviluppo-ecommerce/): e-commerce su misura con WooCommerce e PrestaShop, plugin e moduli su misura (es. WC Smart Search), e-commerce B2B, collegamento con Amazon e gestionale, WooCommerce o PrestaShop, prezzi (e-commerce 600–9.000 €, moduli PrestaShop 150–1.000 €, integrazioni 500–2.000 €, IVA esclusa), assistenza e domande frequenti.

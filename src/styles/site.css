@@ -454,3 +454,6 @@ footer{border-top:1px solid var(--line);padding-block:56px calc(40px + env(safe-
 .hub-cards .svc-link{display:flex;flex-direction:column;gap:10px}
 .hub-t{font-family:var(--display);font-size:21px;line-height:1.2}
 .hub-price{font-family:var(--display);font-weight:700;color:var(--text)!important;margin-top:auto}
+/* parole lunghe (soprattutto tedesco) nelle pagine servizio: sillabazione e a capo di sicurezza */
+.svc :is(h1,h2,h3,.price-k,.svc-go,.crumbs){overflow-wrap:break-word}
+:lang(de) .svc :is(h1,h2,h3,.price-k,.svc-list li,.eyebrow){hyphens:auto;-webkit-hyphens:auto}
