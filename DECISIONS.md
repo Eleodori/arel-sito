@@ -1,5 +1,11 @@
 # DECISIONS
 
+## 2026-10-22 · Pagine servizio e traduzioni
+- 6 pagine servizio + pagina "Servizi" (`/servizi/`). Prezzi reali IVA esclusa, FAQ identiche nel JSON-LD.
+- WooCommerce e PrestaShop stanno in "Sviluppo e-commerce" (niente pagine per piattaforma, per non farle concorrere su Google). `/servizi/sviluppo-woocommerce/` fa 301 lì.
+- Traduzioni in EN, FR e DE con indirizzi nella loro lingua: `/en/services/...`, `/fr/services/...`, `/de/leistungen/...`. Il tedesco c'è per coerenza e indicizzazione: ogni pagina e la panoramica dicono che lavoriamo in italiano, inglese e francese. Hreflang espliciti nelle pagine (prop `alt` di Base) e nella sitemap (`serialize` in astro.config.mjs).
+- Contenuti: `src/data/servizi.js` (it), `services-en.js`, `services-fr.js`, `services-de.js`; testi comuni e percorsi in `services.js`.
+
 ## 2026-10-08 · Sito in 4 lingue indicizzabili (IT, EN, FR, DE)
 Prima IT/EN si alternavano via JavaScript sullo stesso URL: Google vedeva solo l'italiano. Ora ogni lingua ha la sua pagina (`/`, `/en/`, `/fr/`, `/de/` e le rispettive privacy), con testi già nell'HTML, canonical verso se stessa, hreflang reciproci + x-default verso `/`, og:locale e JSON-LD tradotti (FAQ identiche a quelle visibili), sitemap con le alternative di lingua. Il dizionario sta in `src/i18n/strings.js`: al build genera le pagine, al client arrivano solo le stringhe dinamiche della lingua della pagina (niente bundle con 4 lingue). Selettore lingua con `<details>` nativo, nessun redirect automatico. La funzione del Lab accetta solo it/en/fr/de. Traduzioni FR ("vous") e DE ("Sie") scritte da madrelingua AI e da far rileggere; termini scelti: FR "analyse gratuite", "première lecture", "Lab IA"; DE "kostenlose Analyse", "Ersteinschätzung", "KI-Lab", "ERP" per gestionale. Rimosso il salvataggio della lingua nel browser (privacy aggiornata: nessun cookie né memoria locale). 404 unica, in italiano con i link alle altre lingue.
 

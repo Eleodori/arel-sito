@@ -1,0 +1,10 @@
+---
+// Leistungsseiten auf Deutsch: /de/leistungen/<slug>/ (Inhalte in src/data/services-de.js)
+import Service from '../../../components/Service.astro';
+import { SERVICES } from '../../../data/services.js';
+export function getStaticPaths() {
+  return SERVICES.de.map((s) => ({ params: { slug: s.slug }, props: { s } }));
+}
+const { s } = Astro.props;
+---
+<Service s={s} lang="de" />

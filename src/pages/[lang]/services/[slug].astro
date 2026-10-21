@@ -1,0 +1,12 @@
+---
+// Pagine servizio in inglese e francese: /en/services/<slug>/, /fr/services/<slug>/
+// (il tedesco ha i suoi indirizzi: src/pages/de/leistungen/)
+import Service from '../../../components/Service.astro';
+import { SERVICES } from '../../../data/services.js';
+export function getStaticPaths() {
+  return ['en', 'fr'].flatMap((lang) => SERVICES[lang].map((s) => ({ params: { lang, slug: s.slug }, props: { s } })));
+}
+const { s } = Astro.props;
+const { lang } = Astro.params;
+---
+<Service s={s} lang={lang} />

@@ -451,3 +451,9 @@ footer{border-top:1px solid var(--line);padding-block:56px calc(40px + env(safe-
 .ckb-b .btn{flex:1;justify-content:center}
 .linkbtn{background:none;border:0;padding:0;font:inherit;color:inherit;text-decoration:underline;cursor:pointer}
 .svc-link{display:block;text-decoration:none;position:relative;transition:border-color .2s}.svc-link:hover{border-color:var(--accent)}.svc-go{display:block;margin-top:12px;color:var(--accent2);font-weight:700}
+.hub-cards .svc-link{display:flex;flex-direction:column;gap:10px}
+.hub-t{font-family:var(--display);font-size:21px;line-height:1.2}
+.hub-price{font-family:var(--display);font-weight:700;color:var(--text)!important;margin-top:auto}
+/* parole lunghe (soprattutto tedesco) nelle pagine servizio: sillabazione e a capo di sicurezza */
+.svc :is(h1,h2,h3,.price-k,.svc-go,.crumbs){overflow-wrap:break-word}
+:lang(de) .svc :is(h1,h2,h3,.price-k,.svc-list li,.eyebrow){hyphens:auto;-webkit-hyphens:auto}

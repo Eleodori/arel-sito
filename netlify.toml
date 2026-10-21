@@ -26,6 +26,12 @@
   to = "/servizi/sviluppo-ecommerce/"
   status = 301
 
+# Le pagine servizio in tedesco stanno sotto /de/leistungen/
+[[redirects]]
+  from = "/de/services/*"
+  to = "/de/leistungen/"
+  status = 301
+
 # ---------- intestazioni di sicurezza (tutte le pagine) ----------
 # L'indicizzazione la decide il meta robots (vedi src/lib/site.js): "index" solo in
 # produzione con dominio arelgroup.it. Le anteprime Netlify hanno già X-Robots-Tag noindex.

@@ -4,11 +4,16 @@ import Base from '../layouts/Base.astro';
 import LangSwitch from './LangSwitch.astro';
 import { LIVE } from '../lib/site.js';
 import { I18N, langPath, kernHtml, clientStrings, homeLd } from '../i18n/index.js';
+import { svcUrl, findSvc, UI, HUB } from '../data/services.js';
 interface Props { lang: string }
 const { lang } = Astro.props;
 const T = I18N[lang];
 const K = (k) => kernHtml(T[k]);
 const sentences = (k) => T[k].split(/(?<=\.)\s+/);
+// pagine servizio (it, en, fr): link "prezzi e tempi" nei riquadri e nel footer; in tedesco restano le sezioni della home
+const U = UI[lang];
+const svc = (id) => svcUrl(lang, id) || '#soluzioni';
+const more = (id) => (svcUrl(lang, id) ? { href: svcUrl(lang, id), label: findSvc(lang, id).name + U.sep + U.more } : null);
 ---
 <Base lang={lang} sub="" title={T.meta_title} description={T.meta_desc} ogTitle={T.og_title} ogDescription={T.og_desc} jsonld={homeLd(lang)}>
 <div class="glow" aria-hidden="true"></div>
@@ -115,7 +120,7 @@ const sentences = (k) => T[k].split(/(?<=\.)\s+/);
             <p class="p-kick" >{T.o3_k}</p>
             <h3 >{T.o3_t}</h3>
             <p >{T.o3_d}</p>
-            {lang === 'it' && <a class="p-more" href="/servizi/gestionale-su-misura/">Gestionale su misura: prezzi e tempi <span aria-hidden="true">→</span></a>}
+            {more('gestionale-su-misura') && <a class="p-more" href={more('gestionale-su-misura').href}>{more('gestionale-su-misura').label} <span aria-hidden="true">→</span></a>}
           </div>
           <ul class="p-chips">
             <li >{T.o3_i1}</li>
@@ -134,7 +139,7 @@ const sentences = (k) => T[k].split(/(?<=\.)\s+/);
             <p class="p-kick" >{T.o2_k}</p>
             <h3 >{T.o2_t}</h3>
             <p >{T.o2_d}</p>
-            {lang === 'it' && <a class="p-more" href="/servizi/agenti-ai-automazioni/">Agenti AI e automazioni: prezzi e tempi <span aria-hidden="true">→</span></a>}
+            {more('agenti-ai-automazioni') && <a class="p-more" href={more('agenti-ai-automazioni').href}>{more('agenti-ai-automazioni').label} <span aria-hidden="true">→</span></a>}
           </div>
           <ul class="p-chips">
             <li >{T.o2_i1}</li>
@@ -153,7 +158,7 @@ const sentences = (k) => T[k].split(/(?<=\.)\s+/);
             <p class="p-kick" >{T.o4_k}</p>
             <h3 >{T.o4_t}</h3>
             <p >{T.o4_d}</p>
-            {lang === 'it' && <a class="p-more" href="/servizi/sviluppo-app/">App su misura, web app e PWA: prezzi e tempi <span aria-hidden="true">→</span></a>}
+            {more('sviluppo-app') && <a class="p-more" href={more('sviluppo-app').href}>{more('sviluppo-app').label} <span aria-hidden="true">→</span></a>}
           </div>
           <ul class="p-chips">
             <li >{T.o4_i1}</li>
@@ -309,12 +314,13 @@ const sentences = (k) => T[k].split(/(?<=\.)\s+/);
         <p style="color:var(--muted);font-size:15px" >{T.foot_d}</p>
       </div>
       <div><p class="fh" >{T.fh1}</p><ul>
-        <li><a href={lang === 'it' ? '/servizi/gestionale-su-misura/' : '#soluzioni'} >{T.fl4}</a></li>
-        <li><a href={lang === 'it' ? '/servizi/agenti-ai-automazioni/' : '#soluzioni'} >{T.fl3}</a></li>
+        {U && <li><a href={HUB[lang]}>{U.allServices}</a></li>}
+        <li><a href={svc('gestionale-su-misura')} >{T.fl4}</a></li>
+        <li><a href={svc('agenti-ai-automazioni')} >{T.fl3}</a></li>
         <li><a href="#fde" >{T.fl9}</a></li>
-        <li><a href={lang === 'it' ? '/servizi/sviluppo-ecommerce/' : '#soluzioni'} >{T.fl1}</a></li>
-        <li><a href={lang === 'it' ? '/servizi/gestione-amazon/' : '#soluzioni'} >{T.fl2}</a></li>
-        <li><a href={lang === 'it' ? '/servizi/sviluppo-app/' : '#soluzioni'} >{T.fl5}</a></li>
+        <li><a href={svc('sviluppo-ecommerce')} >{T.fl1}</a></li>
+        <li><a href={svc('gestione-amazon')} >{T.fl2}</a></li>
+        <li><a href={svc('sviluppo-app')} >{T.fl5}</a></li>
       </ul></div>
       <div><p class="fh" >{T.fh2}</p><ul>
         <li><a href="#contatti" >{T.fl10}</a></li>
