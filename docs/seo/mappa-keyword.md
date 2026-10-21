@@ -11,8 +11,8 @@ Mercato: **tutta Italia, lavoro da remoto**. Niente pagine per città. Prima in 
 | 1K–10K | software house | Home (generica, molto contesa) |
 | 100–1K | software su misura · sviluppo e-commerce · agenzia amazon | Home · `/servizi/sviluppo-ecommerce/` · `/servizi/gestione-amazon/` |
 | 10–100 | gestionale su misura, gestionale personalizzato, sviluppo gestionale, software gestionale su misura, sviluppo software gestionale (CPC fino a 14 €) | `/servizi/gestionale-su-misura/` |
-| 10–100 | sviluppo / programmatore / assistenza WooCommerce, WooCommerce B2B, sincronizzare WooCommerce con Amazon, seo WooCommerce, fatturazione elettronica WooCommerce | `/servizi/sviluppo-woocommerce/` |
-| 10–100 | sviluppo / programmatore / agenzia / assistenza PrestaShop, PrestaShop + gestionale / Danea / eBay (CPC fino a 13 €) | `/servizi/sviluppo-prestashop/` |
+| 10–100 | sviluppo / programmatore / assistenza WooCommerce, WooCommerce B2B, sincronizzare WooCommerce con Amazon, seo WooCommerce, fatturazione elettronica WooCommerce | `/servizi/sviluppo-ecommerce/` (sezione WooCommerce) |
+| 10–100 | sviluppo / programmatore / agenzia / assistenza PrestaShop, PrestaShop + gestionale / Danea / eBay (CPC fino a 13 €) | `/servizi/sviluppo-ecommerce/` (sezione PrestaShop) |
 | 10–100 | migrazione Magento→WooCommerce, Magento→PrestaShop, WooCommerce↔PrestaShop | `/servizi/migrazione-ecommerce/` |
 | 10–100 | agenti AI per aziende, quanto costa un agente AI, automazione processi aziendali, automazioni n8n | `/servizi/agenti-ai-automazioni/` |
 | 10–100 | sviluppo app su misura, app iOS e Android, app aziendali (CPC fino a 17 €) | `/servizi/sviluppo-app/` |
@@ -21,16 +21,16 @@ Mercato: **tutta Italia, lavoro da remoto**. Niente pagine per città. Prima in 
 
 ## Ondata 1 (in ordine)
 
+Decisione del 21/10/2026: WooCommerce e PrestaShop non hanno pagine separate. Stanno dentro la pagina ombrello "Sviluppo e-commerce" (keyword più cercata, 100–1K), con sezioni e FAQ per ciascuna piattaforma. Pagine per piattaforma solo se Search Console mostra domanda specifica.
+
 | # | URL | Stato |
 |---|---|---|
 | 1 | `/servizi/gestionale-su-misura/` | fatta (21/10/2026) |
-| 2 | `/servizi/sviluppo-woocommerce/` | fatta (21/10/2026), esempio WC Smart Search |
-| 3 | `/servizi/sviluppo-prestashop/` | da fare |
-| 4 | `/servizi/sviluppo-ecommerce/` | da fare: pagina ombrello, caso ARELpneumatici (listini e B2B) |
-| 5 | `/servizi/gestione-amazon/` | da fare |
-| 6 | `/servizi/agenti-ai-automazioni/` | da fare |
-| 7 | `/servizi/migrazione-ecommerce/` | da fare |
-| 8 | `/servizi/sviluppo-app/` | da fare |
+| 2 | `/servizi/sviluppo-ecommerce/` | fatta (21/10/2026): WooCommerce + PrestaShop, esempio WC Smart Search. Il vecchio `/servizi/sviluppo-woocommerce/` fa 301 qui |
+| 3 | `/servizi/gestione-amazon/` | da fare |
+| 4 | `/servizi/agenti-ai-automazioni/` | da fare |
+| 5 | `/servizi/migrazione-ecommerce/` | da fare |
+| 6 | `/servizi/sviluppo-app/` | da fare |
 
 ## Prezzi di Arel (forniti da Luca il 21/10/2026, tutti IVA esclusa)
 
