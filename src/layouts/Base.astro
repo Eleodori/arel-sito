@@ -1,7 +1,7 @@
 ---
 import '../styles/site.css';
-import { SITE, LIVE } from '../lib/site.js';
-import { LANGS, OG_LOCALE, DEFAULT_LANG, langPath } from '../i18n/index.js';
+import { SITE, LIVE, GA_ID } from '../lib/site.js';
+import { LANGS, OG_LOCALE, DEFAULT_LANG, langPath, I18N } from '../i18n/index.js';
 
 interface Props {
   title: string;
@@ -20,6 +20,7 @@ const translated = sub !== undefined;
 const canonical = new URL(translated ? langPath(lang, sub) : (path || '/'), SITE).href;
 const alternates = translated ? LANGS.map((l) => ({ l, href: new URL(langPath(l, sub), SITE).href })) : [];
 const robots = LIVE && !noindex ? 'index, follow' : 'noindex, nofollow';
+const C = I18N[lang];
 ---
 <!doctype html>
 <html lang={lang}>
@@ -53,5 +54,10 @@ const robots = LIVE && !noindex ? 'index, follow' : 'noindex, nofollow';
 </head>
 <body>
 <slot />
+<div class="ckb" id="ckb" role="region" aria-label={C.ck_label} data-ga={LIVE ? GA_ID : ''} hidden>
+  <p>{C.ck_text} <a href={langPath(lang, 'privacy/')}>{C.ck_more}</a></p>
+  <div class="ckb-b"><button type="button" class="btn btn-sm" data-ck="denied">{C.ck_reject}</button><button type="button" class="btn btn-sm" data-ck="granted">{C.ck_accept}</button></div>
+</div>
+<script src="../scripts/consent.js"></script>
 </body>
 </html>

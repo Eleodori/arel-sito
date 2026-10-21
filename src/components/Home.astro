@@ -115,6 +115,7 @@ const sentences = (k) => T[k].split(/(?<=\.)\s+/);
             <p class="p-kick" >{T.o3_k}</p>
             <h3 >{T.o3_t}</h3>
             <p >{T.o3_d}</p>
+            {lang === 'it' && <a class="p-more" href="/servizi/gestionale-su-misura/">Gestionale su misura: prezzi e tempi <span aria-hidden="true">→</span></a>}
           </div>
           <ul class="p-chips">
             <li >{T.o3_i1}</li>
@@ -306,7 +307,7 @@ const sentences = (k) => T[k].split(/(?<=\.)\s+/);
         <p style="color:var(--muted);font-size:15px" >{T.foot_d}</p>
       </div>
       <div><p class="fh" >{T.fh1}</p><ul>
-        <li><a href="#soluzioni" >{T.fl4}</a></li>
+        <li><a href={lang === 'it' ? '/servizi/gestionale-su-misura/' : '#soluzioni'} >{T.fl4}</a></li>
         <li><a href="#soluzioni" >{T.fl3}</a></li>
         <li><a href="#fde" >{T.fl9}</a></li>
         <li><a href="#soluzioni" >{T.fl1}</a></li>
@@ -326,7 +327,7 @@ const sentences = (k) => T[k].split(/(?<=\.)\s+/);
     </div>
     <div class="foot-bottom">
       <span>© 2026 AREL GROUP S.R.L.S. · {T.vat_label} 04043580549 · Via di Ponente 37, 06132 Perugia (PG)</span>
-      <span>{!LIVE && <><span >{T.foot_proto}</span> · </>}<a href={langPath(lang, 'privacy/')} >{T.privacy_link}</a></span>
+      <span>{!LIVE && <><span >{T.foot_proto}</span> · </>}<a href={langPath(lang, 'privacy/')} >{T.privacy_link}</a> · <button type="button" class="linkbtn" data-ck-open>{T.ck_prefs}</button></span>
     </div>
   </div>
 </footer>

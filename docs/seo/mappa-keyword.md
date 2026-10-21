@@ -1,37 +1,58 @@
-# Mappa parole chiave → pagine (fase 2, primo giro)
+# Mappa parole chiave → pagine
 
-Ricerca del 28/09/2026 sui risultati di Google in italiano. Difficoltà stimata guardando chi si posiziona oggi; i volumi vanno confermati con Google Ads → Keyword Planner (elenco in `keyword-planner.txt`).
+Aggiornata il 21/10/2026 con i volumi di Google Ads Keyword Planner (Italia, italiano, ott 2025 – set 2026, file `volumi-keyword.csv`). Senza campagne attive Google mostra solo fasce: 5000 = 1K–10K ricerche/mese, 500 = 100–1K, 50 = 10–100, vuoto = meno di 10 o dati insufficienti.
 
-Mercato: **tutta Italia, lavoro da remoto**. Niente pagine per città (rischio "doorway"). La zona della sede si copre con la scheda Google Business Profile.
+Mercato: **tutta Italia, lavoro da remoto**. Niente pagine per città. Prima in italiano; EN/FR quando le pagine IT funzionano (DE no: non lavoriamo in tedesco).
 
-## Pagine del primo giro
+## Cosa dicono i volumi
 
-| # | URL | Keyword principale | Keyword secondarie | Difficoltà | Perché |
-|---|---|---|---|---|---|
-| 1 | `/servizi/gestionale-su-misura/` | software gestionale su misura | gestionale personalizzato, sviluppo gestionale, gestionale magazzino su misura | media | Solo agenzie in SERP, nessuna directory. Sezione prezzi onesta: "quanto costa" è la query più accessibile |
-| 2 | `/servizi/portale-b2b/` | sviluppo portale B2B | portale B2B su misura, WooCommerce B2B, area riservata clienti e agenti, portale B2B integrato gestionale | bassa-media | Concorrenti piccoli come Arel. Caso reale: ARELpneumatici |
-| 3 | `/servizi/automazione-listini-fornitori/` | automazione listini fornitori | importare listino fornitore WooCommerce, aggiornamento automatico prezzi e giacenze, feed XML/CSV | **bassa** | In SERP solo software e forum, nessuno offre il servizio. Caso reale: listini pneumatici |
-| 4 | `/servizi/integrazione-woocommerce-amazon/` | integrazione WooCommerce Amazon | sincronizzare WooCommerce con Amazon, sincronizzazione magazzino marketplace | bassa-media | Nessuno sviluppatore specializzato in SERP. Prima di una serie (eBay, ManoMano, Zalando, gestionali) |
-| 5 | `/servizi/sviluppo-woocommerce/` | sviluppo WooCommerce su misura | sviluppo plugin WooCommerce personalizzato, programmatore WooCommerce, e-commerce su misura | media | Competenza centrale di Arel; il plugin su misura è una nicchia |
-| 6 | `/servizi/gestione-amazon/` | consulenza Amazon Seller | gestione account Amazon, agenzia Amazon, gestione Amazon Ads | alta | Pagina pilastro: si posiziona nel tempo, serve ai link interni |
-| 7 | `/servizi/automazioni-agenti-ai/` | automazione processi aziendali PMI | consulente n8n, agenti AI per aziende, chatbot per e-commerce | media | "n8n" e "PMI" sono gli spiragli; head keyword alta |
-| 8 | `/servizi/app-e-web-app/` | sviluppo web app su misura | sviluppo app aziendali, app iOS e Android, web app aziendali | media-alta | "app" è molto presidiata; web app meno |
-| — | `/servizi/` | (hub) | software house, sviluppo software su misura | alta | Collega tutte le pagine; non punta a una keyword da sola |
+| Fascia | Keyword | Dove |
+|---|---|---|
+| 1K–10K | software house | Home (generica, molto contesa) |
+| 100–1K | software su misura · sviluppo e-commerce · agenzia amazon | Home · `/servizi/sviluppo-ecommerce/` · `/servizi/gestione-amazon/` |
+| 10–100 | gestionale su misura, gestionale personalizzato, sviluppo gestionale, software gestionale su misura, sviluppo software gestionale (CPC fino a 14 €) | `/servizi/gestionale-su-misura/` |
+| 10–100 | sviluppo / programmatore / assistenza WooCommerce, WooCommerce B2B, sincronizzare WooCommerce con Amazon, seo WooCommerce, fatturazione elettronica WooCommerce | `/servizi/sviluppo-woocommerce/` |
+| 10–100 | sviluppo / programmatore / agenzia / assistenza PrestaShop, PrestaShop + gestionale / Danea / eBay (CPC fino a 13 €) | `/servizi/sviluppo-prestashop/` |
+| 10–100 | migrazione Magento→WooCommerce, Magento→PrestaShop, WooCommerce↔PrestaShop | `/servizi/migrazione-ecommerce/` |
+| 10–100 | agenti AI per aziende, quanto costa un agente AI, automazione processi aziendali, automazioni n8n | `/servizi/agenti-ai-automazioni/` |
+| 10–100 | sviluppo app su misura, app iOS e Android, app aziendali (CPC fino a 17 €) | `/servizi/sviluppo-app/` |
+| 10–100 | consulente amazon, gestione account amazon | `/servizi/gestione-amazon/` |
+| < 10 | listini fornitori, portale B2B, plugin WooCommerce, da Excel a gestionale, manutenzione, integrazioni specifiche (Mexal, TeamSystem, ManoMano, Zalando) | Sezioni e casi dentro le pagine sopra, non pagine a sé |
 
-## Secondo giro (dopo i volumi)
+## Ondata 1 (in ordine)
 
-- Integrazioni: WooCommerce–eBay, WooCommerce–ManoMano (SERP quasi solo in inglese), Zalando, WooCommerce–Danea Easyfatt, Amazon–gestionale.
-- Guide "quanto costa": gestionale su misura, portale B2B, web app, agente AI (articoli con cifre vere e link alla pagina servizio).
-- Casi studio: `/lavori/arelpneumatici/`, `/lavori/renergia/`.
-- SEO per WooCommerce e feed Google Shopping, come sezione o pagina.
+| # | URL | Stato |
+|---|---|---|
+| 1 | `/servizi/gestionale-su-misura/` | fatta (21/10/2026) |
+| 2 | `/servizi/sviluppo-woocommerce/` | da fare (con WC Smart Search come esempio) |
+| 3 | `/servizi/sviluppo-prestashop/` | da fare |
+| 4 | `/servizi/sviluppo-ecommerce/` | da fare: pagina ombrello, caso ARELpneumatici (listini e B2B) |
+| 5 | `/servizi/gestione-amazon/` | da fare |
+| 6 | `/servizi/agenti-ai-automazioni/` | da fare |
+| 7 | `/servizi/migrazione-ecommerce/` | da fare |
+| 8 | `/servizi/sviluppo-app/` | da fare |
+
+## Prezzi di Arel (forniti da Luca il 21/10/2026, IVA esclusa da confermare)
+
+| Servizio | Da | A | Tempi |
+|---|---|---|---|
+| Gestionale su misura | 3.500 € | 20.000 € | 2 mesi |
+| Sito / e-commerce WooCommerce | 600 € | 8.000 € | 2 mesi |
+| E-commerce PrestaShop / modulo su misura | 150 € | 1.000 € | 1 mese |
+| Integrazione e-commerce ↔ gestionale o Amazon | 500 € | 2.000 € | 1 mese |
+| Gestione Amazon (canone mensile) | 50 € | 200 € | — |
+| Agente AI / automazione | 1.500 € | 5.000 € | 2 mesi |
+| Migrazione e-commerce | 1.000 € | 3.500 € | 2 mesi |
+| App su misura | 1.000 € | 10.000 € | 2 mesi |
+| Assistenza / manutenzione (canone mensile) | 50 € | 250 € | — |
 
 ## Da non presidiare
 
-"software gestione magazzino" e "software gestionale per aziende" (chi cerca vuole un prodotto pronto: TeamSystem, Danea), "migliori software house/agenzie" (directory e articoli a pagamento), "quanto costa vendere su Amazon" (commissioni, fuori target), "consulenza informatica aziende" (assistenza PC e reti, attira richieste sbagliate).
+Prodotti pronti ("software gestione magazzino", "software gestionale per aziende"), classifiche "migliori software house", "quanto costa vendere su Amazon", "consulenza informatica aziende" (assistenza PC), "consulente Excel/VBA" puro.
 
 ## Regole per ogni pagina
 
 - H1 = beneficio + keyword; prima frase = definizione chiara e citabile dalle AI.
 - Una keyword principale per URL, niente sovrapposizioni tra pagine.
-- Sezione "Quanto costa" con forchette vere di Arel (da confermare con Luca), tempi indicativi e cosa fa variare il prezzo.
+- Sezione "Quanto costa" con le forchette vere di Arel (tabella sopra), tempi indicativi e cosa fa variare il prezzo.
 - 4-6 FAQ reali (schema FAQPage), link a 2-3 servizi correlati, al caso studio e al Lab AI precompilato.

@@ -1,11 +1,11 @@
 # Arel Group
 
-> Arel Group S.r.l.s. è una software house italiana. Il suo core business è lo sviluppo di software su misura e di soluzioni di intelligenza artificiale: gestionali, agenti AI e automazioni, Forward Deployed Engineer (un ingegnere AI che lavora dentro il team del cliente), e inoltre e-commerce (WooCommerce e custom), gestione di Amazon e altri marketplace, app iOS e Android, portali B2B, siti web, SEO e advertising. Lavora in italiano e in inglese. Offre un'analisi gratuita di circa 30 minuti con uno sviluppatore, per capire dove si perde tempo e se conviene sviluppare. Sul sito, il Lab AI permette di descrivere un'idea o un problema e ricevere una prima lettura automatica (funzioni, fasi, tempi di massima).
+> Arel Group S.r.l.s. è una software house italiana. Il suo core business è lo sviluppo di software su misura e di soluzioni di intelligenza artificiale: gestionali, agenti AI e automazioni, Forward Deployed Engineer (un ingegnere AI che lavora dentro il team del cliente), e inoltre e-commerce (WooCommerce e custom), gestione di Amazon e altri marketplace, app iOS e Android, portali B2B, siti web, SEO e advertising. Lavora in italiano, inglese e francese. Offre un'analisi gratuita di circa 30 minuti con uno sviluppatore, per capire dove si perde tempo e se conviene sviluppare. Sul sito, il Lab AI permette di descrivere un'idea o un problema e ricevere una prima lettura automatica (funzioni, fasi, tempi di massima).
 
 Informazioni chiave:
 - Per chi: PMI che lavorano ancora a mano tra Excel, email e gestionali scollegati; aziende che vogliono usare l'AI nei processi reali; imprenditori con un'idea di prodotto digitale.
 - Come lavora: analisi gratuita con uno sviluppatore → preventivo scritto con funzioni, fasi e costi → sviluppo a passi brevi con una demo a ogni passo → lancio e assistenza.
-- Prezzi: su preventivo scritto dopo l'analisi gratuita; lo sviluppo è a pagamento.
+- Prezzi: preventivo scritto e gratuito dopo l'analisi; lo sviluppo è a pagamento. Esempio: gestionale su misura da 3.500 a 20.000 € IVA esclusa, prima versione in circa 2 mesi.
 - Lingue di lavoro: italiano, inglese, francese (il sito è anche in tedesco, ma non lavoriamo in tedesco).
 - Sede: Perugia (PG), Italia. Lavora da remoto con aziende in tutta Italia.
 - Società: Arel Group S.r.l.s., P. IVA 04043580549.
@@ -27,6 +27,10 @@ Il sito è disponibile in quattro lingue, con lo stesso contenuto:
 - [Analisi gratuita](https://arelgroup.it/#contatti): richiedi 30 minuti con uno sviluppatore.
 - [Soluzioni](https://arelgroup.it/#soluzioni): software e gestionali su misura (anche portali B2B), integrazione AI e automazioni (agenti, chatbot, integrazioni API, n8n/Make, grandi file di dati), Forward Deployed Engineer, app iOS e Android e web app, e-commerce e marketplace (WooCommerce, PrestaShop, Amazon), siti web e UI/UX.
 - [Domande frequenti](https://arelgroup.it/#faq)
+
+## Servizi
+
+- [Gestionale su misura](https://arelgroup.it/servizi/gestionale-su-misura/): cosa può fare, su misura o pronto, prezzi (3.500–20.000 € IVA esclusa), tempi (circa 2 mesi per la prima versione), assistenza (50–250 € al mese) e domande frequenti.
 
 ## Lavori
 
