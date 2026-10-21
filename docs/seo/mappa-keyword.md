@@ -29,7 +29,7 @@ Decisione del 21/10/2026: WooCommerce e PrestaShop non hanno pagine separate. St
 | 2 | `/servizi/sviluppo-ecommerce/` | fatta (21/10/2026): WooCommerce + PrestaShop, esempio WC Smart Search. Il vecchio `/servizi/sviluppo-woocommerce/` fa 301 qui |
 | 3 | `/servizi/gestione-amazon/` | fatta (22/10/2026): gestione Ads inclusa nel canone |
 | 4 | `/servizi/agenti-ai-automazioni/` | fatta (22/10/2026): esempio Lab AI, costi AI a parte |
-| 5 | `/servizi/migrazione-ecommerce/` | da fare |
+| 5 | `/servizi/migrazione-ecommerce/` | fatta (22/10/2026) |
 | 6 | `/servizi/sviluppo-app/` | da fare |
 
 ## Prezzi di Arel (forniti da Luca il 21/10/2026, tutti IVA esclusa)
