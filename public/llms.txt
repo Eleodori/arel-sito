@@ -35,6 +35,7 @@ Il sito è disponibile in quattro lingue, con lo stesso contenuto:
 - [Gestione Amazon](https://arelgroup.it/servizi/gestione-amazon/): schede prodotto, campagne Amazon Ads (gestione inclusa nel canone, budget pagato ad Amazon), prezzi e giacenze, Seller Central, report mensile, collegamento con e-commerce e gestionale. Prezzi: 150–500 € al mese IVA esclusa; collegamenti 500–2.000 € una volta sola.
 - [Agenti AI e automazioni](https://arelgroup.it/servizi/agenti-ai-automazioni/): chatbot per sito e WhatsApp, agenti su email e documenti, smistamento richieste, automazioni n8n e Make, integrazioni API su misura, report automatici; esempio: il Lab AI del sito. Prezzi: sviluppo 1.500–5.000 € IVA esclusa, circa 2 mesi; consumo dei modelli AI e abbonamenti pagati a parte dal cliente.
 - [Migrazione e-commerce](https://arelgroup.it/servizi/migrazione-ecommerce/): da Magento, Shopify o tra WooCommerce e PrestaShop; prodotti, clienti, ordini, contenuti e redirect 301 per la SEO; aggiornamento di vecchie versioni di PrestaShop. Prezzi: 1.000–3.500 € IVA esclusa, circa 2 mesi.
+- [Sviluppo app su misura](https://arelgroup.it/servizi/sviluppo-app/): web app e PWA (punto di forza), app iOS e Android native o ibride, app per il team e per i clienti, collegate a gestionale, e-commerce, CRM e AI. Prezzi: 1.000–10.000 € IVA esclusa, prima versione in circa 2 mesi.
 
 ## Lavori
 

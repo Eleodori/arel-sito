@@ -30,7 +30,7 @@ Decisione del 21/10/2026: WooCommerce e PrestaShop non hanno pagine separate. St
 | 3 | `/servizi/gestione-amazon/` | fatta (22/10/2026): gestione Ads inclusa nel canone |
 | 4 | `/servizi/agenti-ai-automazioni/` | fatta (22/10/2026): esempio Lab AI, costi AI a parte |
 | 5 | `/servizi/migrazione-ecommerce/` | fatta (22/10/2026) |
-| 6 | `/servizi/sviluppo-app/` | da fare |
+| 6 | `/servizi/sviluppo-app/` | fatta (22/10/2026): punto di forza web app e PWA |
 
 ## Prezzi di Arel (forniti da Luca il 21/10/2026, tutti IVA esclusa)
 
