@@ -134,6 +134,7 @@ const sentences = (k) => T[k].split(/(?<=\.)\s+/);
             <p class="p-kick" >{T.o2_k}</p>
             <h3 >{T.o2_t}</h3>
             <p >{T.o2_d}</p>
+            {lang === 'it' && <a class="p-more" href="/servizi/agenti-ai-automazioni/">Agenti AI e automazioni: prezzi e tempi <span aria-hidden="true">→</span></a>}
           </div>
           <ul class="p-chips">
             <li >{T.o2_i1}</li>
@@ -308,7 +309,7 @@ const sentences = (k) => T[k].split(/(?<=\.)\s+/);
       </div>
       <div><p class="fh" >{T.fh1}</p><ul>
         <li><a href={lang === 'it' ? '/servizi/gestionale-su-misura/' : '#soluzioni'} >{T.fl4}</a></li>
-        <li><a href="#soluzioni" >{T.fl3}</a></li>
+        <li><a href={lang === 'it' ? '/servizi/agenti-ai-automazioni/' : '#soluzioni'} >{T.fl3}</a></li>
         <li><a href="#fde" >{T.fl9}</a></li>
         <li><a href={lang === 'it' ? '/servizi/sviluppo-ecommerce/' : '#soluzioni'} >{T.fl1}</a></li>
         <li><a href={lang === 'it' ? '/servizi/gestione-amazon/' : '#soluzioni'} >{T.fl2}</a></li>

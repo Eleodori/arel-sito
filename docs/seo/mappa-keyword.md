@@ -28,7 +28,7 @@ Decisione del 21/10/2026: WooCommerce e PrestaShop non hanno pagine separate. St
 | 1 | `/servizi/gestionale-su-misura/` | fatta (21/10/2026) |
 | 2 | `/servizi/sviluppo-ecommerce/` | fatta (21/10/2026): WooCommerce + PrestaShop, esempio WC Smart Search. Il vecchio `/servizi/sviluppo-woocommerce/` fa 301 qui |
 | 3 | `/servizi/gestione-amazon/` | fatta (22/10/2026): gestione Ads inclusa nel canone |
-| 4 | `/servizi/agenti-ai-automazioni/` | da fare |
+| 4 | `/servizi/agenti-ai-automazioni/` | fatta (22/10/2026): esempio Lab AI, costi AI a parte |
 | 5 | `/servizi/migrazione-ecommerce/` | da fare |
 | 6 | `/servizi/sviluppo-app/` | da fare |
 
