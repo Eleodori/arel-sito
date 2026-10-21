@@ -89,7 +89,7 @@ const jsonld = {
 
   <section class="svc-sec" id="prezzi"><div class="wrap">
     <h2 set:html={kernHtml(s.priceTitle)}></h2>
-    <div class="svc-price">{s.price.boxes.map(([k, v, n]) => <div class="price-box"><p class="price-k">{k}</p><p class="price-v">{v}</p><p class="price-n">{n}</p></div>)}</div>
+    <div class="svc-price">{s.price.boxes.map(([k, v, n]) => <div class="price-box"><p class="price-k">{k}</p><p class="price-v">{v.replace(/ €/g, '\u00a0€')}</p><p class="price-n">{n}</p></div>)}</div>
     <h3 class="svc-h3">Cosa fa variare il prezzo</h3>
     <ul class="svc-list">{s.price.factors.map((x) => <li>{x}</li>)}</ul>
   </div></section>
