@@ -24,7 +24,7 @@ Mercato: **tutta Italia, lavoro da remoto**. Niente pagine per città. Prima in 
 | # | URL | Stato |
 |---|---|---|
 | 1 | `/servizi/gestionale-su-misura/` | fatta (21/10/2026) |
-| 2 | `/servizi/sviluppo-woocommerce/` | da fare (con WC Smart Search come esempio) |
+| 2 | `/servizi/sviluppo-woocommerce/` | fatta (21/10/2026), esempio WC Smart Search |
 | 3 | `/servizi/sviluppo-prestashop/` | da fare |
 | 4 | `/servizi/sviluppo-ecommerce/` | da fare: pagina ombrello, caso ARELpneumatici (listini e B2B) |
 | 5 | `/servizi/gestione-amazon/` | da fare |
@@ -32,15 +32,15 @@ Mercato: **tutta Italia, lavoro da remoto**. Niente pagine per città. Prima in 
 | 7 | `/servizi/migrazione-ecommerce/` | da fare |
 | 8 | `/servizi/sviluppo-app/` | da fare |
 
-## Prezzi di Arel (forniti da Luca il 21/10/2026, IVA esclusa da confermare)
+## Prezzi di Arel (forniti da Luca il 21/10/2026, tutti IVA esclusa)
 
 | Servizio | Da | A | Tempi |
 |---|---|---|---|
 | Gestionale su misura | 3.500 € | 20.000 € | 2 mesi |
-| Sito / e-commerce WooCommerce | 600 € | 8.000 € | 2 mesi |
-| E-commerce PrestaShop / modulo su misura | 150 € | 1.000 € | 1 mese |
+| Sito / e-commerce completo (WooCommerce o PrestaShop) | 600 € | 9.000 € | 2 mesi |
+| Modulo PrestaShop su misura | 150 € | 1.000 € | 1 mese |
 | Integrazione e-commerce ↔ gestionale o Amazon | 500 € | 2.000 € | 1 mese |
-| Gestione Amazon (canone mensile) | 50 € | 200 € | — |
+| Gestione Amazon (canone mensile) | 150 € | 500 € | — |
 | Agente AI / automazione | 1.500 € | 5.000 € | 2 mesi |
 | Migrazione e-commerce | 1.000 € | 3.500 € | 2 mesi |
 | App su misura | 1.000 € | 10.000 € | 2 mesi |
