@@ -4,15 +4,15 @@
 import Base from '../layouts/Base.astro';
 import Logo from './Logo.astro';
 import { I18N, kernHtml } from '../i18n/index.js';
+import { SERVIZI } from '../data/servizi.js';
 import { SITE, LIVE } from '../lib/site.js';
 interface Props { s: any }
 const { s } = Astro.props;
 const T = I18N.it;
 const path = `/servizi/${s.slug}/`;
 const url = new URL(path, SITE).href;
-// punto delle migliaia anche sotto 10.000 (toLocaleString 'it-IT' scrive 3500, non 3.500)
-const eur = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' €';
 const [pMin, pMax] = s.price.range;
+const related = (s.related || []).map((slug) => SERVIZI.find((x) => x.slug === slug)).filter(Boolean);
 const jsonld = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -76,6 +76,11 @@ const jsonld = {
     <div class="svc-cards">{s.features.items.map(([t, d]) => <div class="svc-card"><h3>{t}</h3><p>{d}</p></div>)}</div>
   </div></section>
 
+  {s.example && <section class="svc-sec"><div class="wrap">
+    <h2 set:html={kernHtml(s.example.title)}></h2>
+    <p class="svc-p">{s.example.text}</p>
+  </div></section>}
+
   <section class="svc-sec"><div class="wrap">
     <h2 set:html={kernHtml(s.compare.title)}></h2>
     <p class="svc-p">{s.compare.intro}</p>
@@ -83,12 +88,8 @@ const jsonld = {
   </div></section>
 
   <section class="svc-sec" id="prezzi"><div class="wrap">
-    <h2 set:html={kernHtml(`Quanto costa un ${s.keyword}`)}></h2>
-    <div class="svc-price">
-      <div class="price-box"><p class="price-k">Sviluppo</p><p class="price-v">{eur(pMin)} – {eur(pMax)}</p><p class="price-n">IVA esclusa. Preventivo scritto gratuito dopo l'analisi.</p></div>
-      <div class="price-box"><p class="price-k">Tempi</p><p class="price-v">{s.price.time}</p><p class="price-n">{s.price.timeNote}</p></div>
-      <div class="price-box"><p class="price-k">Assistenza</p><p class="price-v">{eur(s.price.care[0])} – {eur(s.price.care[1])}<small> / mese</small></p><p class="price-n">Aggiornamenti, supporto e nuove funzioni quando servono.</p></div>
-    </div>
+    <h2 set:html={kernHtml(s.priceTitle)}></h2>
+    <div class="svc-price">{s.price.boxes.map(([k, v, n]) => <div class="price-box"><p class="price-k">{k}</p><p class="price-v">{v}</p><p class="price-n">{n}</p></div>)}</div>
     <h3 class="svc-h3">Cosa fa variare il prezzo</h3>
     <ul class="svc-list">{s.price.factors.map((x) => <li>{x}</li>)}</ul>
   </div></section>
@@ -96,7 +97,7 @@ const jsonld = {
   <section class="svc-sec"><div class="wrap">
     <h2>Come lavoriamo</h2>
     <ol class="svc-steps">
-      <li><h3>Analisi gratuita</h3><p>30 minuti con uno sviluppatore: capiamo come lavorate e se il su misura conviene.</p></li>
+      <li><h3>Analisi gratuita</h3><p>30 minuti con uno sviluppatore: capiamo cosa ti serve e qual è la strada giusta.</p></li>
       <li><h3>Preventivo scritto</h3><p>Funzioni, fasi, tempi e costi messi nero su bianco. Il preventivo è gratuito.</p></li>
       <li><h3>Sviluppo a passi brevi</h3><p>Una demo a ogni passo, da provare con i vostri dati veri.</p></li>
       <li><h3>Avvio e assistenza</h3><p>Importiamo i dati, formiamo il team e restiamo al vostro fianco dopo il lancio.</p></li>
@@ -108,10 +109,15 @@ const jsonld = {
     <div class="faq">{s.faq.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}</div>
   </div></section>
 
+  {related.length > 0 && <section class="svc-sec"><div class="wrap">
+    <h2>Altri servizi</h2>
+    <div class="svc-cards">{related.map((r) => <a class="svc-card svc-link" href={`/servizi/${r.slug}/`}><h3>{r.name}</h3><p>{r.description}</p><span class="svc-go" aria-hidden="true">→</span></a>)}</div>
+  </div></section>}
+
   <section class="svc-sec"><div class="wrap">
     <div class="cta-box">
-      <h2 set:html={kernHtml('Raccontaci come lavorate oggi.')}></h2>
-      <p class="svc-p">In 30 minuti con uno sviluppatore capiamo se un {s.keyword} conviene e quanto costerebbe. L'analisi è gratuita e senza impegno.</p>
+      <h2 set:html={kernHtml(s.cta[0])}></h2>
+      <p class="svc-p">{s.cta[1]}</p>
       <div class="svc-ctas">
         <a class="btn btn-primary" href="/#contatti"><span>Richiedi l'analisi gratuita</span><span class="arr">→</span></a>
         <a class="btn btn-ghost" href="/#lab">Prova il Lab AI</a>
