@@ -153,6 +153,7 @@ const sentences = (k) => T[k].split(/(?<=\.)\s+/);
             <p class="p-kick" >{T.o4_k}</p>
             <h3 >{T.o4_t}</h3>
             <p >{T.o4_d}</p>
+            {lang === 'it' && <a class="p-more" href="/servizi/sviluppo-app/">App su misura, web app e PWA: prezzi e tempi <span aria-hidden="true">→</span></a>}
           </div>
           <ul class="p-chips">
             <li >{T.o4_i1}</li>
@@ -313,7 +314,7 @@ const sentences = (k) => T[k].split(/(?<=\.)\s+/);
         <li><a href="#fde" >{T.fl9}</a></li>
         <li><a href={lang === 'it' ? '/servizi/sviluppo-ecommerce/' : '#soluzioni'} >{T.fl1}</a></li>
         <li><a href={lang === 'it' ? '/servizi/gestione-amazon/' : '#soluzioni'} >{T.fl2}</a></li>
-        <li><a href="#soluzioni" >{T.fl5}</a></li>
+        <li><a href={lang === 'it' ? '/servizi/sviluppo-app/' : '#soluzioni'} >{T.fl5}</a></li>
       </ul></div>
       <div><p class="fh" >{T.fh2}</p><ul>
         <li><a href="#contatti" >{T.fl10}</a></li>
