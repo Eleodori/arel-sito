@@ -12,6 +12,13 @@ const T = I18N.it;
 const path = `/servizi/${s.slug}/`;
 const url = new URL(path, SITE).href;
 const [pMin, pMax] = s.price.range;
+// "Come lavoriamo": passi di default (progetti di sviluppo), una pagina può avere i suoi (s.steps)
+const steps = s.steps || [
+  ['Analisi gratuita', '30 minuti con uno sviluppatore: capiamo cosa ti serve e qual è la strada giusta.'],
+  ['Preventivo scritto', 'Funzioni, fasi, tempi e costi messi nero su bianco. Il preventivo è gratuito.'],
+  ['Sviluppo a passi brevi', 'Una demo a ogni passo, da provare con i vostri dati veri.'],
+  ['Avvio e assistenza', 'Importiamo i dati, formiamo il team e restiamo al vostro fianco dopo il lancio.'],
+];
 const related = (s.related || []).map((slug) => SERVIZI.find((x) => x.slug === slug)).filter(Boolean);
 const jsonld = {
   '@context': 'https://schema.org',
@@ -96,12 +103,7 @@ const jsonld = {
 
   <section class="svc-sec"><div class="wrap">
     <h2>Come lavoriamo</h2>
-    <ol class="svc-steps">
-      <li><h3>Analisi gratuita</h3><p>30 minuti con uno sviluppatore: capiamo cosa ti serve e qual è la strada giusta.</p></li>
-      <li><h3>Preventivo scritto</h3><p>Funzioni, fasi, tempi e costi messi nero su bianco. Il preventivo è gratuito.</p></li>
-      <li><h3>Sviluppo a passi brevi</h3><p>Una demo a ogni passo, da provare con i vostri dati veri.</p></li>
-      <li><h3>Avvio e assistenza</h3><p>Importiamo i dati, formiamo il team e restiamo al vostro fianco dopo il lancio.</p></li>
-    </ol>
+    <ol class="svc-steps">{steps.map(([t, d]) => <li><h3>{t}</h3><p>{d}</p></li>)}</ol>
   </div></section>
 
   <section class="svc-sec" id="faq"><div class="wrap faq-grid">
