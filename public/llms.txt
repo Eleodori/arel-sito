@@ -33,6 +33,7 @@ Il sito è disponibile in quattro lingue, con lo stesso contenuto:
 - [Gestionale su misura](https://arelgroup.it/servizi/gestionale-su-misura/): cosa può fare, su misura o pronto, prezzi (3.500–20.000 € IVA esclusa), tempi (circa 2 mesi per la prima versione), assistenza (50–250 € al mese) e domande frequenti.
 - [Sviluppo e-commerce](https://arelgroup.it/servizi/sviluppo-ecommerce/): e-commerce su misura con WooCommerce e PrestaShop, plugin e moduli su misura (es. WC Smart Search), e-commerce B2B, collegamento con Amazon e gestionale, WooCommerce o PrestaShop, prezzi (e-commerce 600–9.000 €, moduli PrestaShop 150–1.000 €, integrazioni 500–2.000 €, IVA esclusa), assistenza e domande frequenti.
 - [Gestione Amazon](https://arelgroup.it/servizi/gestione-amazon/): schede prodotto, campagne Amazon Ads (gestione inclusa nel canone, budget pagato ad Amazon), prezzi e giacenze, Seller Central, report mensile, collegamento con e-commerce e gestionale. Prezzi: 150–500 € al mese IVA esclusa; collegamenti 500–2.000 € una volta sola.
+- [Agenti AI e automazioni](https://arelgroup.it/servizi/agenti-ai-automazioni/): chatbot per sito e WhatsApp, agenti su email e documenti, smistamento richieste, automazioni n8n e Make, integrazioni API su misura, report automatici; esempio: il Lab AI del sito. Prezzi: sviluppo 1.500–5.000 € IVA esclusa, circa 2 mesi; consumo dei modelli AI e abbonamenti pagati a parte dal cliente.
 
 ## Lavori
 
