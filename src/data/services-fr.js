@@ -153,7 +153,7 @@ export const SERVICES_FR = [
     "name": "Développement e-commerce",
     "summary": "Boutiques en ligne sur WooCommerce et PrestaShop, plugins et modules sur mesure, B2B et connexion avec Amazon et votre logiciel de gestion.",
     "title": "Développement e-commerce sur mesure · Arel Group",
-    "description": "Développement e-commerce sur mesure avec WooCommerce et PrestaShop : nouvelles boutiques, plugins et modules, B2B, connexion Amazon. Dès 600 € HT.",
+    "description": "Développement e-commerce sur mesure avec WooCommerce et PrestaShop : nouvelles boutiques, plugins et modules, B2B, connexion Amazon. Dès 3 000 € HT.",
     "h1": [
       "Développement e-commerce sur mesure,",
       "connecté à tout le reste."
@@ -228,14 +228,14 @@ export const SERVICES_FR = [
     "priceTitle": "Combien coûte un site e-commerce",
     "price": {
       "range": [
-        600,
+        3000,
         9000
       ],
       "boxes": [
         [
           "E-commerce",
-          "600 € – 9 000 €",
-          "HT, sur WooCommerce ou PrestaShop. Du site avec quelques produits à l’e-commerce complet, en 2 mois environ."
+          "3 000 € – 9 000 €",
+          "HT, sur WooCommerce ou PrestaShop. De la boutique essentielle à l’e-commerce complet avec des fonctions sur mesure, en 2 mois environ."
         ],
         [
           "Modules PrestaShop",
@@ -273,7 +273,7 @@ export const SERVICES_FR = [
     "faq": [
       [
         "Combien coûte la création d’un site e-commerce ?",
-        "De 600 à 9 000 € HT, sur WooCommerce ou PrestaShop : du site avec quelques produits à l’e-commerce complet avec des fonctions sur mesure et des connexions à d’autres systèmes. Après l’analyse gratuite, vous recevez un devis écrit, lui aussi gratuit."
+        "De 3 000 à 9 000 € HT, sur WooCommerce ou PrestaShop : de la boutique essentielle à l’e-commerce complet avec des fonctions sur mesure et des connexions à d’autres systèmes. Après l’analyse gratuite, vous recevez un devis écrit, lui aussi gratuit."
       ],
       [
         "Combien de temps faut-il ?",
@@ -785,7 +785,7 @@ export const SERVICES_FR = [
     "name": "Applications sur mesure",
     "summary": "Web apps et PWA, notre point fort, ainsi que des applications iOS et Android natives ou hybrides, connectées à vos systèmes.",
     "title": "Applications sur mesure, web apps et PWA · Arel Group",
-    "description": "Développement d’applications sur mesure : web apps, PWA et apps iOS et Android natives ou hybrides. Dès 1 000 € HT, première version en 2 mois environ.",
+    "description": "Développement d’applications sur mesure : web apps, PWA et apps iOS et Android natives ou hybrides. Dès 2 000 € HT, première version en 2 mois environ.",
     "h1": [
       "Développement d’applications sur mesure,",
       "pour le navigateur et le smartphone."
@@ -856,13 +856,13 @@ export const SERVICES_FR = [
     "priceTitle": "Combien coûte une application sur mesure",
     "price": {
       "range": [
-        1000,
+        2000,
         10000
       ],
       "boxes": [
         [
           "Développement",
-          "1 000 € – 10 000 €",
+          "2 000 € – 10 000 €",
           "HT. D’une web app simple à une application iOS et Android complète."
         ],
         [
@@ -895,7 +895,7 @@ export const SERVICES_FR = [
     "faq": [
       [
         "Combien coûte le développement d’une application sur mesure ?",
-        "De 1 000 à 10 000 € HT : d’une web app simple à une application iOS et Android complète, connectée à vos systèmes. Après l’analyse gratuite, vous recevez un devis écrit, lui aussi gratuit."
+        "De 2 000 à 10 000 € HT : d’une web app simple à une application iOS et Android complète, connectée à vos systèmes. Après l’analyse gratuite, vous recevez un devis écrit, lui aussi gratuit."
       ],
       [
         "Combien de temps faut-il ?",
