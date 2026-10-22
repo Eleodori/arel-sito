@@ -85,7 +85,7 @@ export const SERVIZI = [
     name: 'Sviluppo e-commerce',
     summary: "Negozi online su WooCommerce e PrestaShop, plugin e moduli su misura, B2B e collegamento con Amazon e gestionale.",
     title: 'Sviluppo e-commerce su misura · Arel Group',
-    description: 'Sviluppo e-commerce su misura con WooCommerce e PrestaShop: negozi nuovi, plugin e moduli, B2B, collegamento con Amazon e gestionale. Da 600 € IVA esclusa.',
+    description: 'Sviluppo e-commerce su misura con WooCommerce e PrestaShop: negozi nuovi, plugin e moduli, B2B, collegamento con Amazon e gestionale. Da 3.000 €.',
     h1: ['Sviluppo e-commerce su misura,', 'collegato a tutto il resto.'],
     lead: "Lo sviluppo di un e-commerce su misura parte dal tuo modo di vendere: catalogo, prezzi, spedizioni, clienti B2B, marketplace. Invece di accumulare plugin e moduli che si pestano i piedi, scriviamo il codice che serve e colleghiamo il negozio al gestionale, ad Amazon e agli altri programmi che usi.",
     lead2: 'Lavoriamo con WooCommerce e PrestaShop: creiamo e-commerce nuovi, sistemiamo quelli che esistono già e sviluppiamo plugin e moduli su misura, per PMI di tutta Italia. Un e-commerce completo è online in circa 2 mesi.',
@@ -132,9 +132,9 @@ export const SERVIZI = [
     },
     priceTitle: 'Quanto costa un e-commerce',
     price: {
-      range: [600, 9000],
+      range: [3000, 9000],
       boxes: [
-        ['E-commerce', '600 € – 9.000 €', "IVA esclusa, su WooCommerce o PrestaShop. Dal sito con pochi prodotti all'e-commerce completo, in circa 2 mesi."],
+        ['E-commerce', '3.000 € – 9.000 €', "IVA esclusa, su WooCommerce o PrestaShop. Dal negozio essenziale all'e-commerce completo con funzioni su misura, in circa 2 mesi."],
         ['Moduli PrestaShop', '150 € – 1.000 €', 'IVA esclusa. Un modulo su misura per una funzione specifica, in circa 1 mese.'],
         ['Integrazioni', '500 € – 2.000 €', 'IVA esclusa. Collegamento con il gestionale o con Amazon, in circa 1 mese.'],
         ['Assistenza', '50 € – 250 €', 'al mese, IVA esclusa. Aggiornamenti, supporto e interventi quando servono.'],
@@ -150,7 +150,7 @@ export const SERVIZI = [
     cta: ['Raccontaci il tuo negozio.', "In 30 minuti con uno sviluppatore capiamo cosa serve al tuo e-commerce e quanto costerebbe. L'analisi è gratuita e senza impegno."],
     related: ['migrazione-ecommerce', 'gestione-amazon', 'gestionale-su-misura'],
     faq: [
-      ['Quanto costa sviluppare un e-commerce?', "Da 600 a 9.000 € IVA esclusa, su WooCommerce o PrestaShop: da un sito con pochi prodotti a un e-commerce completo con funzioni su misura e collegamenti ad altri sistemi. Dopo l'analisi gratuita ricevi un preventivo scritto, anche questo gratuito."],
+      ['Quanto costa sviluppare un e-commerce?', "Da 3.000 a 9.000 € IVA esclusa, su WooCommerce o PrestaShop: da un negozio essenziale a un e-commerce completo con funzioni su misura e collegamenti ad altri sistemi. Dopo l'analisi gratuita ricevi un preventivo scritto, anche questo gratuito."],
       ['Quanto tempo serve?', 'Circa 2 mesi per un e-commerce completo; un sito più semplice è pronto prima. Un collegamento con il gestionale o con Amazon richiede circa 1 mese.'],
       ['Meglio WooCommerce o PrestaShop?', "Dipende dal catalogo e da come vendi. WooCommerce è più adatto se vuoi sito, contenuti e negozio insieme e molte personalizzazioni; PrestaShop se hai un catalogo molto ampio o più negozi da gestire. Lavoriamo con entrambe e nell'analisi gratuita ti diciamo quale conviene."],
       ['Potete lavorare su un e-commerce che esiste già?', 'Sì, su WooCommerce e PrestaShop: sistemiamo errori e lentezze, aggiorniamo in sicurezza, aggiungiamo funzioni e colleghiamo il negozio ad altri sistemi, senza rifare tutto da capo.'],
@@ -407,7 +407,7 @@ export const SERVIZI = [
     name: 'Sviluppo app su misura',
     summary: "Web app e PWA, il nostro punto di forza, e app iOS e Android native o ibride, collegate ai tuoi sistemi.",
     title: 'Sviluppo app su misura, web app e PWA · Arel Group',
-    description: 'Sviluppo app su misura per aziende: web app, PWA e app iOS e Android native o ibride. Da 1.000 € IVA esclusa, prima versione in circa 2 mesi.',
+    description: 'Sviluppo app su misura per aziende: web app, PWA e app iOS e Android native o ibride. Da 2.000 € IVA esclusa, prima versione in circa 2 mesi.',
     h1: ['Sviluppo app su misura,', 'per il browser e per lo smartphone.'],
     lead: "Sviluppare un'app su misura vuol dire costruire uno strumento per il tuo lavoro o per i tuoi clienti, invece di adattarsi a un'app pensata per tutti. Può essere una web app che si usa dal browser, una PWA che si installa sul telefono senza passare dagli store, oppure un'app iOS e Android.",
     lead2: 'Siamo forti sulle web app e sulle PWA: un solo prodotto che funziona su computer, tablet e smartphone, costa meno di due app separate e si aggiorna subito. Quando servono gli store sviluppiamo app iOS e Android, native o ibride. La prima versione è in uso in circa 2 mesi.',
@@ -450,9 +450,9 @@ export const SERVIZI = [
     },
     priceTitle: "Quanto costa un'app su misura",
     price: {
-      range: [1000, 10000],
+      range: [2000, 10000],
       boxes: [
-        ['Sviluppo', '1.000 € – 10.000 €', "IVA esclusa. Da una web app semplice a un'app iOS e Android completa."],
+        ['Sviluppo', '2.000 € – 10.000 €', "IVA esclusa. Da una web app semplice a un'app iOS e Android completa."],
         ['Tempi', 'circa 2 mesi', 'per la prima versione in uso. Le app più grandi si rilasciano a fasi.'],
         ['Assistenza', '50 € – 250 €', 'al mese, IVA esclusa. Aggiornamenti, supporto e nuove funzioni quando servono.'],
       ],
@@ -467,7 +467,7 @@ export const SERVIZI = [
     cta: ["Raccontaci la tua idea di app.", "In 30 minuti con uno sviluppatore capiamo che tipo di app ti serve, da dove partire e quanto costerebbe. L'analisi è gratuita e senza impegno."],
     related: ['gestionale-su-misura', 'agenti-ai-automazioni'],
     faq: [
-      ["Quanto costa sviluppare un'app su misura?", "Da 1.000 a 10.000 € IVA esclusa: da una web app semplice a un'app iOS e Android completa, collegata ai tuoi sistemi. Dopo l'analisi gratuita ricevi un preventivo scritto, anche questo gratuito."],
+      ["Quanto costa sviluppare un'app su misura?", "Da 2.000 a 10.000 € IVA esclusa: da una web app semplice a un'app iOS e Android completa, collegata ai tuoi sistemi. Dopo l'analisi gratuita ricevi un preventivo scritto, anche questo gratuito."],
       ['Quanto tempo serve?', 'Circa 2 mesi per la prima versione in uso. Nelle app più grandi si parte dalle funzioni più importanti e si aggiunge il resto a fasi.'],
       ["Che differenza c'è tra web app, PWA e app nativa?", "Una web app si usa dal browser. Una PWA è una web app che si installa sul telefono come un'app, senza passare dagli store. Un'app nativa o ibrida si scarica da App Store e Google Play e sfrutta al massimo le funzioni del telefono."],
       ['Sviluppate app per iOS e Android?', 'Sì, native oppure ibride, cioè con un solo codice per entrambe le piattaforme: costa meno e si mantiene più facilmente.'],

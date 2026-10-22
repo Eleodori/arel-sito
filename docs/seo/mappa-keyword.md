@@ -43,13 +43,14 @@ Decisione del 21/10/2026: WooCommerce e PrestaShop non hanno pagine separate. St
 | Servizio | Da | A | Tempi |
 |---|---|---|---|
 | Gestionale su misura | 3.500 € | 20.000 € | 2 mesi |
-| Sito / e-commerce completo (WooCommerce o PrestaShop) | 600 € | 9.000 € | 2 mesi |
+| E-commerce (WooCommerce o PrestaShop) | 3.000 € | 9.000 € | 2 mesi |
+| Sito vetrina (solo su Google Business, non sul sito) | 600 € | — | — |
 | Modulo PrestaShop su misura | 150 € | 1.000 € | 1 mese |
 | Integrazione e-commerce ↔ gestionale o Amazon | 500 € | 2.000 € | 1 mese |
 | Gestione Amazon (canone mensile) | 150 € | 500 € | — |
 | Agente AI / automazione | 1.500 € | 5.000 € | 2 mesi |
 | Migrazione e-commerce | 1.000 € | 3.500 € | 2 mesi |
-| App su misura | 1.000 € | 10.000 € | 2 mesi |
+| App su misura | 2.000 € | 10.000 € | 2 mesi |
 | Assistenza / manutenzione (canone mensile) | 50 € | 250 € | — |
 
 ## Da non presidiare

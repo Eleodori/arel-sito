@@ -154,7 +154,7 @@ export const SERVICES_EN = [
     "name": "E-commerce development",
     "summary": "Online shops on WooCommerce and PrestaShop, custom plugins and modules, B2B and integration with Amazon and management software.",
     "title": "Custom e-commerce development · Arel Group",
-    "description": "Custom e-commerce development with WooCommerce and PrestaShop: new shops, plugins and modules, B2B, Amazon and management software integration. From €600.",
+    "description": "Custom e-commerce development with WooCommerce and PrestaShop: new shops, plugins and modules, B2B, Amazon and ERP integration. From €3,000.",
     "h1": [
       "Custom e-commerce development,",
       "connected to everything else."
@@ -229,14 +229,14 @@ export const SERVICES_EN = [
     "priceTitle": "How much does an e-commerce site cost",
     "price": {
       "range": [
-        600,
+        3000,
         9000
       ],
       "boxes": [
         [
           "E-commerce",
-          "€600 – €9,000",
-          "excl. VAT, on WooCommerce or PrestaShop. From a site with a few products to a complete online shop, in about 2 months."
+          "€3,000 – €9,000",
+          "excl. VAT, on WooCommerce or PrestaShop. From an essential online shop to a complete one with bespoke features, in about 2 months."
         ],
         [
           "PrestaShop modules",
@@ -274,7 +274,7 @@ export const SERVICES_EN = [
     "faq": [
       [
         "How much does it cost to build an e-commerce site?",
-        "From €600 to €9,000 excl. VAT, on WooCommerce or PrestaShop: from a site with a few products to a complete online shop with bespoke features and connections to other systems. After the free analysis you get a written quote, also free."
+        "From €3,000 to €9,000 excl. VAT, on WooCommerce or PrestaShop: from an essential online shop to a complete one with bespoke features and connections to other systems. After the free analysis you get a written quote, also free."
       ],
       [
         "How long does it take?",
@@ -786,7 +786,7 @@ export const SERVICES_EN = [
     "name": "Custom app development",
     "summary": "Web apps and PWAs, our strength, plus native or hybrid iOS and Android apps, connected to your systems.",
     "title": "Custom app development, web apps and PWAs · Arel Group",
-    "description": "Custom app development for businesses: web apps, PWAs and native or hybrid iOS and Android apps. From €1,000 excl. VAT, first version in about 2 months.",
+    "description": "Custom app development for businesses: web apps, PWAs and native or hybrid iOS and Android apps. From €2,000 excl. VAT, first version in about 2 months.",
     "h1": [
       "Custom app development,",
       "for the browser and the smartphone."
@@ -857,13 +857,13 @@ export const SERVICES_EN = [
     "priceTitle": "How much does a custom app cost",
     "price": {
       "range": [
-        1000,
+        2000,
         10000
       ],
       "boxes": [
         [
           "Development",
-          "€1,000 – €10,000",
+          "€2,000 – €10,000",
           "excl. VAT. From a simple web app to a complete iOS and Android app."
         ],
         [
@@ -896,7 +896,7 @@ export const SERVICES_EN = [
     "faq": [
       [
         "How much does it cost to build a custom app?",
-        "From €1,000 to €10,000 excl. VAT: from a simple web app to a complete iOS and Android app connected to your systems. After the free analysis you get a written quote, also free."
+        "From €2,000 to €10,000 excl. VAT: from a simple web app to a complete iOS and Android app connected to your systems. After the free analysis you get a written quote, also free."
       ],
       [
         "How long does it take?",

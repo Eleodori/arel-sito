@@ -155,7 +155,7 @@ export const SERVICES_DE = [
     "name": "E-Commerce-Entwicklung",
     "summary": "Onlineshops mit WooCommerce und PrestaShop, individuelle Plugins und Module, B2B und Anbindung an Amazon und ERP.",
     "title": "E-Commerce-Entwicklung nach Maß · Arel Group",
-    "description": "E-Commerce-Entwicklung nach Maß mit WooCommerce und PrestaShop: neue Shops, Plugins und Module, B2B, Anbindung an Amazon und ERP. Ab 600 € zzgl. MwSt.",
+    "description": "E-Commerce-Entwicklung nach Maß mit WooCommerce und PrestaShop: neue Shops, Plugins und Module, B2B, Anbindung an Amazon und ERP. Ab 3.000 € zzgl. MwSt.",
     "h1": [
       "E-Commerce-Entwicklung nach Maß,",
       "mit allem anderen verbunden."
@@ -230,14 +230,14 @@ export const SERVICES_DE = [
     "priceTitle": "Was kostet ein Onlineshop",
     "price": {
       "range": [
-        600,
+        3000,
         9000
       ],
       "boxes": [
         [
           "E-Commerce",
-          "600 € – 9.000 €",
-          "zzgl. MwSt., mit WooCommerce oder PrestaShop. Von der Website mit wenigen Produkten bis zum kompletten Onlineshop, in ca. 2 Monaten."
+          "3.000 € – 9.000 €",
+          "zzgl. MwSt., mit WooCommerce oder PrestaShop. Vom schlanken Onlineshop bis zum kompletten Shop mit individuellen Funktionen, in ca. 2 Monaten."
         ],
         [
           "PrestaShop-Module",
@@ -275,7 +275,7 @@ export const SERVICES_DE = [
     "faq": [
       [
         "Was kostet die Entwicklung eines Onlineshops?",
-        "Zwischen 600 und 9.000 € zzgl. MwSt., mit WooCommerce oder PrestaShop: von der Website mit wenigen Produkten bis zum kompletten Onlineshop mit individuellen Funktionen und Anbindungen an andere Systeme. Nach der kostenlosen Analyse erhalten Sie ein schriftliches Angebot, ebenfalls kostenlos."
+        "Zwischen 3.000 und 9.000 € zzgl. MwSt., mit WooCommerce oder PrestaShop: vom schlanken Onlineshop bis zum kompletten Shop mit individuellen Funktionen und Anbindungen an andere Systeme. Nach der kostenlosen Analyse erhalten Sie ein schriftliches Angebot, ebenfalls kostenlos."
       ],
       [
         "Wie lange dauert es?",
@@ -787,7 +787,7 @@ export const SERVICES_DE = [
     "name": "App-Entwicklung nach Maß",
     "summary": "Web-Apps und PWAs, unsere Stärke, sowie native oder hybride iOS- und Android-Apps, verbunden mit Ihren Systemen.",
     "title": "App-Entwicklung nach Maß, Web-Apps und PWAs · Arel Group",
-    "description": "App-Entwicklung nach Maß: Web-Apps, PWAs und native oder hybride iOS- und Android-Apps. Ab 1.000 € zzgl. MwSt., erste Version in ca. 2 Monaten.",
+    "description": "App-Entwicklung nach Maß: Web-Apps, PWAs und native oder hybride iOS- und Android-Apps. Ab 2.000 € zzgl. MwSt., erste Version in ca. 2 Monaten.",
     "h1": [
       "App-Entwicklung nach Maß,",
       "für Browser und Smartphone."
@@ -858,13 +858,13 @@ export const SERVICES_DE = [
     "priceTitle": "Was kostet eine App nach Maß",
     "price": {
       "range": [
-        1000,
+        2000,
         10000
       ],
       "boxes": [
         [
           "Entwicklung",
-          "1.000 € – 10.000 €",
+          "2.000 € – 10.000 €",
           "zzgl. MwSt. Von der einfachen Web-App bis zur kompletten App für iOS und Android."
         ],
         [
@@ -897,7 +897,7 @@ export const SERVICES_DE = [
     "faq": [
       [
         "Was kostet die Entwicklung einer App nach Maß?",
-        "Zwischen 1.000 und 10.000 € zzgl. MwSt.: von der einfachen Web-App bis zur kompletten App für iOS und Android, verbunden mit Ihren Systemen. Nach der kostenlosen Analyse erhalten Sie ein schriftliches Angebot, ebenfalls kostenlos."
+        "Zwischen 2.000 und 10.000 € zzgl. MwSt.: von der einfachen Web-App bis zur kompletten App für iOS und Android, verbunden mit Ihren Systemen. Nach der kostenlosen Analyse erhalten Sie ein schriftliches Angebot, ebenfalls kostenlos."
       ],
       [
         "Wie lange dauert es?",
