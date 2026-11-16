@@ -1,5 +1,12 @@
 # DECISIONS
 
+## 2026-11-16 · Copy "chiarezza" approvato dal titolare
+- Titolo home nuovo: "Il software su misura / per come lavora la tua azienda." (via "Porta un'idea."); sottotitolo con gestionali, app e AI per chi ha un'azienda e per chi la sta avviando.
+- "Forward Deployed Engineer" non si usa più nei testi visibili: diventa "Sviluppatore in azienda" (EN "Developer inside your company", FR "Développeur dans votre entreprise", DE "Entwickler in Ihrem Unternehmen"). Resta solo in `knowsAbout` del JSON-LD, in `llms.txt` tra parentesi e nel prompt del Lab.
+- Il risultato del Lab AI è la "prima bozza" (non più "prima lettura"); EN "first draft", FR "première ébauche", DE resta "Ersteinschätzung".
+- FAQ della home con prezzi indicativi IVA esclusa: gestionale 3.500-20.000 €, app 2.000-10.000 €, assistente AI 1.500-5.000 €, uguali in tutte le lingue.
+- Pagine servizio in italiano tutte al "tu", come la home. Le domande delle FAQ scritte dal punto di vista del visitatore ("Lavorate solo a Perugia?") restano al "voi" perché si rivolgono ad Arel.
+
 ## 2026-10-22 · Pagine servizio e traduzioni
 - 6 pagine servizio + pagina "Servizi" (`/servizi/`). Prezzi reali IVA esclusa, FAQ identiche nel JSON-LD.
 - WooCommerce e PrestaShop stanno in "Sviluppo e-commerce" (niente pagine per piattaforma, per non farle concorrere su Google). `/servizi/sviluppo-woocommerce/` fa 301 lì.

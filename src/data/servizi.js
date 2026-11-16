@@ -8,7 +8,7 @@ export const SERVIZI = [
     slug: 'gestionale-su-misura',
     keyword: 'gestionale su misura',
     name: 'Gestionale su misura',
-    summary: "Ordini, magazzino, clienti e commesse in un software costruito sui vostri processi e collegato ai programmi che usate già.",
+    summary: "Ordini, magazzino, clienti e commesse in un software costruito sui tuoi processi e collegato ai programmi che usi già.",
     title: 'Gestionale su misura per PMI · Arel Group',
     description: 'Software gestionale su misura per PMI: ordini, magazzino e clienti, collegato ai programmi che usi già. Da 3.500 €, prima versione in circa 2 mesi.',
     h1: ['Gestionale su misura,', 'costruito sui tuoi processi.'],
@@ -17,8 +17,8 @@ export const SERVIZI = [
     signs: {
       title: 'Quando serve un gestionale su misura',
       items: [
-        'Copiate a mano gli stessi dati tra Excel, email, e-commerce e gestionale.',
-        'Il gestionale che avete vi costringe a giri lunghi o a fogli Excel paralleli.',
+        'Copi a mano gli stessi dati tra Excel, email, e-commerce e gestionale.',
+        'Il gestionale che hai ti costringe a giri lunghi o a fogli Excel paralleli.',
         'Informazioni importanti sono nella testa di una sola persona o in file sparsi.',
         'Ordini, giacenze e prezzi non tornano tra magazzino, negozio online e marketplace.',
         'Preparare i report del mese richiede ore di lavoro.',
@@ -31,7 +31,7 @@ export const SERVIZI = [
         ['Magazzino e listini', 'Giacenze, fornitori e listini aggiornati in automatico, anche da file CSV, Excel o XML.'],
         ['Commesse e produzione', 'Avanzamento dei lavori, ore, materiali e costi per commessa, visibili a tutto il team.'],
         ['Area clienti e agenti', 'Un portale B2B dove clienti e agenti vedono i loro prezzi, ordinano e scaricano i documenti.'],
-        ['Collegamenti con i tuoi sistemi', 'Il gestionale che avete già, il CRM, WooCommerce, PrestaShop, Amazon e altri marketplace: ogni programma fa il suo lavoro, i dati passano da soli.'],
+        ['Collegamenti con i tuoi sistemi', 'Il gestionale che hai già, il CRM, WooCommerce, PrestaShop, Amazon e altri marketplace: ogni programma fa il suo lavoro, i dati passano da soli.'],
         ['Report e AI', "Dashboard che si aggiornano da sole e automazioni con l'AI per leggere documenti e smistare richieste."],
       ],
     },
@@ -40,14 +40,14 @@ export const SERVIZI = [
       intro: "Non sempre serve il su misura. Nell'analisi gratuita ti diciamo quale strada conviene, anche quando la risposta è un gestionale pronto.",
       cols: [
         ['Un gestionale pronto basta se', [
-          'i vostri processi sono standard per il settore;',
-          'vi va bene adattare il modo di lavorare al programma;',
+          'i tuoi processi sono standard per il settore;',
+          'ti va bene adattare il modo di lavorare al programma;',
           'non servono collegamenti con altri sistemi.',
         ]],
         ['Il su misura conviene se', [
-          'il vostro modo di lavorare è un vantaggio da non perdere;',
-          'dovete far parlare tra loro più sistemi: gestionale attuale, CRM, e-commerce, marketplace;',
-          'oggi tenete in piedi tutto con Excel paralleli e copia-incolla.',
+          'il tuo modo di lavorare è un vantaggio da non perdere;',
+          'devi far parlare tra loro più sistemi: gestionale attuale, CRM, e-commerce, marketplace;',
+          'oggi tieni in piedi tutto con Excel paralleli e copia-incolla.',
         ]],
       ],
     },
@@ -67,14 +67,14 @@ export const SERVIZI = [
         "app per smartphone, report e automazioni con l'AI.",
       ],
     },
-    cta: ['Raccontaci come lavorate oggi.', "In 30 minuti con uno sviluppatore capiamo se un gestionale su misura conviene e quanto costerebbe. L'analisi è gratuita e senza impegno."],
+    cta: ['Raccontaci come lavori oggi.', "In 30 minuti con uno sviluppatore capiamo se un gestionale su misura conviene e quanto costerebbe. L'analisi è gratuita e senza impegno."],
     related: ['agenti-ai-automazioni', 'sviluppo-app', 'sviluppo-ecommerce'],
     faq: [
       ['Quanto costa un gestionale su misura?', "Da 3.500 a 20.000 € IVA esclusa, a seconda delle funzioni, del numero di utenti, dei collegamenti con altri sistemi e dei dati da importare. Dopo l'analisi gratuita ricevi un preventivo scritto, anche questo gratuito."],
       ['Quanto tempo serve per sviluppare un gestionale?', 'Circa 2 mesi per la prima versione in uso. Nei progetti più ampi si parte dalle funzioni che fanno risparmiare più tempo e si aggiunge il resto a fasi.'],
-      ['Meglio un gestionale su misura o uno pronto?', "Se i processi sono standard, un gestionale pronto costa meno e va benissimo. Il su misura conviene quando il vostro modo di lavorare è particolare, quando servono collegamenti tra più sistemi o quando si lavora con molti Excel paralleli. Nell'analisi gratuita ti diciamo quale strada conviene."],
-      ['Si possono importare i dati da Excel o dal vecchio gestionale?', "Sì. Importiamo clienti, articoli, listini e storico da Excel, CSV o dal vecchio gestionale, e controlliamo i dati insieme a voi prima dell'avvio."],
-      ['Il gestionale si collega ai programmi che usiamo già?', 'Sì. Lo colleghiamo al gestionale che avete già, al CRM, a WooCommerce, PrestaShop, Amazon e altri marketplace: ogni sistema continua a fare il suo lavoro e ordini, giacenze e prezzi restano allineati senza copiarli a mano.'],
+      ['Meglio un gestionale su misura o uno pronto?', "Se i processi sono standard, un gestionale pronto costa meno e va benissimo. Il su misura conviene quando il tuo modo di lavorare è particolare, quando servono collegamenti tra più sistemi o quando si lavora con molti Excel paralleli. Nell'analisi gratuita ti diciamo quale strada conviene."],
+      ['Si possono importare i dati da Excel o dal vecchio gestionale?', "Sì. Importiamo clienti, articoli, listini e storico da Excel, CSV o dal vecchio gestionale, e controlliamo i dati insieme a te prima dell'avvio."],
+      ['Il gestionale si collega ai programmi che usiamo già?', 'Sì. Lo colleghiamo al gestionale che hai già, al CRM, a WooCommerce, PrestaShop, Amazon e altri marketplace: ogni sistema continua a fare il suo lavoro e ordini, giacenze e prezzi restano allineati senza copiarli a mano.'],
       ['Cosa succede dopo la consegna?', "Con l'assistenza mensile, da 50 a 250 € al mese, seguiamo aggiornamenti, problemi e richieste, e il gestionale può crescere con nuove funzioni quando servono."],
       ['Lavorate solo a Perugia?', 'No. Lavoriamo da remoto con aziende di tutta Italia, in italiano, inglese o francese.'],
     ],
@@ -254,11 +254,11 @@ export const SERVIZI = [
     signs: {
       title: 'Quando un agente AI fa la differenza',
       items: [
-        'Rispondete ogni giorno alle stesse domande di clienti e fornitori.',
+        'Rispondi ogni giorno alle stesse domande di clienti e fornitori.',
         'Qualcuno copia a mano i dati da email, PDF e ordini dentro il gestionale.',
         'Le richieste arrivano da più canali e vanno smistate una per una.',
         'Report e riepiloghi si preparano a mano ogni settimana.',
-        "Volete usare l'AI ma non sapete da quale processo partire.",
+        "Vuoi usare l'AI ma non sai da quale processo partire.",
       ],
     },
     features: {
@@ -274,7 +274,7 @@ export const SERVIZI = [
     },
     example: {
       title: 'Un esempio: il Lab AI di questo sito',
-      text: "Il Lab AI nella nostra home è un agente AI vero: legge l'idea che scrivi, ti fa qualche domanda mirata e prepara una prima lettura del progetto, con funzioni, fasi e tempi di massima. Ha limiti di utilizzo e filtri contro gli abusi, come ogni agente che mettiamo in produzione. Puoi provarlo dal pulsante in fondo alla pagina.",
+      text: "Il Lab AI nella nostra home è un agente AI vero: legge l'idea che scrivi, ti fa qualche domanda mirata e prepara una prima bozza del progetto, con funzioni, fasi e tempi di massima. Ha limiti di utilizzo e filtri contro gli abusi, come ogni agente che mettiamo in produzione. Puoi provarlo dal pulsante in fondo alla pagina.",
     },
     compare: {
       title: 'Automazione semplice o agente AI?',
@@ -415,9 +415,9 @@ export const SERVIZI = [
       title: "Quando serve un'app su misura",
       items: [
         'Agenti, tecnici o magazzinieri lavorano con carta, foto e messaggi WhatsApp.',
-        'I clienti vi chiedono di prenotare, ordinare o seguire una pratica dal telefono.',
-        'Usate fogli Excel condivisi che ognuno aggiorna a modo suo.',
-        "Avete un'idea di prodotto digitale da portare sul mercato.",
+        'I clienti ti chiedono di prenotare, ordinare o seguire una pratica dal telefono.',
+        'Usi fogli Excel condivisi che ognuno aggiorna a modo suo.',
+        "Hai un'idea di prodotto digitale da portare sul mercato.",
         "Un'app già pronta costa licenze per utente e fa solo metà di quello che serve.",
       ],
     },

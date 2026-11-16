@@ -21,7 +21,7 @@
     "addressRegion": "PG",
     "addressCountry": "IT"
    },
-   "description": "Software house per PMI: software e gestionali su misura, AI e automazioni, Forward Deployed Engineer, app e piattaforme, e-commerce e marketplace. Analisi gratuita di 30 minuti con uno sviluppatore.",
+   "description": "Software house per PMI: software e gestionali su misura, AI e automazioni, sviluppatore in azienda, app e piattaforme, e-commerce e marketplace. Analisi gratuita di 30 minuti con uno sviluppatore.",
    "availableLanguage": [
     "it",
     "en",
@@ -66,7 +66,7 @@
       "@type": "Offer",
       "itemOffered": {
        "@type": "Service",
-       "name": "Forward Deployed Engineer",
+       "name": "Sviluppatore in azienda",
        "description": "Un ingegnere AI che lavora con il team del cliente, sui suoi dati e sistemi, fino alla messa in produzione."
       }
      },
@@ -102,7 +102,7 @@
      "name": "Quanto costa un software su misura?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Dipende da funzioni, collegamenti e volumi, per questo non abbiamo un listino. Dopo l'analisi ricevi un preventivo scritto: sai quanto spendi prima di iniziare."
+      "text": "Dipende da quante funzioni servono e da quanti programmi vanno collegati. Per darti un'idea: un gestionale va da 3.500 a 20.000 €, un'app da 2.000 a 10.000 €, un assistente AI da 1.500 a 5.000 € (IVA esclusa). Dopo l'analisi ricevi un preventivo scritto: sai quanto spendi prima di iniziare."
      }
     },
     {
@@ -123,7 +123,7 @@
     },
     {
      "@type": "Question",
-     "name": "Cos'è un Forward Deployed Engineer?",
+     "name": "Come funziona lo sviluppatore in azienda?",
      "acceptedAnswer": {
       "@type": "Answer",
       "text": "Un nostro sviluppatore che lavora con il tuo team, sui tuoi dati e programmi, finché il nuovo strumento è in uso ogni giorno. Utile quando serve competenza tecnica continua senza assumere."
