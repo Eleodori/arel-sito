@@ -48,7 +48,7 @@ if (bar) {
   bar.addEventListener('click', (e) => { const b = e.target.closest('[data-ck]'); if (b) choose(b.dataset.ck); });
   document.addEventListener('click', (e) => {
     if (e.target.closest('[data-ck-open]')) { bar.hidden = false; bar.querySelector('[data-ck]').focus(); return; }
-    const a = e.target.closest('a[href^="tel:"], a[href^="mailto:"]');
-    if (a) window.arelTrack('contact_click', { method: a.protocol === 'tel:' ? 'phone' : 'email' });
+    const a = e.target.closest('a[href^="tel:"], a[href^="mailto:"], a[href^="https://wa.me/"]');
+    if (a) window.arelTrack('contact_click', { method: a.protocol === 'tel:' ? 'phone' : a.protocol === 'mailto:' ? 'email' : 'whatsapp' });
   });
 }
