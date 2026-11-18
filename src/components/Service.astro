@@ -7,12 +7,13 @@ import Logo from './Logo.astro';
 import LangSwitch from './LangSwitch.astro';
 import { I18N, kernHtml, langPath } from '../i18n/index.js';
 import { UI, HUB, svcPath, findSvc, svcAlternates, switchHrefs } from '../data/services.js';
-import { SITE, LIVE } from '../lib/site.js';
+import { SITE, LIVE, waLink } from '../lib/site.js';
 interface Props { s: any; lang: string }
 const { s, lang } = Astro.props;
 const T = I18N[lang];
 const U = UI[lang];
 const home = langPath(lang);
+const wa = waLink(T.wa_text);
 const path = svcPath(lang, s);
 const url = new URL(path, SITE).href;
 const [pMin, pMax] = s.price.range;
@@ -123,6 +124,7 @@ const jsonld = {
       <div class="svc-ctas">
         <a class="btn btn-primary" href={home + '#contatti'}><span>{U.cta}</span><span class="arr">→</span></a>
         <a class="btn btn-ghost" href={home + '#lab'}>{U.lab}</a>
+        <a class="btn btn-ghost" href={wa} target="_blank" rel="noopener"><svg class="wa-ico" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2Zm0 1.8a8.1 8.1 0 1 1-4.3 14.98l-.3-.18-3.1.9.92-3-.2-.32A8.1 8.1 0 0 1 12.04 3.8Zm-3.1 3.9c-.2 0-.5.07-.75.35-.26.28-1 .97-1 2.37s1.03 2.75 1.17 2.94c.15.2 2 3.2 4.95 4.35 2.45.97 2.95.78 3.48.73.53-.05 1.7-.7 1.94-1.37.24-.68.24-1.26.17-1.38-.07-.12-.27-.2-.56-.34-.3-.15-1.7-.84-1.97-.93-.26-.1-.46-.15-.65.14-.2.3-.75.93-.92 1.12-.17.2-.34.22-.63.07-.3-.14-1.24-.46-2.36-1.46-.87-.78-1.46-1.74-1.63-2.03-.17-.3-.02-.45.13-.6.13-.13.3-.34.44-.5.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.14-.65-1.57-.9-2.15-.23-.56-.47-.48-.65-.49h-.55Z"/></svg><span>{T.wa_label}</span></a>
       </div>
     </div>
   </div></section>

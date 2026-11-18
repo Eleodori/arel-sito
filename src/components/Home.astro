@@ -2,12 +2,13 @@
 // Home in una lingua. Le pagine /, /en/, /fr/, /de/ la usano con lang diverso.
 import Base from '../layouts/Base.astro';
 import LangSwitch from './LangSwitch.astro';
-import { LIVE } from '../lib/site.js';
+import { LIVE, waLink } from '../lib/site.js';
 import { I18N, langPath, kernHtml, clientStrings, homeLd } from '../i18n/index.js';
 import { svcUrl, findSvc, UI, HUB } from '../data/services.js';
 interface Props { lang: string }
 const { lang } = Astro.props;
 const T = I18N[lang];
+const wa = waLink(T.wa_text);
 const K = (k) => kernHtml(T[k]);
 const sentences = (k) => T[k].split(/(?<=\.)\s+/);
 // pagine servizio (it, en, fr): link "prezzi e tempi" nei riquadri e nel footer; in tedesco restano le sezioni della home
@@ -268,6 +269,7 @@ const more = (id) => (svcUrl(lang, id) ? { href: svcUrl(lang, id), label: findSv
           <div class="contacts">
             <p><span >{T.c_email}</span><a href="mailto:info@arelgroup.it">info@arelgroup.it</a></p>
             <p><span >{T.c_phone}</span><b class="c-list"><a href="tel:+393270763344">+39 327 076 3344</a><a href="tel:+393791043810">+39 379 104 3810</a></b></p>
+            <p><span >{T.wa_short}</span><a href={wa} target="_blank" rel="noopener">{T.wa_label}</a></p>
           </div>
           </div>
             <form class="lead-box a-form" id="analisiForm" name="analisi" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
@@ -331,6 +333,7 @@ const more = (id) => (svcUrl(lang, id) ? { href: svcUrl(lang, id), label: findSv
         <li><a href="mailto:info@arelgroup.it">info@arelgroup.it</a></li>
         <li><a href="tel:+393270763344">+39 327 076 3344</a></li>
         <li><a href="tel:+393791043810">+39 379 104 3810</a></li>
+        <li><a href={wa} target="_blank" rel="noopener">{T.wa_label}</a></li>
       </ul></div>
     </div>
     <div class="foot-bottom">
@@ -340,7 +343,7 @@ const more = (id) => (svcUrl(lang, id) ? { href: svcUrl(lang, id), label: findSv
   </div>
 </footer>
 
-<div class="m-cta" id="mCta"><a class="btn btn-primary" href="#contatti"><span >{T.nav_cta}</span><span class="arr">→</span></a></div>
+<div class="m-cta" id="mCta"><a class="btn btn-primary" href="#contatti"><span >{T.nav_cta}</span><span class="arr">→</span></a><a class="m-wa" href={wa} target="_blank" rel="noopener" aria-label={T.wa_label}><svg class="wa-ico" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2Zm0 1.8a8.1 8.1 0 1 1-4.3 14.98l-.3-.18-3.1.9.92-3-.2-.32A8.1 8.1 0 0 1 12.04 3.8Zm-3.1 3.9c-.2 0-.5.07-.75.35-.26.28-1 .97-1 2.37s1.03 2.75 1.17 2.94c.15.2 2 3.2 4.95 4.35 2.45.97 2.95.78 3.48.73.53-.05 1.7-.7 1.94-1.37.24-.68.24-1.26.17-1.38-.07-.12-.27-.2-.56-.34-.3-.15-1.7-.84-1.97-.93-.26-.1-.46-.15-.65.14-.2.3-.75.93-.92 1.12-.17.2-.34.22-.63.07-.3-.14-1.24-.46-2.36-1.46-.87-.78-1.46-1.74-1.63-2.03-.17-.3-.02-.45.13-.6.13-.13.3-.34.44-.5.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.14-.65-1.57-.9-2.15-.23-.56-.47-.48-.65-.49h-.55Z"/></svg></a></div>
 
 <!-- Netlify Forms: modulo statico nascosto per il rilevamento al deploy (l'invio avviene via JavaScript dal Lab AI) -->
 <form name="brief" data-netlify="true" netlify-honeypot="bot-field" hidden>
