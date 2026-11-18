@@ -49,6 +49,15 @@ const ctaVis = new Set();
 const ctaIO = new IntersectionObserver(es => { es.forEach(e => e.isIntersecting ? ctaVis.add(e.target) : ctaVis.delete(e.target)); mCta.classList.toggle('hide', ctaVis.size > 0); }, { threshold:.1 });
 ['#lab', '.hero-ctas', '#contatti', '#pickPanel'].forEach(q => ctaIO.observe($(q)));
 
+/* menu mobile e lingua: un solo pannello aperto, si chiude con un link, Esc o un tocco fuori */
+const panels = $$('.menusw, .langsw');
+panels.forEach(d => {
+  d.addEventListener('toggle', () => { if (d.open) panels.forEach(o => { if (o !== d) o.open = false; }); });
+  d.addEventListener('click', e => { if (e.target.closest('a')) d.open = false; });
+});
+addEventListener('keydown', e => { if (e.key === 'Escape') panels.forEach(d => { if (d.open) { d.open = false; d.querySelector('summary').focus(); } }); });
+addEventListener('click', e => panels.forEach(d => { if (d.open && !d.contains(e.target)) d.open = false; }));
+
 /* ---------------- magnetic + spotlight ---------------- */
 if (!COARSE && !REDUCE) {
   $$('[data-magnetic]').forEach(el => {

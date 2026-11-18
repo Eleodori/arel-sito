@@ -48,6 +48,16 @@ const more = (id) => (svcUrl(lang, id) ? { href: svcUrl(lang, id), label: findSv
     </nav>
     <div class="nav-right">
       <LangSwitch lang={lang} sub="" />
+      <details class="menusw">
+        <summary aria-label={T.nav_menu}><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path class="mi-open" d="M4 7h16M4 12h16M4 17h16"/><path class="mi-close" d="M6 6l12 12M18 6 6 18"/></svg></summary>
+        <nav aria-label={T.nav_aria}>
+          <a href="#soluzioni">{T.nav_sol}</a>
+          <a href="#lab">{T.nav_lab}</a>
+          <a href="#metodo">{T.nav_method}</a>
+          <a href="#faq">{T.nav_faq}</a>
+          <a class="btn btn-primary" href="#contatti"><span>{T.nav_cta}</span><span class="arr">→</span></a>
+        </nav>
+      </details>
       <a class="btn btn-primary btn-sm" href="#contatti" data-magnetic >{T.nav_cta}</a>
     </div>
   </div>
